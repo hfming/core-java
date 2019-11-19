@@ -21,5 +21,15 @@ public class ForceDataTypeConversion {
 		byte bByte = (byte) aInt;
 		// -128 此时的强转已经造成了数值的不准确 
 		System.out.println(bByte);
+
+		// 编译器的常量优化
+		short a = 30;
+		short b = 40;
+		// a 与 b 在进行运算时会进行自动数据类型转换 int
+		//short c = a + b;
+
+		// 都是常量时编译器会对常量进行优化
+		short c = 30 + 40;
+		System.out.println(c);
 	}
 }
