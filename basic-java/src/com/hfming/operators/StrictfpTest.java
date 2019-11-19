@@ -5,7 +5,7 @@ package com.hfming.operators;
  * @author hfm
  * @version 2019-10-17
  */
-public class StrictfpTest {
+public strictfp class StrictfpTest {
     public strictfp static void main(String[] args) {
         double num1 = 1.0;
         double num2 = 3.0;
