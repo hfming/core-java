@@ -2,14 +2,14 @@ package com.hfming.annotation;
 
 /**
  * 文档注释与多行注释的区别: 文档注释的内容可以用于生成一个开发者文档。
- * 
- * @version 1.1 2019-09-17
+ *
  * @author hfm
+ * @version 1.1 2019-09-17
  */
 public class CommentNesting {
     /**
      * 文档注释:文档注释也是多行注释。
-     * 
+     *
      * @param args
      */
     public static void main(String[] args) {
