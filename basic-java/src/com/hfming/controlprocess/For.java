@@ -42,10 +42,8 @@ public class For {
         System.out.println(result);
         
         // 需求： 在控制台上打印一个矩形。
-        // j=0 , j=1 ---> 行数
-        for (int j = 0; j < 4; j++) {
-            // i=0, 1 ,2 ,3,4,5 . 6 ---> 列数
-            for (int i = 0; i < 6; i++) {
+        for (int j = 0; j < 4; j++) { // j=0 , j=1 ---> 行数
+            for (int i = 0; i < 6; i++) { // i=0, 1 ,2 ,3,4,5 . 6 ---> 列数
                 System.out.print("*");
             }
             System.out.println();

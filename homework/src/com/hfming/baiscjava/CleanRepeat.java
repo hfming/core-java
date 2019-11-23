@@ -2,7 +2,7 @@ package com.hfming.baiscjava;
 
 import java.util.Arrays;
 import java.util.Scanner;
-import cn.hfming.array.*;
+
 
 /**
  * 练习 清除重复元素。 int[]   arr =  {1,4，9,4,1,1,7}；

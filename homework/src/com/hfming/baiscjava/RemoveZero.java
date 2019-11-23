@@ -1,6 +1,5 @@
 package com.hfming.baiscjava;
 
-import cn.hfming.array.ArrayRemoveZero;
 import java.util.Arrays;
 import java.util.Scanner;
 
