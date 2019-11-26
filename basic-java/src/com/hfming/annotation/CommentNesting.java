@@ -8,7 +8,7 @@ package com.hfming.annotation;
  */
 public class CommentNesting {
     /**
-     * 文档注释:文档注释也是多行注释。 测试
+     * 文档注释:文档注释也是多行注释。
      *
      * @param args
      */
