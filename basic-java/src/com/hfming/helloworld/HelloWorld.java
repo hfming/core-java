@@ -1,9 +1,8 @@
 package com.hfming.helloworld;
 
-import java.util.Scanner;
-
 /**
- * 第一个Java程序 // 所有对象必须添加创建者与创建日期
+ * 第一个Java程序 Demo
+ * Hello World
  *
  * @author hfm
  * @version 1.02 2019-09-19
@@ -27,6 +26,7 @@ public class HelloWorld {
         System.out.println();
 
         // 第二种方法
+        // 读取字符串数组的方式
         String[] greeting2 = new String[2];
         greeting2[0] = "Welcom to core Java";
         greeting2[1] = "by hfm";
