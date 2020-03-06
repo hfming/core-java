@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 /**
  * switch语句的使用
- *
+ *  JDK 1.7 时支持 String 与 enum 型数据
  * @author hfm
  * @version 1.01 2019-09-19
  */
@@ -12,7 +12,7 @@ public class Switch {
     public static void main(String[] args) {
         // 案例1
         int x = 3;
-        switch(x) {
+        switch (x) {
             case 1:
                 System.out.println("1");
                 break;
@@ -30,7 +30,7 @@ public class Switch {
         // 需求：使用程序模拟该选择题判断一下那个不是计算机语言（ C ）A。 java B. php C.windows D. javascript
         // option 是用于存储你的选择的
         int option = 1;
-        switch(option) {
+        switch (option) {
             default:
                 System.out.println("你的选择有误");
             case 1:
@@ -53,7 +53,7 @@ public class Switch {
         Scanner scanner = new Scanner(System.in);
         // 调用扫描器的扫描方法获取一个月份
         int month = scanner.nextInt();
-        switch(month) {
+        switch (month) {
             case 12:
             case 1:
             case 2:
@@ -82,7 +82,7 @@ public class Switch {
         // 练习：char 类型在 switch 中的使用.
         int x1 = 1, y = 2;
         char ch = '*';
-        switch(ch) {
+        switch (ch) {
             case '+':
                 System.out.println("x*y=" + (x1 + y));
                 break;

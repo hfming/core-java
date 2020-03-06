@@ -2,15 +2,14 @@ package com.hfming.array;
 
 /**
  * 多维数组
- * 
- * @version 1.01 2019-10-02
- * @author hfm
  *
+ * @author hfm
+ * @version 1.01 2019-10-02
  */
 public class MultidimensionalArrays {
     /**
      * 定义一个遍历二维数组的功能函数
-     * 
+     *
      * @param a
      */
     public static void printArr2(int[][] a) {
@@ -25,7 +24,7 @@ public class MultidimensionalArrays {
 
     /**
      * 定义一个函数计算二维数组中的元素的累加和
-     * 
+     *
      * @param a
      * @return
      */
@@ -44,7 +43,7 @@ public class MultidimensionalArrays {
 
     /**
      * 统计二维数组中元素的个数
-     * 
+     *
      * @param a
      * @return
      */
@@ -63,19 +62,19 @@ public class MultidimensionalArrays {
 
     public static void main(String[] args) {
         // 不规则数组 静态初始化
-        int[][] arr1 = new int[][] { 
-            { 23, 4, 5 },
-            { 2 }, 
-            { 4, 5, 78, 56, 90 } 
+        int[][] arr1 = new int[][]{
+                {23, 4, 5},
+                {2},
+                {4, 5, 78, 56, 90}
         };
-        
+
         // 规则数组 静态初始化
-        int[][] arr2 = new int[][] { 
-            { 23, 4, 5},
-            { 2, 7, 8}, 
-            { 4, 5, 78}
+        int[][] arr2 = new int[][]{
+                {23, 4, 5},
+                {2, 7, 8},
+                {4, 5, 78}
         };
-        
+
         printArr2(arr1);
         System.out.println();
         System.out.println("累加和是： " + getSum(arr1));

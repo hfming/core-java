@@ -2,8 +2,9 @@ package com.hfming.controlprocess;
 
 /**
  * for 循环语句
- * @version 1.02 2019-09-19
+ *
  * @author hfm
+ * @version 1.02 2019-09-19
  */
 public class For {
     public static void main(String[] args) {
@@ -11,11 +12,11 @@ public class For {
         for (int i = 0; i < 5; i++) {
             System.out.println("Hello World!");
         }
-        
+
         int y = 0;
         while (y < 5) {
             System.out.println("hello world");
-            y ++;
+            y++;
         }
         System.out.println(y);
         /*
@@ -31,7 +32,7 @@ public class For {
             sum += i;
         }
         System.out.println(sum);
-        
+
         // 1-100 之间 7 的倍数的个数,并打印
         int result = 0;
         for (int i = 1; i <= 100; i++) {
@@ -40,7 +41,7 @@ public class For {
             }
         }
         System.out.println(result);
-        
+
         // 需求： 在控制台上打印一个矩形。
         for (int j = 0; j < 4; j++) { // j=0 , j=1 ---> 行数
             for (int i = 0; i < 6; i++) { // i=0, 1 ,2 ,3,4,5 . 6 ---> 列数
@@ -48,7 +49,7 @@ public class For {
             }
             System.out.println();
         }
-        
+
         // 需求：打印一个正立的直角三角形。
         for (int i = 0; i <= 4; i++) {
             for (int j = 0; j < i + 1; j++) {
@@ -56,7 +57,7 @@ public class For {
             }
             System.out.println();
         }
-        
+
         // 使用 for 循环语句打印一个倒立的直角三角形。
         for (int i = 0; i <= 4; i++) {
             for (int j = 0; j < 5 - i; j++) {
@@ -64,7 +65,7 @@ public class For {
             }
             System.out.println();
         }
-        
+
         // 需求 2： 打印一个九九乘法。
         for (int i = 1; i <= 9; i++) {
             for (int j = 1; j <= i; j++) {
@@ -72,7 +73,7 @@ public class For {
             }
             System.out.println();
         }
-        
+
         // 计算 1~100 偶数的总和
         sum = 0;
         for (int i = 0; i <= 100; i++) {

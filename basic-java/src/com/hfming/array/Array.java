@@ -1,15 +1,19 @@
 package com.hfming.array;
 
-import java.util.Date;
+import java.io.Serializable;
 
 /**
- * 数组
+ * 数组 Demo
  *
  * @author hfm
  * @version 1.02 2019-09-19
  */
-public class Array {
+public class Array implements Serializable  {
+
+    private static final long serialVersionUID = 2590380227656483356L;
+
     public static void main(String[] args) {
+
         // 数组定义
         // 方式一：数据类型[] 变量名 = new 数据类型[容量大小];
         int[] arr1 = new int[10];
@@ -56,7 +60,6 @@ public class Array {
             }
         }
         System.out.println(max);
-
         // Arrays.toString(arg1);
     }
 }

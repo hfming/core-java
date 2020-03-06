@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 /**
  * while循环语句的使用
- * 
- * @version 1.02 2019-09-19
+ *
  * @author hfm
+ * @version 1.02 2019-09-19
  */
 public class While {
     public static void main(String[] args) {

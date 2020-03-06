@@ -14,14 +14,16 @@ public class CompoundInterest {
 
         // 将利率设定为10。。。15％
         double[] interestRate = new double[NRATES];
-        for (int j = 0; j < interestRate.length; j++)
+        for (int j = 0; j < interestRate.length; j++) {
             interestRate[j] = (STARTRATE + j) / 100.0;
+        }
 
         double[][] balances = new double[NYEARS][NRATES];
 
         // 将初始余额设置为10000
-        for (int j = 0; j < balances[0].length; j++)
+        for (int j = 0; j < balances[0].length; j++) {
             balances[0][j] = 10000;
+        }
 
         // 计算未来几年的兴趣
         for (int i = 1; i < balances.length; i++) {
@@ -38,16 +40,18 @@ public class CompoundInterest {
         }
 
         // 打印一行利率
-        for (int j = 0; j < interestRate.length; j++)
+        for (int j = 0; j < interestRate.length; j++) {
             System.out.printf("%9.0f%%", 100 * interestRate[j]);
+        }
 
         System.out.println();
 
         // 打印余额表
         for (double[] row : balances) {
             // 打印表格行
-            for (double b : row)
+            for (double b : row) {
                 System.out.printf("%10.2f", b);
+            }
 
             System.out.println();
         }

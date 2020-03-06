@@ -18,7 +18,7 @@ public class MultilineComment {
     /**
      * 文档注释用于对成员变量进行注释
      */
-    private  String str = "Hello World";
+    private String str = "Hello World";
 
     public static void main(String[] args) {
         /*
@@ -36,9 +36,10 @@ public class MultilineComment {
 
     /**
      * 文档注释用于对方法进行注释
+     *
      * @param s
      */
-    public static void  test(String s){
+    public static void test(String s) {
         System.out.println("s");
     }
 }

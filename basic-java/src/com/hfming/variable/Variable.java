@@ -8,6 +8,15 @@ package com.hfming.variable;
  */
 public class Variable {
     /**
+     * 变量：程序运行期间，内容可以发生改变的量。
+     * <p>
+     * 使用变量的时候，有一些注意事项：
+     * 1. 如果创建多个变量，那么变量之间的名称不可以重复。
+     * 2. 对于float和long类型来说，字母后缀F和L不要丢掉。
+     * 3. 如果使用byte或者short类型的变量，那么右侧的数据值不能超过左侧类型的范围。
+     * 4. 没有进行赋值的变量，不能直接使用；一定要赋值之后，才能使用。
+     * 5. 变量使用不能超过作用域的范围。【作用域】：从定义变量的一行开始，一直到直接所属的大括号结束为止。
+     * 6. 可以通过一个语句来创建多个变量，但是一般情况不推荐这么写。
      *
      * @param args
      */
@@ -83,6 +92,7 @@ public class Variable {
         // 数据范围
         char aChar = 'i';
         System.out.println(aChar);
+        System.out.println(aChar + 1);
 
         /*
          * 数据范围
@@ -91,5 +101,15 @@ public class Variable {
         /// Error:(67, 18) java: 不兼容的类型: 从int转换到byte可能会有损失
         // byte a = 128;
         // System.out.println(a);
+
+        /*
+         * 数据传递
+         */
+        // 将一个变量的数据内容，赋值交给另一个变量
+        // 右侧的变量名称var1已经存在，里面装的是false布尔值
+        // 将右侧变量里面的false值，向左交给var2变量进行存储
+        boolean var1 = true;
+        boolean var2 = var1;
+        System.out.println(var2);
     }
 }

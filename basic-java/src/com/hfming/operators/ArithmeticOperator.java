@@ -1,10 +1,16 @@
 package com.hfming.operators;
 
 /**
- * 算数运算符
- * 
- * @version 1.1 2019-09-17
+ * 算数运算符 Demo
+ * 四则运算：
+ * 加：+
+ * 减：-
+ * 乘：*
+ * 除：/
+ * 取模（取余数）：%
+ *
  * @author hfm
+ * @version 1.2 2020-02-27
  */
 public class ArithmeticOperator {
     public static void main(String[] args) {
@@ -79,5 +85,17 @@ public class ArithmeticOperator {
         int result7 = 10 * dInt--;
         // 后自减:先使用，后自减 result = 100
         System.out.println("result : " + result7);
+
+        int num1 = 10;
+        // 10
+        System.out.println(num1);
+        // 单独使用，前++
+        ++num1;
+        // 11
+        System.out.println(num1);
+        // 单独使用，后++
+        num1++;
+        // 12
+        System.out.println(num1);
     }
 }

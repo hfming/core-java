@@ -5,14 +5,14 @@ import java.util.function.IntBinaryOperator;
 
 /**
  * Arrays.parallelPrefix( )方法测试
- * 
- * @version 1.01 2019-10-02
+ *
  * @author hfm
+ * @version 1.01 2019-10-02
  */
 public class ArraysParallelPrefixTest {
     public static void main(String[] args) {
-        int[] arr2 = new int[] { 1, 8, 51, 13, 46, 11, 22 };
-        
+        int[] arr2 = new int[]{1, 8, 51, 13, 46, 11, 22};
+
         Arrays.parallelPrefix(arr2, new IntBinaryOperator() {
             @Override
             public int applyAsInt(int left, int right) {
@@ -22,18 +22,18 @@ public class ArraysParallelPrefixTest {
             }
         });
         System.out.println(Arrays.toString(arr2));
-        
-        arr2 = new int[] { 1, 8, 51, 13, 46, 11, 22 };
+
+        arr2 = new int[]{1, 8, 51, 13, 46, 11, 22};
         // lambda表达式方法
-        Arrays.parallelPrefix(arr2,(int left, int right) ->{
+        Arrays.parallelPrefix(arr2, (int left, int right) -> {
             return left + right;
         });
         System.out.println(Arrays.toString(arr2));
-        
+
         // 指定范围
-        arr2 = new int[] { 1, 8, 51, 13, 46, 11, 22 };
+        arr2 = new int[]{1, 8, 51, 13, 46, 11, 22};
         // lambda表达式方法
-        Arrays.parallelPrefix(arr2, 1, 4, (int left, int right) ->{
+        Arrays.parallelPrefix(arr2, 1, 4, (int left, int right) -> {
             return left + right;
         });
         System.out.println(Arrays.toString(arr2));

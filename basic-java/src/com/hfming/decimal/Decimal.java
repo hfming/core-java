@@ -56,35 +56,35 @@ public class Decimal {
         System.out.println("十进制转换为十六进制" + Integer.toOctalString(aInt));
 
         // 10进制转 r 进制
-		System.out.println("10进制转 r 进制" + Integer.toString(aInt,2));
+        System.out.println("10进制转 r 进制" + Integer.toString(aInt, 2));
 
         // 4.二进制转十进制
-		// radix进制的字符串s转10进制
-		System.out.println("二进制转十进制" + Integer.parseInt((String) Integer.toOctalString(aInt),(int) 16));
+        // radix进制的字符串s转10进制
+        System.out.println("二进制转十进制" + Integer.parseInt((String) Integer.toOctalString(aInt), (int) 16));
 
         // 5.二进制转八进制
-		System.out.println();
+        System.out.println();
 
         // 6.二进制转十六进制
-		System.out.println();
+        System.out.println();
 
         // 7.八进制转十进制
-		System.out.println();
+        System.out.println();
 
         // 8.八进制转十六进制
-		System.out.println();
+        System.out.println();
 
         // 9.八进制转二进制
-		System.out.println();
+        System.out.println();
 
         // 10.十六进制转十进制
-		System.out.println();
+        System.out.println();
 
         // 11.十六进制转二进制
-		System.out.println();
+        System.out.println();
 
         // 12.十六进制转八进制
-		System.out.println();
+        System.out.println();
     }
 
     /**

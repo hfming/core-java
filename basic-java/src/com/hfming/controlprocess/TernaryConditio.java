@@ -3,10 +3,10 @@ package com.hfming.controlprocess;
 import java.util.Scanner;
 
 /**
- * 控制流程语句
- * 
- * @version 1.01 2019-09-17
+ * if 语句 demo
+ *
  * @author hfm
+ * @version 1.01 2019-09-17
  */
 public class TernaryConditio {
     static Scanner scanner = new Scanner(System.in);
@@ -22,7 +22,7 @@ public class TernaryConditio {
         } else {
             System.out.println(i + "即不是5的倍数也不是2的倍数");
         }
-        
+
         // 需求：招聘工作经验两年或者两年以上的人员，符合条件，电话通知面试。
         int workAge = 2;
         if (workAge >= 2) {
@@ -30,7 +30,7 @@ public class TernaryConditio {
         } else {
             System.out.println("电话通知你不要再投我们公司，不要你！！");
         }
-        
+
         // 判断一个整数是奇数还是偶数
         System.out.println("请再输入一个数");
         int j = scanner.nextInt();
@@ -70,7 +70,7 @@ public class TernaryConditio {
 
     /**
      * 判断是星期几
-     * 
+     *
      * @param num
      */
     public static String getWeek(int num) {
@@ -101,7 +101,7 @@ public class TernaryConditio {
 
     /**
      * 获取季节
-     * 
+     *
      * @param amonth
      * @return
      */
@@ -145,8 +145,8 @@ public class TernaryConditio {
 
     /**
      * 判断是否为闰年
-     * 
-     * @param sc
+     *
+     * @param year
      */
     public static boolean isLeapYear(int year) {
         // 判断年份能否被 4 整除

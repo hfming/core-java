@@ -93,8 +93,9 @@ public class QuickSort {
             quickSort2(arr, j, right);
         }
     }
+
     public static void main(String[] args) {
-        int[] arr = {12,20,5,16,15,1,30,45,23,9,4,4};
+        int[] arr = {12, 20, 5, 16, 15, 1, 30, 45, 23, 9, 4, 4};
         // 调用排序算法进行排序
         quickSort(arr, 0, arr.length - 1);
         // 输出数组

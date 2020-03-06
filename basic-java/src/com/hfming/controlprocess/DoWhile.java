@@ -5,8 +5,9 @@ import java.util.Scanner;
 
 /**
  * DoWhile 语句
- * @version 1.02 2019-09-19
+ *
  * @author hfm
+ * @version 1.02 2019-09-19
  */
 public class DoWhile {
     public static void main(String[] args) {
@@ -33,7 +34,7 @@ public class DoWhile {
             count++;
         } while (num11 != guess);
         System.out.println("你猜测的数字是:" + num11 + "猜测了" + count + "次");
-        
+
         // 计算器
         // 系统自动生成 2 个随机数用于参与运算。
         // 系统生成 0-4 之间的随机数，表示加减乘除取模运算。
@@ -43,24 +44,24 @@ public class DoWhile {
             int b = random.nextInt(10) + 1;
             int c = random.nextInt(4);
             switch (c) {
-            case 0:
-                System.out.println(a + b);
-                break;
-            case 1:
-                System.out.println(a - b);
-                break;
-            case 2:
-                System.out.println(a * b);
-                break;
-            case 3:
-                System.out.println(a / b);
-                break;
-            case 4:
-                System.out.println(a % b);
-                break;
-            default:
-                System.out.println("a=" + a + " b=" + b);
-                break;
+                case 0:
+                    System.out.println(a + b);
+                    break;
+                case 1:
+                    System.out.println(a - b);
+                    break;
+                case 2:
+                    System.out.println(a * b);
+                    break;
+                case 3:
+                    System.out.println(a / b);
+                    break;
+                case 4:
+                    System.out.println(a % b);
+                    break;
+                default:
+                    System.out.println("a=" + a + " b=" + b);
+                    break;
             }
         } while (true);
     }

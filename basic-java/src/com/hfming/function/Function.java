@@ -166,6 +166,21 @@ public class Function {
     }
 
     /**
+     * 比较两数大小
+     *
+     * @param a
+     * @param b
+     * @return
+     */
+    public static boolean compare(int a, int b) {
+        if (a == b) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * return关键字的作用
      *
      * @param num

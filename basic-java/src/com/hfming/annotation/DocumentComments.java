@@ -19,6 +19,7 @@ public class DocumentComments {
 
     /**
      * 文档注释可以对 main 方法进行注释
+     *
      * @param args
      */
     public static void main(String[] args) {
