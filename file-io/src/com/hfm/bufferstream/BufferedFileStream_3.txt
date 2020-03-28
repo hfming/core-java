@@ -1,0 +1,26 @@
+3.缓冲流
+	我们为了提高流的使用效率,自定义了字节数组,作为缓冲区.Java其实提供了专门的字节流缓冲来提高效率.
+	BufferedInputStream和BufferedOutputStream	
+	BufferedOutputStream和BufferedOutputStream类可以通过减少读写次数来提高输入和输出的速度。它们内部有一个缓冲区，用来提高处理效率。查看 API文档，发现可以指定缓冲区的大小。其实内部也是封装了字节数组。没有指定缓冲区大小，默认的字节是8192。
+	显然缓冲区输入流和缓冲区输出流要配合使用。首先缓冲区输入流会将读取到的数据读入缓冲区，当缓冲区满时，或者调用flush方法，缓冲输出流会将数据写出。注意：当然使用缓冲流来进行提高效率时，对于小文件可能看不到性能的提升。但是文件稍微大一些的话，就可以看到实质的性能提升了。
+3.1.缓冲输入字节流
+	使用 FileInputStream读取文件数据的时候如何读取效率是最高？
+	使用字节数组作为缓冲区读取的效率是最高的。
+	我们知道使用缓冲字节数组读取文件的效率最高,sun也知道使用缓冲字节数组读取的效率高，这时候sun为了方便我们工作，编写一个缓冲输入字节流给我去使用缓冲输入字节流的作用： 提高我们读取文件数据的效率。
+	输入字节流的体系：
+	|InputStream 抽象类 所有输入字节流的基类
+		|FileInputStream 读取文件数据的输入字节流
+		|BufferedInputStream 缓冲输入字节流 该类的本质其实只是在内部维护了一个8kb的字节数组而已。 主要是为了提高我们的读取文件的效率。
+	凡是缓冲流都没有读写文件的能力。
+	BuffereInputStream 注意的事项：
+		BuffereInputStream的close方法实际上关闭的就是你传递进去的FileInputStream对象。
+	为什么创建 BufferedInputStream 对象需要传入一个 InputStream 的对象呢？BufferedInputStream 没有读取文件 数据的能力，但是又要读取文件的数据，这时候只能依赖一个具备读取文件数据能力的对象。
+	BufferedInputStream的read方法每次只是读取一个字节的数据，FileInputStream的read方法每次也是读取一个字节的数据那么为什么说BufferedInputStream提高了读取的效率呢？
+3.2.缓冲输出字节流
+	缓冲输出字节流： 为了提高写文件的效率。
+	|OutputStream 抽象类， 所有输出字节流的基类。
+		|FileOutputStream 向文件写出数据的输出字节流对象。
+		|BufferedOutputStream 缓冲输出字节流， 为了提高写文件数据的效率。
+	BufferedOutputStream需要注意的事项：BufferedInputStream	
+		1.使用 BufferedOutputStream的write方法时候，数据其实是写入了BufferedOutputStream内部维护的字节数组中，只有你调用 BufferedOutputStream的close方法或者是flush方法数据才会真正的写到硬盘上去或者内部维护的字节数组已经存储满数据了，这时候数据也会写到硬盘上去。
+	2.BufferedOutputStream的close方法实际上关闭的就是你传入的OutputStream对象的close方法。
