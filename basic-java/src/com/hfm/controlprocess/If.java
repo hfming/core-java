@@ -8,7 +8,7 @@ import java.util.Scanner;
  * @author hfm
  * @version 1.01 2019-09-17
  */
-public class TernaryConditio {
+public class If {
     static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
