@@ -1,6 +1,6 @@
 package com.hfm.collection;
 
-import cn.hfming.entity.People;
+import com.hfm.entity.People;
 
 import java.util.*;
 

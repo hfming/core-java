@@ -10,6 +10,8 @@ public class MainTest {
     public static void main(String[] args) {
         Human human = new Human("gt", 32);
         // 创建内部类的方式
-        Human.heart heart = new Human("gt", 32).new heart();
+       Human.heart heart = new Human("gt", 32).new heart();
+
+        new Human("hfm", 33).show();
     }
 }

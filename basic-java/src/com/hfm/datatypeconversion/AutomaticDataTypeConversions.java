@@ -98,5 +98,19 @@ public class AutomaticDataTypeConversions {
         char zifu4 = '中';
         // 20013
         System.out.println(zifu4 + 0);
+
+        // 其他数据类型与String 数据类型连接时自动转化为 String数据类型
+        int no = 10;
+        String str = "abcdef";
+        String str1 = str + "xyz" + no;
+
+        str1 = str1 + "123";
+        char c = '国';
+        double pi = 3.1416;
+        str1 = str1 + pi;
+        boolean b = false;
+        str1 = str1 + b;
+        str1 = str1 + c;
+        System.out.println("str1 = " + str1);
     }
 }

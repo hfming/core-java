@@ -1,5 +1,7 @@
 package com.hfm.object;
 
+import com.hfm.entity.People;
+
 /**
  * Object 类的方法
  * @author hfm

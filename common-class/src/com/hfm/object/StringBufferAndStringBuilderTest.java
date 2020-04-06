@@ -10,14 +10,21 @@ public class StringBufferAndStringBuilderTest {
 
     public static void main(String[] args) {
         StringBuffer buffer = new StringBuffer();
+        // 初始容量
+        System.out.println(buffer.capacity());
         // 在缓冲区的尾部添加新的文本对象
-        buffer.append("S");
+        // 容量不够时，会自动自动增长 1倍 + 2
+        buffer.append("SSS777SSSSSSSSSSS");
+        System.out.println(buffer.capacity());
         // 在指定的下标位置添加新的文本对象
         buffer.insert(0, "int");
+        System.out.println(buffer);
         // 指定开始于结束的索引值间的字符串缓冲区
         buffer.delete(0, 1);
+        System.out.println(buffer);
         // 指定索引值删除字符
         buffer.deleteCharAt(7);
+        System.out.println(buffer);
 
         StringBuffer sb = new StringBuffer("hello java hello java");
         System.out.println("查找指定字符串第一次出现 的索引值：" + sb.indexOf("java"));

@@ -7,7 +7,7 @@ package com.hfm.innerclass;
  * @version 1.01 2019-10-17
  */
 public abstract class Animal {
-    public abstract void eat();
+    public abstract Animal eat();
 
-    public abstract void sleep();
+    public abstract Animal sleep();
 }

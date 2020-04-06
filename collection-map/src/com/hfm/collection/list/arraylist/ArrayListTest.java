@@ -1,6 +1,6 @@
 package com.hfm.collection.list.arraylist;
 
-import cn.hfming.entity.Book;
+import com.hfm.entity.Book;
 import java.util.ArrayList;
 import java.util.Iterator;
 

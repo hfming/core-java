@@ -83,9 +83,10 @@ public class Human extends Animal {
 
     /**
      * 局部内部类
+     * @return
      */
     @Override
-    public void eat() {
+    public Animal eat() {
         // x的生命周期：执行到该语句的时候存在内存中， 方法执行完毕之后消失。
         final int x = 10;
         class Mouse {
@@ -101,6 +102,7 @@ public class Human extends Animal {
         // Inner 对象的生命周期比 y 的生命周期要长
         Mouse mouse = new Mouse();
         mouse.mousEat();
+        return null;
     }
 
     /**
@@ -119,25 +121,28 @@ public class Human extends Animal {
      * 这里创建的并不是Animal的对象，创建的是Animal的子类对象，只不过其子类目前没有类名借用了ANimal名字而已。
      */
     Animal f = new Animal() {
-        // 匿名内部类 的成员
+        // 匿名内部类的成员
         public Animal run() {
             System.out.println("鱼在游...");
             return this;
         }
 
         @Override
-        public void sleep() {
+        public Animal sleep() {
             System.out.println("鱼睁开眼睛睡觉...");
+            return this;
         }
 
         @Override
-        public void eat() {
-
+        public Animal eat() {
+            System.out.println("鱼睁吃虫子...");
+            return this;
         }
-    }.run();
+    }.run().sleep().eat();
 
     @Override
-    public void sleep() {
+    public Animal sleep() {
 
+        return null;
     }
 }

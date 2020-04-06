@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 /**
  * 键盘输入类的使用
+ *
  * @author hfm
  * @version 1.10 2019-10-16
  */
@@ -17,7 +18,7 @@ public class ScannerTest {
         int num1 = scanner.nextInt();
         System.out.println(num1);
 
-        String str  = scanner.next();
+        String str = scanner.next();
         System.out.println(str);
 
         String str2 = scanner.nextLine();

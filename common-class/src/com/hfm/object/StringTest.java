@@ -138,26 +138,29 @@ public class StringTest {
         // 比较两个字符串字典 ,忽略大小写
         System.out.println(str.compareToIgnoreCase("str"));
         // 返回一个字符串，该字符串表示指定的数组中的字符序列。
-        System.out.println(str.copyValueOf(new char[]{'c', 'd'}));
+        System.out.println(String.copyValueOf(new char[]{'c', 'd'}));
         // 返回一个字符串，该字符串表示指定的数组中的字符序列。
-        System.out.println(str.copyValueOf(new char[]{'c', 'd'}, 0, 1));
+        System.out.println(String.copyValueOf(new char[]{'c', 'd'}, 0, 1));
         // 使用指定的格式字符串和参数返回格式化的字符串。
-        System.out.println(str.format("Hi,%s:%s.%s", "王南", "王力", "王张"));
-        System.out.println(str.format("Hi,%s", "王力"));
+        System.out.println(String.format("Hi,%s:%s.%s", "王南", "王力", "王张"));
+        System.out.println(String.format("Hi,%s", "王力"));
         str = String.format("格式参数$的使用：%1$d,%2$s", 99, "abc");
         // 使用指定的语言环境、格式字符串和参数返回格式化的字符串。
-        System.out.println(str.format("UNIX", "Hi,%s", "王力"));
+        System.out.println(String.format("UNIX", "Hi,%s", "王力"));
         // 使用平台的缺省(默认)字符集将此字符串编码为字节序列，将结果存储到一个新的字节数组中
         System.out.println(str.getBytes());
         System.out.println("A".getBytes());
         System.out.println("A".getBytes("UTF-8"));
         // 使用给定的字符集将此字符串编码为字节序列，将结果存储到一个新的字节数组中。
         // 使用命名的charset将这个字符串编码成一个字节序列，将结果存储到一个新的字节数组中。
-        System.out.println("String".intern());//返回一个字符串对象的正则表示处理后的字符串。
+        // 返回一个字符串对象的正则表示处理后的字符串。
+        System.out.println("String".intern());
         // System.out.println("String".offsetByCodePoints(2, 'g'));//返回该字符串中的索引，该索引由codepoin托付设置代码点对给定索引进行偏移。
         System.out.println("String".toString());
         // 字符串首尾去空串
         System.out.println(" String string ".trim());
+        //
+        System.out.println(" String string ".strip());
         // 返回Boolean的字符串形式
         System.out.println(String.valueOf(false));
         // 返回字符的字符串形式

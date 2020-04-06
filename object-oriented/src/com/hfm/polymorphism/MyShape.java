@@ -8,7 +8,9 @@ package com.hfm.polymorphism;
  * @version 1.01 2019-10-16
  */
 public abstract class MyShape {
+
 	private double perimeter;
+
 	private double area;
 	
 	/**

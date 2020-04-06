@@ -3,7 +3,7 @@ package com.hfm.keywords.Interface;
 import java.util.*;
 
 /**
- * This program demonstrates the use of the Comparable interface.
+ * 接口的使用 测试类 demo
  *
  * @author Cay Horstmann
  * @version 1.30 2004-02-27

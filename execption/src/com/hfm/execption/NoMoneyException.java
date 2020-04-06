@@ -1,6 +1,6 @@
 package com.hfm.execption;
 
-import java.io.Serializable;
+        import java.io.Serializable;
 
 /**
  * 自定义异常类

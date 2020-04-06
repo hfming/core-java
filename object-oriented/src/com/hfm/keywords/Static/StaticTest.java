@@ -8,6 +8,10 @@ package com.hfm.keywords.Static;
  */
 public class StaticTest {
     public static void main(String[] args) {
+        Father father = new Child();
+        Father.print();
+        Child.print();
+
         Count count1 = new Count();
         Count count2 = new Count();
         Count count3 = new Count();

@@ -11,6 +11,7 @@ public class ValiableElement {
     public static void main(String[] args) {
         int a = 1, b = 2, c = 3, d = 4;
         System.out.println(add(a, b, c, d));
+
     }
 
     /**
@@ -26,5 +27,17 @@ public class ValiableElement {
             sum += num;
         }
         return sum;
+    }
+
+    public void test(String[] msg) {
+        System.out.println("含字符串数组参数的test方法");
+    }
+
+    public void test1(String book) {
+        System.out.println("****与可变形参方法构成重载的test1方法****");
+    }
+
+    public void test1(String... books) {
+        System.out.println("****形参长度可变的test1方法****");
     }
 }

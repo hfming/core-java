@@ -1,7 +1,7 @@
 package com.hfm.collection.set.treeset;
 
 
-import cn.hfming.entity.People;
+import com.hfm.entity.People;
 import java.util.Comparator;
 
 /**

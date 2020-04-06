@@ -1,6 +1,6 @@
 package com.hfm.collection.list;
 
-import cn.hfming.entity.User;
+import com.hfm.entity.User;
 import java.util.ArrayList;
 import java.util.ListIterator;
 

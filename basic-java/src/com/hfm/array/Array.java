@@ -1,6 +1,7 @@
 package com.hfm.array;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 /**
  * 数组 Demo
@@ -8,7 +9,7 @@ import java.io.Serializable;
  * @author hfm
  * @version 1.02 2019-09-19
  */
-public class Array implements Serializable  {
+public class Array implements Serializable {
 
     private static final long serialVersionUID = 2590380227656483356L;
 
@@ -20,6 +21,14 @@ public class Array implements Serializable  {
 
         // 方式二：元素类型[] 数组名 = new 元素类型[]{元素，元素，……};
         int[] arr2 = new int[]{10, 23, 42, 1, 1, 1, 11};
+
+        // 多个数组同时定义
+        int[] arr21 = new int[]{232, 454, 54532}, arr31 = new int[]{121, 3232, 323, 32};
+
+        int[] arr41 = new int[10], arr51 = new int[20];
+
+        System.out.println(Arrays.toString(arr21));
+        System.out.println(Arrays.toString(arr31));
 
         // 数组初始化赋值
         // 方式一：数组元素每一个都进行赋值

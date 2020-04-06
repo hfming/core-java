@@ -17,5 +17,4 @@ public class Employee2Test {
         //jack.gender = "不是男人";
         jack.work();
     }
-
 }

@@ -1,6 +1,6 @@
 package com.hfm.collection.list.arraylist;
 
-import cn.hfming.entity.Employee;
+import com.hfm.entity.Employee;
 import java.util.*;
 
 /**

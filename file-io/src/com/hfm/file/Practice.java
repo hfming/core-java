@@ -1,6 +1,6 @@
 package com.hfm.file;
 
-import com.edu.cjlu.hfm.io.FilenameFilterUtil;
+
 
 import java.io.File;
 
@@ -20,8 +20,8 @@ public class Practice {
 		System.out.println("===================================");
 		findFile(dir,".txt");
 		System.out.println("===================================");
-		FilenameFilterUtil  filenameFilterUtil = new FilenameFilterUtil();
-		filenameFilterUtil.accept(dir,".txt");
+		//FilenameFilterUtil  filenameFilterUtil = new FilenameFilterUtil();
+		//filenameFilterUtil.accept(dir,".txt");
 		
 	}
 	/**

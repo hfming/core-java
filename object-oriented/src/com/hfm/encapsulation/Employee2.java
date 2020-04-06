@@ -22,5 +22,4 @@ public class Employee2 {
     public void work() {
         System.out.println(id + ":" + name + ":" + gender + " 努力工作中！！！");
     }
-
 }

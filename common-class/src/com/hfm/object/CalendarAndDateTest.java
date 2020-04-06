@@ -14,7 +14,8 @@ public class CalendarAndDateTest {
     public static void main(String[] args) throws ParseException {
         // 获取当前系统时间的对象。
         Date date = new Date();
-        System.out.println("年份：" + date.toString());
+        //在使用println方法时，会自动调用Date类中的toString方法。Date类对Object类中的toString方法进行了覆盖重写，所以结果为指定格式的字符串。
+        System.out.println("年份：" + date);
 
         // 获取了当前的系统时间
         Calendar calendar = Calendar.getInstance();

@@ -13,8 +13,16 @@ public class Student {
     private String name;
     private int age;
 
+    public Student() {
+    }
+
+    public Student(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
     public Student(int id, String name, int age) {
-        super();
+        this(id,name);
         this.id = id;
         this.name = name;
         this.age = age;

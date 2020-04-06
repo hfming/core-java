@@ -14,7 +14,7 @@ public class RuntimeTest {
         System.out.println("试图使用的最大内存量:" + Runtime.getRuntime().maxMemory());
         System.out.println("Java 虚拟机中的内存总量：" + Runtime.getRuntime().totalMemory());
         System.out.println("当前空闲的内存：" + Runtime.getRuntime().freeMemory());
-		//运行指定路径下的程序,创建一个线程
+		// 运行指定路径下的程序,创建一个线程
         Runtime.getRuntime().exec("C:\\Windows\\notepad.exe");
         Runtime.getRuntime().gc();
     }

@@ -1,6 +1,6 @@
 package com.hfm.collection.set.treeset;
 
-import cn.hfming.entity.Book;
+import com.hfm.entity.Book;
 import java.util.Comparator;
 
 public class BookIdComparator implements Comparator<Book> {

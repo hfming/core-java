@@ -17,15 +17,15 @@ public class Employee1 implements Cloneable {
         hireDay = new Date();
     }
 
+    /**
+     * 浅克隆
+     *
+     * @return
+     * @throws CloneNotSupportedException
+     */
     @Override
-    public Employee1 clone() throws CloneNotSupportedException {
-        // call Object.clone()
-        Employee1 cloned = (Employee1) super.clone();
-
-        // clone mutable fields
-        cloned.hireDay = (Date) hireDay.clone();
-
-        return cloned;
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     /**

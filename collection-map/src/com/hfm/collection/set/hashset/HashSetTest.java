@@ -1,7 +1,7 @@
 package com.hfm.collection.set.hashset;
 
-import cn.hfming.entity.Person;
-import cn.hfming.entity.User;
+import com.hfm.entity.Person;
+import com.hfm.entity.User;
 import java.util.HashSet;
 import java.util.Iterator;
 

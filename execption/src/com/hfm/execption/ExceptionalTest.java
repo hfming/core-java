@@ -15,8 +15,11 @@ public class ExceptionalTest {
         // test a stack for emptiness ntry times
         System.out.println("Testing for empty stack");
         long start = System.currentTimeMillis();
-        for (i = 0; i <= ntry; i++)
-            if (!stack.empty()) stack.pop();
+        for (i = 0; i <= ntry; i++) {
+            if (!stack.empty()) {
+                stack.pop();
+            }
+        }
         long end = System.currentTimeMillis();
         System.out.println((end - start) + " milliseconds");
 

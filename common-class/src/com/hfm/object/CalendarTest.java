@@ -5,8 +5,8 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- * @version 1.4 2007-04-07
  * @author Cay Horstmann
+ * @version 1.4 2007-04-07
  */
 public class CalendarTest {
     public static void main(String[] args) {
@@ -35,15 +35,13 @@ public class CalendarTest {
         // print weekday names
         String[] weekdayNames = new DateFormatSymbols().getShortWeekdays();
         do {
-            System.out.printf("%4s", weekdayNames[weekday]);
+            System.out.printf("%4s" , weekdayNames[weekday]);
             d.add(Calendar.DAY_OF_MONTH, 1);
             weekday = d.get(Calendar.DAY_OF_WEEK);
-        }
-        while (weekday != firstDayOfWeek);
+        } while (weekday != firstDayOfWeek);
         System.out.println();
 
         for (int i = 1; i <= indent; i++) {
-
             System.out.print("    ");
         }
 
@@ -51,23 +49,18 @@ public class CalendarTest {
         do {
             // print day
             int day = d.get(Calendar.DAY_OF_MONTH);
-            System.out.printf("%3d", day);
-
+            System.out.printf("%3d" , day);
             // mark current day with *
             if (day == today) {
-
                 System.out.print("*");
             } else {
                 System.out.print(" ");
             }
-
             // advance d to the next day
             d.add(Calendar.DAY_OF_MONTH, 1);
             weekday = d.get(Calendar.DAY_OF_WEEK);
-
             // start a new line at the start of the week
             if (weekday == firstDayOfWeek) {
-
                 System.out.println();
             }
         }
@@ -76,7 +69,6 @@ public class CalendarTest {
 
         // print final end of line if necessary
         if (weekday != firstDayOfWeek) {
-
             System.out.println();
         }
     }

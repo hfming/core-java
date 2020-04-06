@@ -5,7 +5,7 @@ package com.hfm.collection.set.treeset;
    @author Cay Horstmann
 */
 
-import cn.hfming.entity.Item;
+import com.hfm.entity.Item;
 
 import java.util.*;
 

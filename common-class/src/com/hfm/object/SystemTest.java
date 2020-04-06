@@ -27,6 +27,7 @@ public class SystemTest {
         } else {
             System.out.println("赶快换系统吧，我软件不兼用你系统!!");
         }
+
         // 源数组
         int[] srcArr = {10, 9, 4, 19};
         // 目标数组
@@ -34,6 +35,7 @@ public class SystemTest {
         System.arraycopy(srcArr, 1, destArr, 2, 2);
         System.out.println("目标数组的元素：" + Arrays.toString(destArr));
         // 建议jvm尽快的启动垃圾回收器回收垃圾。
+
         System.gc();
         System.exit(0);
     }
