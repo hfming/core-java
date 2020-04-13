@@ -1,5 +1,8 @@
 package com.hfm.execption;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+
 /**
  * 抛出异常
  *
@@ -21,6 +24,13 @@ public class ThrowExceptionTest {
             // 捕获的异常类型B
         } catch (Exception e) {
             // new NullPointerException(); Exception 之所以可以捕获任意类型的异常，是因为 Exception 是所有异常类的父类
+            e.printStackTrace();
+        }
+
+        ThrowExceptionTest t = new ThrowExceptionTest();
+        try {
+            t.readFile();
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
@@ -48,5 +58,16 @@ public class ThrowExceptionTest {
         } else {
             System.out.println("可以吃饭了");
         }
+    }
+
+    public void readFile() throws IOException {
+        FileInputStream in = new FileInputStream("atguigushk.txt");
+        int b;
+        b = in.read();
+        while (b != -1) {
+            System.out.print((char) b);
+            b = in.read();
+        }
+        in.close();
     }
 }

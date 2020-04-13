@@ -1,7 +1,6 @@
 package com.hfm.function;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * 函数(方法)的定义与使用
@@ -10,11 +9,6 @@ import java.util.Scanner;
  * @version 1.02 2019-09-19
  */
 public class Function {
-    /**
-     * mian函数
-     *
-     * @param args
-     */
     public static void main(String[] args) {
         // 打印99乘法表
         printMultiplicationTables();
@@ -38,7 +32,7 @@ public class Function {
         System.out.println(getSecondRate(arg));
 
         // 求平均分
-        int[] arg2 = new int[] { 56, 89, 8, 28, 43, 89 };
+        int[] arg2 = new int[]{56, 89, 8, 28, 43, 89};
         boolean flag = true;
         while (flag) {
             if (getAverageValue(arg2) > 60) {
@@ -50,13 +44,31 @@ public class Function {
         System.out.println(Arrays.toString(arg2));
 
         // 求素数
-        OUT: for (long i = 1L; i < 1000000; i++) {
-            Inner: for (int j = 1; j <= Math.sqrt(i); j++) {
+        int num = 1000000;
+        primeNum(num);
+
+        int i = "sdsd".length();
+        // char c = 17c;
+        System.out.println(i);
+        getMax("aaaaaaaaaabbbbbbbbbbsfuudiigjuaggrwyrochnbgdsyugfejrojighdcdkirherue");
+        getNum(111);
+    }
+
+    /**
+     * 求素数
+     *
+     * @param n
+     */
+    public static void primeNum(int n) {
+        OUT:
+        for (int i = 1; i <= n; i++) {
+            INNER:
+            for (int j = 1; j <= i / 2; j++) {
                 if (i % j == 0 && j != 1) {
                     continue OUT;
                 }
             }
-            System.out.println(i);
+            System.out.print(i + " ");
         }
     }
 
@@ -84,6 +96,8 @@ public class Function {
     }
 
     /**
+     * 排序
+     *
      * @param arg
      */
     private static void retroposition(int[] arg) {
@@ -365,5 +379,96 @@ public class Function {
             // 如果 return 关键字后面没有任何的数据，那么这时候 return 关键字的作用就是结束一个函数。
         }
         System.out.println("我能执行吗？");
+    }
+
+    /**
+     * 获取最大值
+     *
+     * @param str
+     */
+    public static void getMax(String str) {
+        char[] chars = str.toCharArray();
+        HashMap<String, Integer> hashmap = new HashMap<String, Integer>();
+        for (int i = 0; i < chars.length; i++) {
+            String string = String.valueOf(chars[i]);
+            if (hashmap.containsKey(string)) {
+                hashmap.put(string, hashmap.get(string) + 1);
+            } else {
+                hashmap.put(string, 1);
+            }
+        }
+        Collection<Integer> values = hashmap.values();
+        System.out.println(values);
+        int max = 0;
+        //求最大的个数
+        for (int i : values) {
+            if (max < i) {
+                max = i;
+            }
+        }
+        Set<Map.Entry<String, Integer>> outString = hashmap.entrySet();
+        for (Map.Entry<String, Integer> i : outString) {
+            if (i.getValue() == max) {
+                System.out.println(i.getKey() + "=" + max);
+            }
+        }
+    }
+
+    /**
+     * @param n
+     */
+    public static void getNum(int n) {
+        int result = 0;
+        int temp = 0;
+        for (int i = 0; i <= n; i++) {
+            int j = getDivisor(i);
+            // System.out.println("j="+j);
+            temp = i;
+            for (int x = j; x >= 0; x--) {
+                // System.out.println("x="+x);
+                // System.out.println("pow="+(int)Math.pow(10, x));
+                // System.out.println("/="+(i/(int)Math.pow(10, x)));
+                if ((temp / (int) Math.pow(10, x)) == 1) {
+                    result = result + 1;
+                }
+                temp = (i % (int) Math.pow(10, x));
+            }
+        }
+        // System.out.println(result);
+    }
+
+    /**
+     * @param n
+     * @return
+     */
+    private static int getDivisor(int n) {
+        int i = 0;
+        do {
+            // System.out.println((int)Math.pow(10, i));
+            if ((n / (int) Math.pow(10, i)) >= 10) {
+                i++;
+            } else {
+                break;
+            }
+        } while (true);
+        // System.out.println(i);
+        return i;
+    }
+
+    /**
+     * 选择排序/快速排序
+     */
+    public static void quickSort(int[] arr) {
+        int temp = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < i; j++) {
+                if (arr[i] < arr[j]) {
+                    temp = arr[j];
+                    arr[j] = arr[i];
+                    arr[i] = arr[j];
+                }
+            }
+        }
+        System.out.println(Arrays.toString(arr));
     }
 }

@@ -25,13 +25,16 @@ public class ComparisonOperator {
         System.out.println(aInt <= bInt);
 
         System.out.println("相等吗？" + (1 == 2));
+        // 不等于
         System.out.println("不相等吗？" + (1 != 2));
+
         // 两个不同数据类型,但是数据类型是兼用的数据在比较的时候，小的数据类型数据会自动转换成大数据类型然后再比较。
         long aLong = 10L;
         int cInt = 9;
         System.out.println("不同数据类型的数据比较：" + (aLong > cInt));
+
         // 比较运算时,数据类型要一致或者能够进行自动数据类型转换
-        // boolean型数据不能强制转化为其他数据
+        // 编译错误，boolean型数据不能强制转化为其他数据
         // System.out.println(true > 1);
     }
 }

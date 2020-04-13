@@ -34,10 +34,8 @@ public class ObjectTest {
         System.out.println(object.hashCode());
         System.out.println(object2.hashCode());
 
-
         // Objects.hash(name, age) 不同对象内容相同hashCode相同
         System.out.println(people1.hashCode());
         System.out.println(people2.hashCode());
-
     }
 }

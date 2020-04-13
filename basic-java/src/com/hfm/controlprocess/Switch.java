@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 /**
  * switch语句的使用
- *  JDK 1.7 时支持 String 与 enum 型数据
+ * JDK 1.7 时支持 String 与 enum 型数据
+ *
  * @author hfm
  * @version 1.01 2019-09-19
  */
@@ -44,10 +45,7 @@ public class Switch {
         }
 
         // 需求 2:根据用于指定的月份,打印该月份所属的季节.
-        /*
-         * 选用 if 语句与 switch 语句的判断条件： switch 语句的优点： switch 的结构清晰。 switch 语句的缺点： case
-         * 后面只能跟常量，不能跟判断表达式，那么如果条件是一个范围的话，那么使用 switch 语句就非常的麻烦。
-         */
+        // 选用 if 语句与 switch 语句的判断条件： switch 语句的优点： switch 的结构清晰。 switch 语句的缺点： case 后面只能跟常量，不能跟判断表达式，那么如果条件是一个范围的话，那么使用 switch 语句就非常的麻烦。
         System.out.println("请输入一个月份:");
         // 创建一个扫描器
         Scanner scanner = new Scanner(System.in);

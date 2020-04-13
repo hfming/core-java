@@ -14,7 +14,6 @@ public class Array implements Serializable {
     private static final long serialVersionUID = 2590380227656483356L;
 
     public static void main(String[] args) {
-
         // 数组定义
         // 方式一：数据类型[] 变量名 = new 数据类型[容量大小];
         int[] arr1 = new int[10];

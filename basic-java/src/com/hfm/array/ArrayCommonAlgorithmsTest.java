@@ -10,8 +10,6 @@ public class ArrayCommonAlgorithmsTest {
     public static void main(String[] args) {
         int[] arr = {1, 2, 2, 3, 10, 6, 89, 47};
         arrayFlip(arr);
-
-
     }
 
     /**

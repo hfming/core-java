@@ -25,15 +25,15 @@ public class AssigningOperator {
         // 模等于
         System.out.println(aInt %= 3);
 
-        // 比较 == 号与 = 号的不同
+        // 比较 == 号与 赋值运算符 = 号的不同
         // 基本数据类型 = 传递数值
         System.out.println(aInt = 1);
+        // 引用数据类型 = 传递内存地址
+        int[] arr = new int[]{1, 2, 3, 4};
+        System.out.println(arr = new int[]{4, 5, 6, 7});
+
         // 基本数据类型 == 号比较大小
         System.out.println(aInt == 0);
-
-        int[] arr = new int[]{1, 2, 3, 4};
-        // 引用数据类型 = 传递内存地址
-        System.out.println(arr = new int[]{4, 5, 6, 7});
         // 引用数据类型== 号 比较内存地址
         System.out.println(arr == new int[]{4, 5, 6, 7});
 
@@ -49,9 +49,23 @@ public class AssigningOperator {
 
         // 练习
         int n1 = 10;
-        // n1 = n1 + (n1++) + (++n1);
         n1 += (n1++) + (++n1);
         // 32
         System.out.println(n1);
+
+        int n2 = 10;
+        n2 += (n2++);
+        // 20
+        System.out.println(n2);
+
+        int n3 = 10;
+        n3 += (++n3);
+        // 21
+        System.out.println(n3);
+
+        int n4 = 10;
+        n4 += (++n4) + (n4++);
+        // 32
+        System.out.println(n4);
     }
 }

@@ -96,7 +96,6 @@ public class If {
             return "星期六";
         }
         return "輸入錯誤...";
-
     }
 
     /**
@@ -157,9 +156,6 @@ public class If {
         isLeap = isLeap || (year % 400 == 0);
         return isLeap;
         /// 简写格式
-        /*
-         * if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-         * System.out.println(year + "是闰年！"); }
-         */
+        // if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {System.out.println(year + "是闰年！"); }
     }
 }

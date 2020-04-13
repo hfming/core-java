@@ -8,29 +8,21 @@ package com.hfm.decimal;
  */
 public class Decimal {
     public static void main(String[] args) {
-        /*
-         * 十进制：都是以0-9这九个数字组成，不能以0开头，已0开头的为八进制。
-         */
+        // 十进制：都是以0-9这九个数字组成，不能以0开头，已0开头的为八进制。
         int aInt = 10;
-        System.out.println(" 十进制" + aInt);
+        System.out.println("十进制" + aInt);
 
-        /*
-         * 二进制：由0和1两个数字组成，以0b开头
-         */
+        // 二进制：由0和1两个数字组成，以0b开头
         int bInt = 0B10;
         // 10(2) --> 2(10)
         System.out.println("二进制" + bInt);
-        /*
-         * 八进制: 由0-7数字组成，为了区分与其他进制的数字区别，开头以0开始，一般不会使用八进制数
 
-         */
+        // 八进制: 由0-7数字组成，为了区分与其他进制的数字区别，开头以0开始，一般不会使用八进制数
         int cInt = 010;
         // 10(8) --> 8(10)
         System.out.println("八进制" + cInt);
 
-        /*
-         * 十六进制：由0-9和 A-F 组成。为了区分于其他数字的区别，开头以0X开始
-         */
+        // 十六进制：由0-9和 A-F 组成。为了区分于其他数字的区别，开头以0X开始
         int dInt = 0X10;
         // 10(16) --> 16(10)
         System.out.println("十六进制" + dInt);
@@ -56,35 +48,36 @@ public class Decimal {
         System.out.println("十进制转换为十六进制" + Integer.toOctalString(aInt));
 
         // 10进制转 r 进制
+        // static String toString​(int i, int radix) 返回第二个参数指定的进制基数中第一个参数的字符串表示形式。
         System.out.println("10进制转 r 进制" + Integer.toString(aInt, 2));
 
         // 4.二进制转十进制
         // radix进制的字符串s转10进制
-        System.out.println("二进制转十进制" + Integer.parseInt((String) Integer.toOctalString(aInt), (int) 16));
+        System.out.println("二进制转十进制" + Integer.toString(0B1100, 10));
 
         // 5.二进制转八进制
-        System.out.println();
+        System.out.println("二进制转八进制" + Integer.toString(0B1101, 8));
 
         // 6.二进制转十六进制
-        System.out.println();
+        System.out.println("二进制转十六进制" + Integer.toString(0B1101, 16));
 
         // 7.八进制转十进制
-        System.out.println();
+        System.out.println("八进制转十进制" + Integer.toString(01101, 10));
 
         // 8.八进制转十六进制
-        System.out.println();
+        System.out.println("八进制转十进制" + Integer.toString(01101, 16));
 
         // 9.八进制转二进制
-        System.out.println();
+        System.out.println("八进制转二进制" + Integer.toString(01101, 2));
 
         // 10.十六进制转十进制
-        System.out.println();
+        System.out.println("十六进制转十进制" + Integer.toString(0X1101, 10));
 
         // 11.十六进制转二进制
-        System.out.println();
+        System.out.println("十六进制转二进制" + Integer.toString(0X1101, 2));
 
         // 12.十六进制转八进制
-        System.out.println();
+        System.out.println("十六进制转八进制" + Integer.toString(0X1101, 8));
     }
 
     /**

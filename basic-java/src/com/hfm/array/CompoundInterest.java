@@ -2,9 +2,9 @@ package com.hfm.array;
 
 /**
  * 该程序显示了如何在2D数组中存储表格数据。
- * 
- * @version 1.40 2004-02-10
+ *
  * @author Cay Horstmann
+ * @version 1.40 2004-02-10
  */
 public class CompoundInterest {
     public static void main(String[] args) {

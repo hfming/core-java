@@ -68,64 +68,115 @@ public class FunctionOverloading {
         return sum;
     }
 
-    // 两个byte类型的
+
+    /**
+     * 两个byte类型的
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public static boolean compare(byte a, byte b) {
         System.out.println("byte");
         return a == b;
     }
 
-    // 两个short类型的
+    /**
+     * 两个short类型的
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public static boolean compare(short a, short b) {
         System.out.println("short");
         return a == b;
     }
 
-    // 两个int类型的
+    /**
+     * 两个int类型的
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public static boolean compare(int a, int b) {
         System.out.println("int");
         return a == b;
     }
 
-    // 两个long类型的
+    /**
+     * 两个long类型的
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     public static boolean compare(long a, long b) {
         System.out.println("long");
         return a == b;
     }
 
+    /**
+     * @param a
+     */
     public static void println(byte a) {
         System.out.println(a);
     }
 
+    /**
+     * @param a
+     */
     public static void println(short a) {
         System.out.println(a);
     }
 
+    /**
+     * @param a
+     */
     public static void println(int a) {
         System.out.println(a);
     }
 
+    /**
+     * @param a
+     */
     public static void println(long a) {
         System.out.println(a);
     }
 
+    /**
+     * @param a
+     */
     public static void println(float a) {
         System.out.println(a);
     }
 
+    /**
+     * @param a
+     */
     public static void println(double a) {
         System.out.println(a);
     }
 
+    /**
+     * @param a
+     */
     public static void println(char a) {
         System.out.println(a);
     }
 
+    /**
+     * @param a
+     */
     public static void println(boolean a) {
         System.out.println(a);
     }
 
+    /**
+     * @param a
+     */
     public static void println(String a) {
         System.out.println(a);
     }
-
 }

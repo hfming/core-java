@@ -9,8 +9,6 @@ import java.io.PrintWriter;
  * @version 1.01 2019-10-17
  */
 public class PrintWriteTest {
-
-
     public static void main(String[] args) throws FileNotFoundException {
         File file = new File("D:\\Code\\core-java-simple\\common-class\\src\\com\\hfm\\object\\PrintWriteTest1.java");
 

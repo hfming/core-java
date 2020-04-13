@@ -14,8 +14,6 @@ public class OperatorPrecedence {
         int result = 1 + a / b * 3 + c / (a * b / c + 1);
         // 4
         System.out.println("结果：" + result);
-        /*
-         * 1+a/b*3 +c/(a*b/c+1); (a*b/c+1) = 1*2/3+1 = 1 1+a/b*3 +c/1 = 1+ 0 + 3/1 = 4
-         */
+        // 1+a/b*3 +c/(a*b/c+1); (a*b/c+1) = 1*2/3+1 = 1 1+a/b*3 +c/1 = 1+ 0 + 3/1 = 4
     }
 }
