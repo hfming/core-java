@@ -53,4 +53,5 @@ public class User {
         System.out.println("用户名:" + username + " ,余额为:" + leftMoney + "元");
     }
 
+
 }

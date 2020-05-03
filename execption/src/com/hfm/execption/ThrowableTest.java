@@ -46,7 +46,6 @@ public class ThrowableTest {
         throwable4.printStackTrace();
 
         // 返回此throwable的简短描述。
-
         throwable.toString();
     }
 }

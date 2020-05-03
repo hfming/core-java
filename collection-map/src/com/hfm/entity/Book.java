@@ -6,7 +6,7 @@ package com.hfm.entity;
  * @author hfm
  * @version 1.01 2019-10-18
  */
-public class Book {
+public class Book implements Cloneable{
     private int id;
     private String name;
     private double price;
@@ -19,6 +19,11 @@ public class Book {
     @Override
     public String toString() {
         return "Book [id=" + id + ", name=" + name + ", price=" + price + "]";
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
     /**
@@ -39,22 +44,29 @@ public class Book {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
-        if (obj == null)
+        }
+        if (obj == null) {
             return false;
-        if (getClass() != obj.getClass())
+        }
+        if (getClass() != obj.getClass()) {
             return false;
+        }
         Book other = (Book) obj;
-        if (id != other.id)
+        if (id != other.id) {
             return false;
+        }
         if (name == null) {
-            if (other.name != null)
+            if (other.name != null) {
                 return false;
-        } else if (!name.equals(other.name))
+            }
+        } else if (!name.equals(other.name)) {
             return false;
-        if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price))
+        }
+        if (Double.doubleToLongBits(price) != Double.doubleToLongBits(other.price)) {
             return false;
+        }
         return true;
     }
 

@@ -8,5 +8,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module" module-name="common-class" />
+    <orderEntry type="module" module-name="collection-map" />
   </component>
 </module>

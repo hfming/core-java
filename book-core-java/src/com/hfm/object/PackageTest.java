@@ -1,5 +1,7 @@
 package com.hfm.object;
 
+import com.hfm.entity.Employee;
+
 import static java.lang.System.out;
 
 // the Employee class is defined in that package

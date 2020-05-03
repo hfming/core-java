@@ -25,7 +25,6 @@ public class DateTest {
         // Sun Aug 08 09:39:00 CST 2088
         System.out.println(date);
 
-
         // Date类的空参数构造方法
         // Date() 获取当前系统的日期和时间
         Date date2 = new Date();

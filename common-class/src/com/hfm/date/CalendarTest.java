@@ -27,11 +27,14 @@ public class CalendarTest {
         System.out.println("秒：" + calendar.get(Calendar.SECOND));
 
         // add(int field, int amount)
-        calendar.add(Calendar.YEAR,1);
+        calendar.add(Calendar.YEAR, 1);
         System.out.println(calendar.get(Calendar.YEAR));
 
         // set(int field, int value)
-        calendar.set(Calendar.YEAR,2022);
+        calendar.set(Calendar.YEAR, 2022);
         System.out.println(calendar.get(Calendar.YEAR));
+
+        calendar.set(2022, 04, 23);
+        System.out.println(calendar.get(Calendar.YEAR)+" "+calendar.get(Calendar.MONTH)+" "+calendar.get(Calendar.DATE));
     }
 }

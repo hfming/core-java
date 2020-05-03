@@ -4,8 +4,12 @@ public class Person {
 	private int id ;
 	private String name;
 	private String age;
-	
-	@Override
+
+    public Person() {
+
+    }
+
+    @Override
 	public int hashCode() {
 		return this.id;
 	}

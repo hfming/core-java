@@ -1,5 +1,7 @@
 package com.hfm.string;
 
+import org.junit.jupiter.api.Test;
+
 /**
  * 缓存字符串类
  *
@@ -38,5 +40,20 @@ public class StringBufferAndStringBuilderTest {
         // 返回这个容器的字符串
         String content = sb.toString();
         System.out.println("字符串的内容：" + content);
+    }
+
+    @Test
+    public void testStringBuffer(){
+        String str = null;
+        StringBuffer sb = new StringBuffer();
+        sb.append(str);
+        // 4
+        System.out.println(sb.length());
+        //"null"
+        System.out.println(sb);
+
+        // 抛异常NullPointerException
+        StringBuffer sb1 = new StringBuffer(str);
+        System.out.println(sb1);
     }
 }

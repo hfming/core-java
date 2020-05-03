@@ -1,7 +1,6 @@
 package com.hfm.string;
 
 import com.hfm.entity.Goods;
-import org.junit.jupiter.api.Test;
 
 /**
  * String 特性 不可变形
@@ -21,6 +20,7 @@ public class StringPeculiarity {
         System.out.println(str2);
 
         str1 = "bcd";
+        // 内存地址不相同
         System.out.println(str1 == str2);
         System.out.println(str1);
         System.out.println(str2);
@@ -59,43 +59,5 @@ public class StringPeculiarity {
 
         // 面试体：String s = new String("abc"); 在内存中创建了几个对象
         // 2个，一个是在堆内存中的String 对象，另外一个是 字符串常量池中的 字节/字符数组
-    }
-
-    @Test
-    public void test() {
-        String str1 = "abc";
-        String str2 = "ABC";
-
-        String str3 = "abcABC";
-        String str4 = "abc" + "ABC";
-        String str5 = str1 + "ABC";
-        String str6 = "abc" + str2;
-        String str7 = str1 + str2;
-
-        // 常量与常量的拼接结果在常量池。且常量池中不会存在相同内容的常量。只要其中有一个是变量，结果就在堆中。
-        // true
-        System.out.println(str3 == str4);
-        // false
-        System.out.println(str3 == str5);
-        // false
-        System.out.println(str3 == str6);
-        // false
-        System.out.println(str3 == str7);
-        // false
-        System.out.println(str4 == str5);
-        // false
-        System.out.println(str4 == str6);
-        // false
-        System.out.println(str4 == str7);
-        // false
-        System.out.println(str5 == str6);
-        // false
-        System.out.println(str5 == str7);
-        // false
-        System.out.println(str6 == str7);
-
-        // 如果拼接的结果调用intern()方法，返回值就在常量池中。
-        String str8 = str5.intern();
-        System.out.println(str5 == str8);
     }
 }

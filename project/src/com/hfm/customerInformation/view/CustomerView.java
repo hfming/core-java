@@ -43,9 +43,9 @@ public class CustomerView {
                 case '5':
                     System.out.print("确认是否退出(Y/N)：");
                     char yn = CMUtility.readConfirmSelection();
-					if (yn == 'Y') {
-						loopFlag = false;
-					}
+                    if (yn == 'Y') {
+                        loopFlag = false;
+                    }
                     break;
             }
         } while (loopFlag);
@@ -87,11 +87,11 @@ public class CustomerView {
             }
 
             cust = customers.getCustomer(index - 1);
-			if (cust == null) {
-				System.out.println("无法找到指定客户！");
-			} else {
-				break;
-			}
+            if (cust == null) {
+                System.out.println("无法找到指定客户！");
+            } else {
+                break;
+            }
         }
 
         System.out.print("姓名(" + cust.getName() + ")：");
@@ -133,18 +133,18 @@ public class CustomerView {
             }
 
             cust = customers.getCustomer(index - 1);
-			if (cust == null) {
-				System.out.println("无法找到指定客户！");
-			} else {
-				break;
-			}
+            if (cust == null) {
+                System.out.println("无法找到指定客户！");
+            } else {
+                break;
+            }
         }
 
         System.out.print("确认是否删除(Y/N)：");
         char yn = CMUtility.readConfirmSelection();
-		if (yn == 'N') {
-			return;
-		}
+        if (yn == 'N') {
+            return;
+        }
         boolean flag = customers.deleteCustomer(index - 1);
         if (flag) {
             System.out

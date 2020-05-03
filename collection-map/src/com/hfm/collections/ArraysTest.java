@@ -27,7 +27,5 @@ public class ArraysTest {
 		for (int[] a : list) {
 			System.out.println(Arrays.toString(a));
 		}
-
 	}
-
 }

@@ -56,7 +56,7 @@ public class StringTest {
          * 判断
          */
         // 判断是否包含指定字符串子串
-        System.out.println(str.contains("S"));
+        System.out.println(str.contains("Str"));
         // 判断是否以之是否以指定字符串结束
         System.out.println(str.endsWith("S"));
         // 判断两个字符串是否相同,不忽略大小写

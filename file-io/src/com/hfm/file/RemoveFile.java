@@ -8,11 +8,45 @@ import java.io.IOException;
  */
 public class RemoveFile {
     public static void main(String[] args) throws IOException {
-        File src = new File("c:\\abc");
-        File dest = new File("d:\\");
-        String all = String.join(" / ", " S ", " M ", " L ", " XL ");
-        System.out.println(all);
-        cutFile(src, dest);
+        // 创建文件夹
+        File dest = new File("D:\\Code\\core-java-simple\\file-io\\Resources\\test");
+        dest.delete();
+        // 如果不存在创建此目录
+        dest.mkdir();
+        System.out.println(dest.getName());
+
+        // 创建文件夹
+        File src1 = new File("D:\\Code\\core-java-simple\\file-io\\Resources\\test1.0");
+        src1.delete();
+        // 如果不存在创建此目录
+        src1.mkdir();
+        System.out.println(src1.getName());
+
+        // 创建文件夹
+        File src2 = new File("D:\\Code\\core-java-simple\\file-io\\Resources\\test1.0\\test2.0");
+        src2.delete();
+        // 如果不存在创建此目录
+        src2.mkdir();
+        System.out.println(src2.getName());
+
+        // 创建文件
+        File file1 = new File("D:\\Code\\core-java-simple\\file-io\\Resources\\test1.0\\test.txt");
+        file1.delete();
+        // 如果不存在创建空文件
+        file1.createNewFile();
+        System.out.println(file1.getName());
+
+        // 创建文件
+        File file2 = new File("D:\\Code\\core-java-simple\\file-io\\Resources\\test1.0\\test2.0\\test.txt");
+        file2.delete();
+        // 如果不存在创建空文件
+        file2.createNewFile();
+        System.out.println(file2.getName());
+
+//        String all = String.join(" / ", " S ", " M ", " L ", " XL ");
+//        System.out.println(all);
+        // 剪切非空目录及其下面的所有文件
+        cutFile(src1, dest);
     }
 
     private static void deleteFile(File file) {
@@ -38,24 +72,27 @@ public class RemoveFile {
     }
 
     /**
-     * 移动一个非空的目录到另一个地方（剪切）。
+     * 移动一个非空的目录到另一个地方（剪切）。renameTo 方法
+     * * 操作文件：如果源文件与目标文件在同一级路径下，那么renameTo方法的作用是重命名，
+     * * 如果源文件与目标文件不在同一级目录下，那么renameTo 的作用就是剪切。
+     * * 操作文件夹：如果源文件夹与目标文件夹在同一级路径下，那么renameTo方法的作用是重命名,
+     * * 如果源文件夹与目标文件夹不在同一级目录下,那么 renameTo不起作用（不能用于剪切文件夹）。
      */
     private static void cutFile(File srcDir, File dest) throws IOException {
+        // 两个目录都存在
         if (!srcDir.exists() || !dest.exists()) {
             System.out.println("指定的源目录或者目标目录不存在");
             return;
         }
+        // 两个都是目录
         if (!srcDir.isDirectory() || !dest.isDirectory()) {
             System.out.println("指定的源目录或者目标目录不是目录");
             return;
         }
         // 得到源目录名
-        // abc
         String srcDirName = srcDir.getName();
         // 根据源目录名创建新目录名
-        // d:\\abc dest 为父路径
-        File destDir = new File(dest + srcDirName);
-        // srcDirName 为子路径
+        File destDir = new File(dest, srcDirName);
         // 创建目标目录
         destDir.mkdir();
         // 遍历源目录
@@ -68,7 +105,7 @@ public class RemoveFile {
             } else if (f.isDirectory()) {
                 // 如果是子目录,执行重复动作. 将源子目录 , 目标目录(父目录+//)
                 // 指定源目录,指定目的路径d:\\abc\\
-                cutFile(f, new File(destDir, File.separator));
+                cutFile(f, destDir);
             }
         }
         // 删除源目录

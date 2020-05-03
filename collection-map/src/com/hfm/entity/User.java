@@ -6,7 +6,7 @@ package com.hfm.entity;
  * @author hfm
  * @version 1.01 2019-10-18
  */
-public class User {
+public class User  {
     private int id;
     private String name;
     private String passWord;
