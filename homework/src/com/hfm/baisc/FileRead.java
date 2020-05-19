@@ -9,6 +9,9 @@ import java.io.*;
  * @version 1.01 2019-10-14
  */
 public class FileRead {
+    public FileRead(File file) {
+    }
+
     public static void main(String[] args) {
         // 创建文件对象
         File file = new File("D:\\intelliJIDEAWorkplace\\core-java\\homework\\read.txt");

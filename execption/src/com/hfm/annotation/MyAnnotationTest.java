@@ -13,10 +13,14 @@ public class MyAnnotationTest {
     public static void main(String[] args) {
         @SuppressWarnings("test")
         Class clazz = MyAnnotationTest.class;
-        Annotation a = clazz.getAnnotation(MyAnnotation.class);
-        MyAnnotation m = (MyAnnotation) a;
-        String info = m.value();
-        System.out.println(info);
+//        Annotation a = clazz.getAnnotation(MyAnnotation.class);
+        MyAnnotation[] annotations =(MyAnnotation[]) clazz.getAnnotationsByType(MyAnnotation.class);
+        for (MyAnnotation annotation : annotations) {
+            System.out.println(annotation.value());
+        }
+//        MyAnnotation m = (MyAnnotation) a;
+//        String info = m.value();
+//        System.out.println(info);
     }
 }
 
