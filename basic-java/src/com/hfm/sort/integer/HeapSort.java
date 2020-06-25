@@ -1,4 +1,4 @@
-package com.hfm.sort.integer.stability;
+package com.hfm.sort.integer;
 
 /**
  * 堆排序
@@ -59,14 +59,6 @@ public class HeapSort {
         }
     }
 
-
-    public static void main(String[] args) {
-        int[] data = {9, -16, 21, 23, -30, -49, 21, 30, 30};
-        System.out.println("排序之前：\n" + java.util.Arrays.toString(data));
-        heapSort2(data);
-        System.out.println("排序之后：\n" + java.util.Arrays.toString(data));
-    }
-
     /**
      * 交换 data 数组中i、j两个索引处的元素
      *
@@ -100,7 +92,6 @@ public class HeapSort {
     public static void initHeap(int[] array, int count, int root) {
         // 建堆，从最后一个非叶子节点开始，而最后一个非叶子节点的下标为array.length/2-1
         for (int i = array.length / 2 - 1; i >= 0; i--) {
-
             int maxChildIndex;
             // 待调整子堆的根节点必须是非叶子节点
             while (root <= count / 2 - 1) {
@@ -127,5 +118,12 @@ public class HeapSort {
                 }
             }
         }
+    }
+
+    public static void main(String[] args) {
+        int[] data = {9, -16, 21, 23, -30, -49, 21, 30, 30};
+        System.out.println("排序之前：\n" + java.util.Arrays.toString(data));
+        heapSort2(data);
+        System.out.println("排序之后：\n" + java.util.Arrays.toString(data));
     }
 }

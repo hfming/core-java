@@ -1,4 +1,4 @@
-package com.hfm.sort.object.stability;
+package com.hfm.sort.object;
 
 import java.util.Arrays;
 

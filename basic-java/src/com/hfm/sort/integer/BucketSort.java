@@ -1,4 +1,4 @@
-package com.hfm.sort.integer.stability;
+package com.hfm.sort.integer;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -29,7 +29,7 @@ public class BucketSort {
         }
     }
 
-	public static ArrayList BucketSort(int[] arr) {
+	public static ArrayList bucketSort(int[] arr) {
 		int min = arr[0];
 		int max = arr[0];
 		// 获取最大与最小值

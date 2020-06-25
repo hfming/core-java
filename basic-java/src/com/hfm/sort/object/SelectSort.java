@@ -1,4 +1,4 @@
-package com.hfm.sort.object.stability;
+package com.hfm.sort.object;
 
 
 /**
@@ -27,6 +27,26 @@ public class SelectSort {
 		data[j] = temp;
 	}
 
+    /**
+     * 选择排序优化
+     * @param data
+     */
+    public static void selectSort2(DataWrap[] data) {
+        System.out.println("开始排序");
+        int arrayLength = data.length;
+        for (int i = 0; i < arrayLength - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < arrayLength; j++) {
+                if (data[minIndex].compareTo(data[j]) > 0) {
+                    minIndex = j;
+                }
+            }
+            if (minIndex != i) {
+                swap(data, i, minIndex);
+            }
+            System.out.println(java.util.Arrays.toString(data));
+        }
+    }
 	public static void main(String[] args) {
         DataWrap[] data = {new DataWrap(9, ""), new DataWrap(-16, ""),
                 new DataWrap(21, "*"), new DataWrap(23, ""),

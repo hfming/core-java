@@ -1,4 +1,4 @@
-package com.hfm.sort.object.stability;
+package com.hfm.sort.object;
 
 /**
  * 归并排序

@@ -1,4 +1,4 @@
-package com.hfm.sort.integer.stability;
+package com.hfm.sort.integer;
 
 /**
  * 快速排序
@@ -9,8 +9,6 @@ package com.hfm.sort.integer.stability;
  * 2018-12-17
  */
 public class QuickSort {
-
-
     private static void subSort(int[] data, int start, int end) {
         if (start < end) {
             int base = data[start];

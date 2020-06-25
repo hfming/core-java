@@ -1,4 +1,4 @@
-package com.hfm.sort.integer.stability;
+package com.hfm.sort.integer;
 
 /**
  * 归并排序

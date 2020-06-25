@@ -1,4 +1,4 @@
-package com.hfm.sort.integer.stability;
+package com.hfm.sort.integer;
 
 import java.util.Arrays;
 
@@ -8,8 +8,14 @@ import java.util.Arrays;
  * @author shkstart 2018-12-17
  */
 public class MultiKeyRadixSort {
+    /**
+     * 基数排序
+     *
+     * @param data
+     * @param radix
+     * @param d
+     */
     public static void radixSort(int[] data, int radix, int d) {
-        System.out.println("开始排序：");
         int arrayLength = data.length;
         int[] temp = new int[arrayLength];
         int[] buckets = new int[radix];
@@ -30,8 +36,7 @@ public class MultiKeyRadixSort {
                 int subKey = (temp[m] / rate) % radix;
                 data[--buckets[subKey]] = temp[m];
             }
-            System.out.println("对" + rate + "位上子关键字排序："
-                    + Arrays.toString(data));
+            System.out.println("对" + rate + "位上子关键字排序：" + Arrays.toString(data));
             rate *= radix;
         }
     }
@@ -39,6 +44,7 @@ public class MultiKeyRadixSort {
     public static void main(String[] args) {
         int[] data = {1100, 192, 221, 12, 13};
         System.out.println("排序之前：\n" + Arrays.toString(data));
+        System.out.println("开始排序：");
         radixSort(data, 10, 4);
         System.out.println("排序之后：\n" + Arrays.toString(data));
     }
