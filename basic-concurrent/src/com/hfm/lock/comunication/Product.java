@@ -1,4 +1,4 @@
-package com.hfm.comunication;
+package com.hfm.lock.comunication;
 
 /**
  * 商品类
@@ -11,7 +11,7 @@ public class Product {
     /**
      * 产品是否生成完毕的标识 false为还没有生成完毕，true 生成完毕了.
      */
-    private boolean flag=false;
+    private boolean flag;
 
     public boolean isFlag() {
         return flag;

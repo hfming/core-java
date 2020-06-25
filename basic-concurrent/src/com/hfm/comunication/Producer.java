@@ -7,13 +7,6 @@ package com.hfm.comunication;
  */
 public class Producer extends Thread {
     private Product product = null;
-
-    /**
-     * 构造函数
-     */
-    public Producer() {
-    }
-
     public Producer(Product product) {
         this.product = product;
     }
@@ -26,19 +19,20 @@ public class Producer extends Thread {
                 boolean flag = this.product.isFlag();
                 if (flag == false) {
                     if (i % 2 == 0) {
-                        this.product.setName("摩托车");
-                        this.product.setPrice(5000.00);
+                        product.setName("摩托车");
+                        product.setPrice(5000.00);
                     } else {
-                        this.product.setName("自行车");
-                        this.product.setPrice(300.00);
+                        product.setName("自行车");
+                        product.setPrice(300.00);
                     }
                     i++;
-                    this.product.setFlag(true);
+                    System.out.println("生产者生产了"+product.getName()+":"+product.getPrice());
+                    product.setFlag(true);
                     // 唤醒消费者去消费
-                    this.product.notifyAll();
+                    product.notifyAll();
                 } else {
                     try {
-                        this.product.wait(10000, 500);
+                        product.wait();
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
