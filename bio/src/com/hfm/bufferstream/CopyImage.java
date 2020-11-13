@@ -17,10 +17,10 @@ public class CopyImage {
         try (
                 FileInputStream fileInputStream = new FileInputStream(fileInput);
                 // 缓冲输入流
-                BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream,1024<<7);
+                BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream, 1024 << 7);
                 FileOutputStream fileOutputStream = new FileOutputStream(fileOutput);
                 // 缓冲输出流
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream,1024<<7)
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream, 1024 << 7)
         ) {
             // 记录读取的字节个数
             int length = 0;

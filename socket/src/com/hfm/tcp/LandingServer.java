@@ -73,11 +73,11 @@ public class LandingServer extends Thread {
     public static void main(String[] args) {
         try (
                 // 建立 tcp 的服务端， 并且要监听一个端口
-                ServerSocket serverSocke = new ServerSocket(9090);
+                ServerSocket serverSocket = new ServerSocket(9090);
         ) {
             // 不断的接受用户的请求连接
             while (true) {
-                Socket socket = serverSocke.accept();
+                Socket socket = serverSocket.accept();
                 // 每个用户都应该开启一个线程为其服务
                 new LandingServer(socket).start();
             }

@@ -4,7 +4,6 @@ package com.hfm.sort.object;
  * @author shkstart
  * 2018-12-17
  */
-
 public class BinaryInsertSort {
 	public static void binaryInsertSort(DataWrap[] data) {
 		System.out.println("开始排序");

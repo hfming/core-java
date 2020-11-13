@@ -31,7 +31,7 @@ public class RefrectionDemo {
         ClassLoader classLoader = RefrectionDemo.class.getClassLoader();
         System.out.println(classLoader);
         // 当前路径在 src 下
-        InputStream stream = classLoader.getResourceAsStream(".\\com\\hfm\\reflection\\pro.properties");
+        InputStream stream = classLoader.getResourceAsStream("pro.properties");
 
         // 加载配置文件
         properties.load(stream);
