@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @date 2020-05-03 8:42
  */
 public class PrintDirectory {
-    File f = null;
+    File f ;
     /**
      * 存每一层是否多个文件或目录，true为有多个文件或目录
      */
@@ -88,7 +88,7 @@ public class PrintDirectory {
     }
 
     public static void main(String[] args) {
-        PrintDirectory pd = new PrintDirectory("File-io\\");
+        PrintDirectory pd = new PrintDirectory("bio\\");
         pd.doThings();
     }
 }

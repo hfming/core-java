@@ -34,6 +34,25 @@ public class People implements Comparable {
         this.age = age;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        People people = (People) o;
+        return age == people.age &&
+                Objects.equals(id, people.id) &&
+                Objects.equals(name, people.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, age);
+    }
+
     /**
      * 全参构造函数
      *
@@ -60,36 +79,6 @@ public class People implements Comparable {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 '}';
-    }
-
-    /**
-     * 重写 equals
-     *
-     * @param o
-     * @return
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof People)) {
-            return false;
-        }
-        People people = (People) o;
-        return getAge() == people.getAge() &&
-                Objects.equals(getId(), people.getId()) &&
-                Objects.equals(getName(), people.getName());
-    }
-
-    /**
-     * 重写 hashCode
-     *
-     * @return
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(getId(), getName(), getAge());
     }
 
     /**
@@ -121,18 +110,34 @@ public class People implements Comparable {
         this.age = age;
     }
 
+    /**
+     * 通过 id 进行升序，姓名进行升序排序
+     *
+     * @param o
+     * @return Integer
+     */
     @Override
     public int compareTo(Object o) {
         if (o instanceof People) {
             People people = (People) o;
-            if (this.hashCode() > people.hashCode()) {
+            if (Integer.parseInt(this.getId()) > Integer.parseInt(people.getId())) {
                 return 1;
-            } else if (this.hashCode() > people.hashCode()) {
-                return 0;
-            } else {
+            } else if (Integer.parseInt(this.getId()) == Integer.parseInt(people.getId())) {
+                // TreeSet 中判断元素是否相等，使用 compareTo() 方法返回的值判断，而不是使用 equals 与 hashCode 方法
+                // 根据需求可以比较其他属性
+                int i = this.getName().compareTo(people.getName());
+                if (i > 0) {
+                    return 1;
+                } else if (i == 0) {
+                    return 0;
+                } else if (i < 0) {
+                    return -1;
+                }
+                throw new RuntimeException("不能比较");
+            } else if (Integer.parseInt(this.getId()) < Integer.parseInt(people.getId())) {
                 return -1;
             }
         }
-        return 0;
+        throw new RuntimeException("不能比较");
     }
 }

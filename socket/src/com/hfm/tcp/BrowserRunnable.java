@@ -29,7 +29,7 @@ public class BrowserRunnable implements Runnable {
                 OutputStream out = accept.getOutputStream();
                 InputStream inputStream = accept.getInputStream();
                 // 转换流读取浏览器的请求消息
-                BufferedReader readWb = new BufferedReader(new InputStreamReader(inputStream));
+                BufferedReader readWb = new BufferedReader(new InputStreamReader(inputStream))
         ) {
             // 注意编码格式
             byte[] bytes = new byte[1024 << 4];
@@ -55,10 +55,10 @@ public class BrowserRunnable implements Runnable {
 
             while ((len = fis.read(bytes)) != -1) {
                 out.write(bytes, 0, len);
+                accept.shutdownOutput();
             }
-            accept.shutdownOutput();
         } catch (IOException ignored) {
-
+            throw new RuntimeException(ignored);
         } finally {
             if (fis != null) {
                 try {

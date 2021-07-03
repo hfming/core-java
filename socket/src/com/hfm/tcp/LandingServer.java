@@ -25,17 +25,25 @@ public class LandingServer extends Thread {
                 OutputStreamWriter socketWriter = new OutputStreamWriter(socket.getOutputStream());
         ) {
             // 2.读取客户端发送的消息。
+
+            String line;
+            String[] datas;
+            String option;
+            String userName;
+            String password;
+            Properties properties = new Properties();
+
             // 轮询方式
-            while (true) {
-                String line = socketReader.readLine();
-                String[] datas = line.split(" ");
+            while ((line = socketReader.readLine()) != null) {
+                // 字符串切割
+                datas = line.split(" ");
                 // 客户端选择的功能
-                String option = datas[0];
+                option = datas[0];
                 // 用户名
-                String userName = datas[1];
+                userName = datas[1];
                 // 密码
-                String password = datas[2];
-                Properties properties = new Properties();
+                password = datas[2];
+
                 // 先把配置文件的信息先加载到 properties 文件上。
                 properties.load(new FileReader("socket\\Resources\\users"));
                 if ("a".equalsIgnoreCase(option)) {
@@ -64,6 +72,7 @@ public class LandingServer extends Thread {
                         }
                     }
                 }
+                socketWriter.flush();
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -73,7 +82,7 @@ public class LandingServer extends Thread {
     public static void main(String[] args) {
         try (
                 // 建立 tcp 的服务端， 并且要监听一个端口
-                ServerSocket serverSocket = new ServerSocket(9090);
+                ServerSocket serverSocket = new ServerSocket(9090)
         ) {
             // 不断的接受用户的请求连接
             while (true) {

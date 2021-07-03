@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * @author hfm Email:hfming2016@163.com
  * @version v 1.01
- * @Description
+ * @Description 没有实现 Cloneable 接口的类
  * @date 2020-04-27 16:42
  */
 public class StudentNoCloneable {

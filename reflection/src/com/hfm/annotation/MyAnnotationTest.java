@@ -7,6 +7,7 @@ import java.lang.annotation.*;
  * @version 1.01 2020-04-08 20:32
  * @date 2020/4/8
  */
+// 使用自定义注解
 @MyAnnotation(value = "myself1")
 // 可重用注解
 //@MyAnnotation(value = "myself2")

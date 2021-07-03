@@ -18,11 +18,12 @@ import java.time.ZoneOffset;
 public class InstantTest {
     @Test
     public void instantTest() {
+        // 获取本初子午线标准时间，还需要加上时区的偏移量
         Instant instant = Instant.now();
         // 记住要根据市区来显示时间
         System.out.println(instant);
 
-        // 时间偏移量
+        // 根据时区添加时间偏移量
         OffsetDateTime offsetDateTime = instant.atOffset(ZoneOffset.ofHours(8));
         System.out.println(offsetDateTime);
 
@@ -31,7 +32,7 @@ public class InstantTest {
         long milli = instant.toEpochMilli();
         System.out.println(milli);
 
-        // 通过毫秒数获取instanst
+        // 通过毫秒数获取instanst，类似于 Date(mills) 创建特定时间对象
         Instant instant1 = Instant.ofEpochMilli(1586852473254L);
         System.out.println(instant1);
     }

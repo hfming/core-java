@@ -13,7 +13,7 @@ public class ScannerTest {
         // 创建Scanner类对象
         Scanner scanner = new Scanner(System.in);
         // 只有Java.lang 包中的类不需要导包
-        System.out.println("输入");
+        System.out.println("输入数字：");
 
         int num1 = scanner.nextInt();
         System.out.println(num1);

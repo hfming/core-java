@@ -24,23 +24,21 @@ public class FamilyAccount {
         // 账户详情
         StringBuilder accountDetail = new StringBuilder();
         while (true) {
+            printMainView();
             selectNum = new StringBuilder(scanner.next());
             // 收支明细
             if (SELECT_NUMS[0].toString().equals(selectNum.toString())) {
                 detil(accountDetail);
-                printMainView();
                 continue;
             }
             // 登记收入
             if (SELECT_NUMS[1].toString().equals(selectNum.toString())) {
                 income(accountDetail);
-                printMainView();
                 continue;
             }
             // 登记支出
             if (SELECT_NUMS[2].toString().equals(selectNum.toString())) {
                 disburse(accountDetail);
-                printMainView();
                 continue;
             }
             //  退出程序

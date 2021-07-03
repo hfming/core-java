@@ -54,7 +54,7 @@ public class AssigningOperator {
         System.out.println(n1);
 
         int n2 = 10;
-        n2 += (n2++);
+        n2 += n2++;
         // 20
         System.out.println(n2);
 

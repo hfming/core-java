@@ -21,10 +21,12 @@ public class TemporalAdjusterTest {
         LocalDateTime localDateTime = LocalDateTime.now().with(temporalAdjuster);
         System.out.println(localDateTime);
 
+        // 当月第一天
         TemporalAdjuster firstDayOfMonth = TemporalAdjusters.firstDayOfMonth();
         localDateTime = LocalDateTime.now().with(firstDayOfMonth);
         System.out.println(localDateTime);
 
+        // 下个月第一天
         TemporalAdjuster firstDayOfNextMonth = TemporalAdjusters.firstDayOfNextMonth();
         localDateTime = LocalDateTime.now().with(firstDayOfNextMonth);
         System.out.println(localDateTime);

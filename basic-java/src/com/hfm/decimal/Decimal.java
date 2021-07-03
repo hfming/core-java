@@ -81,7 +81,7 @@ public class Decimal {
     }
 
     /**
-     * 讲10 进制转化为二进制
+     * 将 10 进制转化为二进制
      *
      * @param de ：待转换的十进制
      * @return ：转换后的二进制（string）

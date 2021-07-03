@@ -1,6 +1,5 @@
 package com.hfm.channel;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
@@ -39,8 +38,6 @@ public class ScatterAndGatter {
 
             // 聚集写入
             outChannel.write(byteBuffers);
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

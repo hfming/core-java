@@ -27,7 +27,7 @@ public class GetMailList {
      * @throws Exception
      */
     public static void getMailsByWeb(String regex) throws Exception {
-        URL url = new URL("http://www.hao123.com/mail");
+        URL url = new URL("https://mail.163.com/js6/main.jsp?sid=EAiaosUADONtGhyVqGAACSoLSfndfGvt&df=mail163_letter#module=welcome.WelcomeModule%7C%7B%7D");
         URLConnection conn = url.openConnection();
         BufferedReader bufIn = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         String line = null;

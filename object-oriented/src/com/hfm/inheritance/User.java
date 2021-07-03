@@ -1,5 +1,8 @@
 package com.hfm.inheritance;
 
+/**
+ * 父类
+ */
 public class User {
     /**
      * 姓名

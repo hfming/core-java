@@ -5,7 +5,7 @@ package com.hfm.buffer;
 /**
  * @author hfm Email:hfming2016@163.com
  * @version v 1.01
- * @Description
+ * @Description 直接缓冲区
  * @date 2020-05-05 18:23
  */
 public class JudgeDirect {

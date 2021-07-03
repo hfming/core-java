@@ -1,9 +1,6 @@
 package com.hfm.characterstream;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class FileWriteTest {
     public static void main(String[] args) throws IOException {
@@ -11,8 +8,8 @@ public class FileWriteTest {
     }
 
     /**
-     * 字符输出流
-     * 覆盖模式
+     * 1.字符输出流 默认覆盖模式
+     *
      *
      * @throws IOException
      */
@@ -29,7 +26,7 @@ public class FileWriteTest {
     }
 
     /**
-     * 字符输出流
+     * 2.字符输出流
      * 追加模式
      *
      * @throws IOException
@@ -47,7 +44,7 @@ public class FileWriteTest {
     }
 
     /**
-     * 字符缓冲输出流
+     * 3.字符缓冲输出流
      *
      * @throws IOException
      */

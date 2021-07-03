@@ -10,7 +10,7 @@ public class UnsafetySaleTikects implements Runnable {
     /**
      * 类共享数据
      */
-    private static int num = 50;
+    private  int num = 50;
 
     /**
      * 构造函数

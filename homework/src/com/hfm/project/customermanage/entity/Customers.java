@@ -31,8 +31,7 @@ public class Customers {
         if (this.customers.contains(customer)) {
             return false;
         }
-        customers.add(customer);
-        return true;
+        return customers.add(customer);
     }
 
     /**
@@ -42,8 +41,7 @@ public class Customers {
      * @return 返回 boolean
      */
     public boolean delectCustomer(int index) {
-        this.customers.remove(customers.get(index - 1));
-        return true;
+        return this.customers.remove(customers.get(index - 1));
     }
 
     /**
@@ -53,7 +51,7 @@ public class Customers {
      * @return 返回 boolean
      */
     public Customer getCustomer(int index) {
-        if (index < 0 || index >= this.customers.size()) {
+        if (index < 0 || index > this.customers.size()) {
             return null;
         }
         return customers.get(index - 1);

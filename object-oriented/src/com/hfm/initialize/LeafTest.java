@@ -41,8 +41,7 @@ class Mid extends Root {
     public Mid(String msg) {
         //通过this调用同一类中重载的构造器
         this();
-        System.out.println("Mid的带参数构造器，其参数值："
-                + msg);
+        System.out.println("Mid的带参数构造器，其参数值：" + msg);
     }
 }
 

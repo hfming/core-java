@@ -7,7 +7,7 @@ package com.hfm.threadsafety;
  * @date 2020-05-06 21:29
  */
 public class UnsafetyMovieTicket implements Runnable {
-    private volatile int ticket = 100;
+    private  int ticket = 100;
 
     /**
      * 执行卖票操作

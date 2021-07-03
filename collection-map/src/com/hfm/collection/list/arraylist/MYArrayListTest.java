@@ -18,7 +18,7 @@ public class MYArrayListTest {
         myArrayList.remove(0);
         System.out.println(myArrayList);
 
-        myArrayList.set(0, "2");
+        System.out.println(myArrayList.set(0, "4"));
         System.out.println(myArrayList);
     }
 }

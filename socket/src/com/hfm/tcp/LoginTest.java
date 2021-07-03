@@ -31,12 +31,13 @@ public class LoginTest {
             // 创建缓冲字节数组，用于存储数据
             byte[] b = new byte[1024 << 3];
             // 记录字节个数
-            int length = -1;
-            // 获取客户端信息
+            int length ;
+            // 不断的获取客户端信息，并发送消息
             while ((length = inputStream.read(b)) != -1) {
                 System.out.println(new String(b, 0, length));
+                outputStream.write("登陆成功！".getBytes());
+                outputStream.flush();
             }
-            outputStream.write("登陆成功！".getBytes());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -54,15 +55,22 @@ public class LoginTest {
                 InputStream inputStream = socket.getInputStream();
                 OutputStream outputStream = socket.getOutputStream();
         ) {
-            // 向服务端传递数据
-            outputStream.write("登陆用户名及密码".getBytes());
             // 创建缓冲字节数组，用于存储数据
             byte[] b = new byte[1024 << 3];
+
             // 记录字节个数
-            int length = -1;
-            // 接收服务端信息
-            while ((length = inputStream.read(b)) != -1) {
-                System.out.println(new String(b, 0, length));
+            int length ;
+            // 不断发送消息并接收消息
+            while (true) {
+                // 向服务端传递数据
+                outputStream.write("登陆用户名及密码".getBytes());
+                outputStream.flush();
+                // 接收服务端信息
+                // 注意不能是 while 语句，不然服务端发送一条消息后客户端还是会一直等待消息
+                // 然而服务端已经放松消息，正在等待客户端输入消息
+                if ((length = inputStream.read(b)) != -1) {
+                    System.out.println(new String(b, 0, length));
+                }
             }
         } catch (IOException e) {
             throw new RuntimeException(e);

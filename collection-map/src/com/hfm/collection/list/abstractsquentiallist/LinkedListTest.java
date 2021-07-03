@@ -126,7 +126,7 @@ public class LinkedListTest {
     @Test
     public void randomAccessTest() {
         LinkedList<Book> books = new LinkedList<Book>();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 50000; i++) {
             books.add(new Book(110, "java 编程思想", 86));
             books.add(new Book(112, "java 核心技术", 64));
             books.add(new Book(110, "java 神书", 86));

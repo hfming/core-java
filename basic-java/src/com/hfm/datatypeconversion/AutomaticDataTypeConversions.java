@@ -47,6 +47,9 @@ public class AutomaticDataTypeConversions {
         // int 型数据自动转换为 float 型数据
         aFloat = aInt;
         System.out.println(aFloat);
+        // long 类型可以转化成 float 类型，long 8个字节，float 4个字节，float 数据范围 long 大
+        aFloat = aLong;
+        System.out.println(aFloat);
         // long 型数据自动转换为 double 型数据
         bDouble = aLong;
         System.out.println(bDouble);

@@ -8,6 +8,7 @@ import java.lang.annotation.*;
  * @Description
  * @date 2020-05-11 15:14
  */
+@Documented
 // 指定生命周期
 @Retention(RetentionPolicy.RUNTIME)
 @Inherited

@@ -7,7 +7,7 @@ public class SafetySaleTickets implements Runnable {
     /**
      * 类共享数据
      */
-    private static int num = 100;
+    private  int num = 100;
 
     /**
      * 构造函数

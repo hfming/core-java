@@ -7,13 +7,16 @@ import java.util.TreeSet;
 
 public class TreeSetTest {
     public static void main(String[] args) {
+        // 自然顺序进行排序或者实现Comparable 接口进行排序
         TreeSet<People> treeSet = new TreeSet<People>();
         treeSet.add(new People("001", "fs", 12));
         System.out.println(treeSet.toString());
-        treeSet.add(new People("001", "fs", 12));
+
+        treeSet.add(new People("001", "fs4", 12));
         System.out.println(treeSet.toString());
+
         treeSet.add(new People("002", "fs", 12));
-        System.out.println(treeSet.toString());
+        System.out.println(treeSet);
 
         //自定义比较器，再传入比较器给集合
         TreeSet ts = new TreeSet(new IdComparator());
@@ -27,16 +30,23 @@ public class TreeSetTest {
         tree.add("ac");
         tree.add("cab");
         System.out.println(tree);
+
+        // 字符串自然顺序比较大小
         System.out.println("aba".compareTo("ab"));
         System.out.println("aab".compareTo("aa"));
+
         TreeSet tree1 = new TreeSet();
         tree1.add("10");
         tree1.add("2");
         tree1.add("19");
         System.out.println(tree1);
-
     }
 
+    /**
+     *
+     * @param str
+     * @return
+     */
     public static String sortString(String str) {
         TreeSet tree = new TreeSet();
         //切割字符串得到字符串的数字

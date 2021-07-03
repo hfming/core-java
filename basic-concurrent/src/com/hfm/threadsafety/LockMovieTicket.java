@@ -38,7 +38,7 @@ public class LockMovieTicket implements Runnable {
                     //获取当前线程对象的名字
                     String name = Thread.currentThread().getName();
                     System.out.println(name + "正在卖:" + ticket--);
-                }else {
+                } else {
                     System.out.println("票已经售罄！");
                     break;
                 }

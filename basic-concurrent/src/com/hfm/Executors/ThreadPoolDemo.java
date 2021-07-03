@@ -18,7 +18,6 @@ public class ThreadPoolDemo {
         for (int i = 0; i < 100; i++) {
             service.submit(new MyCallable("客户" + i));
         }
-
     }
 }
 

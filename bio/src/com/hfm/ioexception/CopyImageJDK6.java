@@ -42,12 +42,16 @@ public class CopyImageJDK6 {
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
-            try {
-                // 先开后关,后开先关
-                fileOutputStream.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } finally {
+            // 处理空指针异常
+            if (fileOutputStream != null) {
+                try {
+                    // 先开后关,后开先关
+                    fileOutputStream.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            if (fileInputStream != null) {
                 try {
                     fileInputStream.close();
                 } catch (IOException e) {

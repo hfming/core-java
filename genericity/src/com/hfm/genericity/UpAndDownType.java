@@ -1,6 +1,6 @@
 package com.hfm.genericity;
 
-import com.hfm.entity.A;
+import com.hfm.entity.Book;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -17,17 +17,23 @@ public class UpAndDownType {
     /**
      * 需求 2： 定义一个方法可以接受任意类型的集合对象， 接收的集合对象只能存储 Number 或者 Number 子类类型的数据。
      */
-    public static void show(Collection<? extends Number> c) {
+    public static void show1(Collection<? extends Number> c) {
         System.out.println(c);
     }
 
     /**
      * 需求 1： 定义一个方法可以接受任意类型的集合对象， 接收的集合对象只能存储 Integer 以及 Integer 父类类型的数据。
      */
-    public static void print(Collection<? super Integer> c) {
+    public static void show2(Collection<? super Integer> c) {
         System.out.println(c);
     }
 
+    /**
+     * 泛型方法
+     * @param t
+     * @param <T>
+     * @return
+     */
     public <T extends Integer> T print(T t) {
         return t;
     }
@@ -39,16 +45,16 @@ public class UpAndDownType {
         Collection<Object> list4 = new ArrayList<Object>();
 
         // 只能放Number 及其子类
-        show(list1);
+        show1(list1);
         // show(list2);
-        show(list3);
+        show1(list3);
         // show(list4);
 
         // 只能放 Integer 及其父类
-        print(list1);
+        show2(list1);
         // print(list2);
-        print(list3);
-        print(list4);
+        show2(list3);
+        show2(list4);
     }
 
     public static void printCollection3(Collection<? extends Person> coll) {
@@ -71,8 +77,8 @@ public class UpAndDownType {
         // arr.add(new Object());
     }
 
-    public static void addString2(List<? super A> arr) {
-        arr.add(new A());
+    public static void addString2(List<? super Book> arr) {
+        arr.add(new Book());
         // arr.add(new Object());
     }
 }

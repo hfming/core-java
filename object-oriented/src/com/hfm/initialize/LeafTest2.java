@@ -6,7 +6,8 @@ package com.hfm.initialize;
  * @date 2020/4/4
  */
 public class LeafTest2 {
-    public static void main(String[] args) { // 由父及子 静态先行
+    public static void main(String[] args) {
+        // 由父及子 静态先行
         System.out.println("77777777777");
         System.out.println("************************");
         new Son();

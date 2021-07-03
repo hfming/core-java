@@ -17,7 +17,7 @@ public class RegisterExceptionTest {
         //调用方法
         try {
             // 可能出现异常的代码
-            checkUsername("nill");
+            checkUsername("bill");
             //如果没有异常就是注册成功
             System.out.println("注册成功");
         } catch (RegisterException | LoginException e) {

@@ -1,5 +1,7 @@
 package com.hfm.entity;
 
+import java.util.Objects;
+
 /**
  * 用户类
  *
@@ -49,7 +51,7 @@ public class User  {
 
     @Override
     public int hashCode() {
-        return id;
+        return Objects.hash(id, name, passWord);
     }
 
     /**

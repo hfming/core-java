@@ -38,5 +38,22 @@ public class DateTest {
 
         // Sun Aug 08 09:39:00 CST 2088
         System.out.println(date.toString());
+
+        // 创建 java.sql.Date 对象
+        java.sql.Date sqlDate = new java.sql.Date(3742767540068L);
+        // XXXX-XX-XX 年-月-日
+        System.out.println(sqlDate);
+        System.out.println(sqlDate.toString());
+        // 毫秒数
+        System.out.println(sqlDate.getTime());
+
+        // java.util.Date 与  java.sql.Date 相互转化
+        // 通过强制数据类型转化
+
+        sqlDate = new java.sql.Date(date.getTime());
+        System.out.println(sqlDate);
+
+        date = new Date(sqlDate.getTime());
+        System.out.println(date);
     }
 }

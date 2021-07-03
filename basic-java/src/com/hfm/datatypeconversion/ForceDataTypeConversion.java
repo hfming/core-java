@@ -4,13 +4,7 @@ package com.hfm.datatypeconversion;
  * 强制数据类型转化：容量大的数据类型转化为容量小的数据类型为强制数据类型转化
  * 特点：代码需要进行特殊的格式处理，不能自动完成。
  * 格式：范围小的类型 范围小的变量名 = (范围小的类型) 原本范围大的数据;
- * <p>
- * 注意事项：
- * 1. 强制类型转换一般不推荐使用，因为有可能发生精度损失、数据溢出。
- * 2. byte/short/char这三种类型都可以发生数学运算，例如加法“+”.
- * 3. byte/short/char这三种类型在运算的时候，都会被首先提升成为int类型，然后再计算。
- * 4. boolean类型不能发生数据类型转换
- * <p>
+
  * 强制数据类型转换要注意精度损失
  * float 数据类型的容量大于 long 数据类型的容量
  *
@@ -25,6 +19,12 @@ public class ForceDataTypeConversion {
         // b+2 遇到了加法运算，2 默认是 int类型，byte类型 b变量存储的值自动类型提升为了 int类型。执行完加法运算后的结果就是 int类型，想要将 int的类型值放入到 byte类型变量 b中，无法放入，编译报错。
         aByte = (byte) (aByte + 2);
         System.out.println(aByte);
+
+        /// 编译器符号优化
+        byte cByte = 123;
+        // 不会报错，编译器进行符号优化，只进行一次运算 byte cByte = (byte)(123+1)
+        cByte +=1;
+        System.out.println(cByte);
 
         // 当两种类型彼此不兼容，或者目标类型取值范围小于源类型（目标是byte源是 int）无法自动转换，此时就需要进行强制类型转换。
         int aInt = 128;
@@ -55,6 +55,10 @@ public class ForceDataTypeConversion {
         int num2 = (int) 6000000000L;
         // 1705032704
         System.out.println(num2);
+        // 没有超出数据范围不会有精度损失
+        int a1 = 123;
+        byte b1 = (byte) a1;
+        System.out.println(b1);
 
         // double --> int，强制类型转换
         int num3 = (int) 3.99;

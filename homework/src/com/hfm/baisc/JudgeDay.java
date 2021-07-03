@@ -13,7 +13,7 @@ import java.util.Scanner;
 public class JudgeDay {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("请输入年/月/日并用/号隔开");
+        System.out.println("请输入年/月/日,并用/号隔开");
         String time = scanner.next();
         String[] times = time.split("/");
         int year = Integer.parseInt(times[0]);

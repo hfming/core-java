@@ -18,12 +18,14 @@ public class StringPeculiarity {
         System.out.println(str1 == str2);
         System.out.println(str1);
         System.out.println(str2);
+        System.out.println("==================");
 
         str1 = "bcd";
         // 内存地址不相同
         System.out.println(str1 == str2);
         System.out.println(str1);
         System.out.println(str2);
+        System.out.println("==================");
 
         str1 = "abc";
         String str3 = new String("abc");
@@ -43,6 +45,7 @@ public class StringPeculiarity {
         System.out.println(str2.equals(str3));
         System.out.println(str2.equals(str4));
         System.out.println(str3.equals(str4));
+        System.out.println("==================");
 
         String str5 = str4.replace("a", "f");
         // 调用 String 方法改变字符串时也会重写在字符串常量池中创建新的字符串
@@ -57,7 +60,7 @@ public class StringPeculiarity {
         // 都是字符串常量池中的
         System.out.println(good1.getName() == good2.getName());
 
-        // 面试体：String s = new String("abc"); 在内存中创建了几个对象
+        // 面试题：String s = new String("abc"); 在内存中创建了几个对象
         // 2个，一个是在堆内存中的String 对象，另外一个是 字符串常量池中的 字节/字符数组
     }
 }

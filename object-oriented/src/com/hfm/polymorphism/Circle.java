@@ -9,7 +9,7 @@ package com.hfm.polymorphism;
 public class Circle extends MyShape {
     private double radius;
     private double diameter;
-    private final static double PI = 3.14;
+    private final static double PI = Math.PI;
 
     public Circle(double radius) {
         super();

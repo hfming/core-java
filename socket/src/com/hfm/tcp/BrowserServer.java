@@ -1,12 +1,12 @@
 package com.hfm.tcp;
 
-        import java.io.IOException;
-        import java.net.ServerSocket;
-        import java.net.Socket;
-        import java.util.concurrent.ArrayBlockingQueue;
-        import java.util.concurrent.Executors;
-        import java.util.concurrent.ThreadPoolExecutor;
-        import java.util.concurrent.TimeUnit;
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 服务端：服务端设置为线程
@@ -16,7 +16,16 @@ package com.hfm.tcp;
  */
 public class BrowserServer {
     public static void main(String[] args) {
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, 2, 60, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10), Executors.defaultThreadFactory(), new ThreadPoolExecutor.CallerRunsPolicy());
+        // 创建线程池
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
+                1,
+                2,
+                60,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(10),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.CallerRunsPolicy()
+        );
         System.out.println("服务器启动！");
         byte[] b = new byte[1024 << 3];
         int len = 0;
@@ -24,7 +33,7 @@ public class BrowserServer {
                 // 1. 建立服务端的服务
                 ServerSocket serverSocket = new ServerSocket(9000)
         ) {
-            // 2. 接受客户端的连接
+            // 2. 不断接受客户端的连接
             while (true) {
                 // 3.获取客户端连接
                 Socket socket = serverSocket.accept();

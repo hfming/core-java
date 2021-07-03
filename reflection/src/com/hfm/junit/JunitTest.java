@@ -8,28 +8,28 @@ import org.junit.*;
  * @date 2020/4/14
  */
 public class JunitTest {
-    @Before
+    @Before // 测试方法之前运行
     public void test1() {
         System.out.println("@Before");
     }
 
-    @BeforeClass
-    public void test2() {
+    @BeforeClass // 类加载前运行
+    public static void test2() {
         System.out.println("@BeforeClass");
     }
 
-    @Test
+    @Test // 测试方法
     public void test3() {
         System.out.println("@Test");
     }
 
-    @After
+    @After // 测试方法之后运行
     public void test4() {
         System.out.println("@After");
     }
 
-    @AfterClass
-    public void test5() {
+    @AfterClass // 所有方法完成之后运行
+    public static void test5() {
         System.out.println("@AfterClass");
     }
 }

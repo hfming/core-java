@@ -3,7 +3,6 @@ package com.hfm.inheritance;
 import java.util.ArrayList;
 
 public class MainRedPacket {
-
     public static void main(String[] args) {
         Manager2 manager2 = new Manager2("群主", 100);
 

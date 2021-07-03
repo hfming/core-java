@@ -26,7 +26,7 @@ public class PictureRunnable implements Runnable {
     @Override
     public void run() {
         try (
-                FileInputStream fileInputStream = new FileInputStream(new File("D:\\Code\\core-java-simple\\socket\\Resources\\1.jpg"));
+                FileInputStream fileInputStream = new FileInputStream(new File("socket\\Resources\\1.jpg"));
                 // 使用 ByteArrayOutputStream 解决可能出现的乱码问题
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ) {

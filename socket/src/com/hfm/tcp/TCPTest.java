@@ -102,6 +102,7 @@ public class TCPTest {
             // 服务端给客户端发送数据
             OutputStream outputStream = socket.getOutputStream();
             outputStream.write("服务端返回信息！".getBytes());
+            System.out.println("服务端返回信息！");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -129,6 +130,8 @@ public class TCPTest {
             // 将客户端输出关闭，表明服务端输入停止，解决read 阻塞问题，之后服务端可以输出数据到客户端，客户端可以接收数据
             socket.shutdownOutput();
 
+            System.out.println("客户端接收消息！");
+
             // 客户端接收服务端数据
             InputStream inputStream = socket.getInputStream();
             // 创建字节数组对象存储数据
@@ -139,6 +142,7 @@ public class TCPTest {
                 // 可能会有乱码现象 可以使用 ByteArrayOutputStream 解决乱码问题
                 System.out.println(new String(b, 0, length));
             }
+            System.out.println("客户端接收数据成功！");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

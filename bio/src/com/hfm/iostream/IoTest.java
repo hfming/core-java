@@ -22,7 +22,7 @@ public class IoTest {
      */
     private static void writFileTest() throws FileNotFoundException, IOException {
         // 创建文件对象
-        File file = new File("file-io\\Resources\\test\\IOTestFile.txt");
+        File file = new File("bio\\Resources\\txt\\IOTestFile.txt");
         // 如果文件不存在则创建即可
         file.createNewFile();
         // 创建文件输出流
@@ -46,7 +46,7 @@ public class IoTest {
      */
     private static void readFileTest() throws FileNotFoundException, IOException {
         // 创建文件对象
-        File file = new File("file-io\\Resources\\test\\IOTestFile.txt");
+        File file = new File("bio\\Resources\\txt\\IOTestFile.txt");
         // 如果文件不存在则创建即可
         file.createNewFile();
         // 创建文件输入流

@@ -3,8 +3,8 @@ package com.hfm.inheritance;
 import java.util.ArrayList;
 
 /**
- *
- 群主的类
+ * 子类
+ * 群主的类
  */
 public class Manager2 extends User {
 

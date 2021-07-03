@@ -1,5 +1,7 @@
 package com.hfm.otherstream;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.*;
 import java.util.*;
 
@@ -10,7 +12,12 @@ import java.util.*;
  * @author hfm
  */
 public class SequenceStreamTest {
-    public static void main(String[] args) throws IOException {
+    /**
+     * new SequenceInputStream(fileInputStream1, fileInputStream2);
+     * 合并两个流
+     */
+    @Test
+    public void mergeTwoInputStream() {
         File file1 = new File("file-io\\Resources\\Knowledge_2.txt");
         File file2 = new File("file-io\\Resources\\OtherStream_3.txt");
         File fileOutput = new File("file-io\\Resources\\序列流合并.txt");
@@ -36,18 +43,15 @@ public class SequenceStreamTest {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        testSequenceInputStream();
-//        mergeFile();
-//        mergeFile2();
-//        mergeFile3();
-        cutFile();
     }
 
     /**
-     * 合并多个流
+     * SequenceInputStream(Enumeration<? extends InputStream> e)
+     * 合并多个流，需要传入一个 Enumeration 迭代器对象
      * 将多个流方到集合中
      */
-    public static void testSequenceInputStream() {
+    @Test
+    public void testSequenceInputStream() {
         File file1 = new File("file-io\\Resources\\Knowledge_2.txt");
         File file2 = new File("file-io\\Resources\\OtherStream_3.txt");
         File file3 = new File("file-io\\Resources\\CharacterStream_4.txt");
@@ -67,6 +71,7 @@ public class SequenceStreamTest {
             set.add(in1);
             set.add(in2);
             set.add(in3);
+
             // 获取集合迭代器对象
             final Iterator<InputStream> iter = set.iterator();
             // 传入一个迭代器对象，需要输入Enumeration，需要重写其方法，间接调用其方法，达到相同的效果
@@ -96,14 +101,20 @@ public class SequenceStreamTest {
     }
 
     /**
+     * * SequenceInputStream(Enumeration<? extends InputStream> e)
+     * 创建 Vector 集合存储要合并的流，vector 集合有内部类 Enumeration 实现类
+     * vector 可以调用 elements() 方法 获取内部 Enumeration 迭代器对象
      * 合并 flv 文件
      */
-    public static void mergeFile2() throws IOException {
+    @Test
+    public void mergeFile2() throws IOException {
         long start = System.currentTimeMillis();
         // 创建存储音乐的文件夹对象
         File dir = new File("E:\\OneDrive - cjlu.edu.cn\\视频 - ASMR\\");
         // 获取到文件夹中的所有子文件
         File[] files = dir.listFiles();
+        // 创建 Vector 集合存储要合并的流，vector 集合有内部类 Enumeration 实现类
+        // vector 可以调用 elements() 方法 获取内部 Enumeration 迭代器对象
         Vector<FileInputStream> inputStreams = new Vector<>();
         // 遍历数组，将 flv 文件加入到 vector 集合中
         for (File file : files) {
@@ -132,51 +143,8 @@ public class SequenceStreamTest {
     /**
      * 合并 flv 文件
      */
-    public static void mergeFile() throws IOException {
-        long start = System.currentTimeMillis();
-        // 创建存储音乐的文件夹对象
-        File dir = new File("E:\\OneDrive - cjlu.edu.cn\\视频 - ASMR\\");
-        // 获取到文件夹中的所有子文件
-        File[] files = dir.listFiles();
-        ArrayList<FileInputStream> inputStreams = new ArrayList<>();
-        // 遍历数组，将 flv 文件加入到 vector 集合中
-        for (File file : files) {
-            if (file.getName().contains("轩")) {
-                System.out.println(file.getName());
-                inputStreams.add(new FileInputStream(file));
-            }
-        }
-        // 创建一个输出流对象
-        FileOutputStream fileOutputStream = new FileOutputStream("E:\\OneDrive - cjlu.edu.cn\\视频 - ASMR\\轩子合集_1.flv");
-        ListIterator<FileInputStream> iterator = inputStreams.listIterator();
-        // 创建一个序列流对象
-        SequenceInputStream inputStream = new SequenceInputStream(new Enumeration<InputStream>() {
-            @Override
-            public boolean hasMoreElements() {
-                return iterator.hasNext();
-            }
-            @Override
-            public InputStream nextElement() {
-                return iterator.next();
-            }
-        });
-        byte[] buf = new byte[1024 << 3];
-        int length = -1;
-        // 边读边写
-        while ((length = inputStream.read(buf)) != -1) {
-            fileOutputStream.write(buf, 0, length);
-        }
-        // 关闭资源
-        fileOutputStream.close();
-        inputStream.close();
-        long end = System.currentTimeMillis();
-        System.out.println(end - start);
-    }
-
-    /**
-     * 合并 flv 文件
-     */
-    public static void mergeFile3() throws IOException {
+    @Test
+    public void mergeFile3() throws IOException {
         long start = System.currentTimeMillis();
         File dir = new File("E:\\OneDrive - cjlu.edu.cn\\视频 - ASMR\\");
         File[] files = dir.listFiles();
@@ -207,14 +175,65 @@ public class SequenceStreamTest {
     }
 
     /**
+     * SequenceInputStream(Enumeration<? extends InputStream> e)
+     * ArrayList 集合内部没有 Enumeration 迭代器
+     * 合并 flv 文件
+     */
+    @Test
+    public void mergeFile() throws IOException {
+        long start = System.currentTimeMillis();
+        // 创建存储音乐的文件夹对象
+        File dir = new File("E:\\OneDrive - cjlu.edu.cn\\视频 - ASMR\\");
+        // 获取到文件夹中的所有子文件
+        File[] files = dir.listFiles();
+        ArrayList<FileInputStream> inputStreams = new ArrayList<>();
+        // 遍历数组，将 flv 文件加入到 vector 集合中
+        for (File file : files) {
+            if (file.getName().contains("轩")) {
+                System.out.println(file.getName());
+                inputStreams.add(new FileInputStream(file));
+            }
+        }
+        // 创建一个输出流对象
+        FileOutputStream fileOutputStream = new FileOutputStream("E:\\OneDrive - cjlu.edu.cn\\视频 - ASMR\\轩子合集_1.flv");
+        ListIterator<FileInputStream> iterator = inputStreams.listIterator();
+        // 创建一个序列流对象
+        SequenceInputStream inputStream = new SequenceInputStream(new Enumeration<InputStream>() {
+            @Override
+            public boolean hasMoreElements() {
+                return iterator.hasNext();
+            }
+
+            @Override
+            public InputStream nextElement() {
+                return iterator.next();
+            }
+        });
+        byte[] buf = new byte[1024 << 3];
+        int length = -1;
+        // 边读边写
+        while ((length = inputStream.read(buf)) != -1) {
+            fileOutputStream.write(buf, 0, length);
+        }
+        // 关闭资源
+        fileOutputStream.close();
+        inputStream.close();
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
+    }
+
+    /**
+     * 通过缓冲区大小控制每块文件的大小
      * 切割 文件
      */
-    public static void cutFile() throws IOException {
+    @Test
+    public void cutFile() throws IOException {
         File file = new File("file-io\\Resources\\P1 File 类的概述.flv");
         FileInputStream fileInputStream = new FileInputStream(file);
         byte[] buf = new byte[1024 << 12];
         int length = -1;
         int count = 1;
+        // 通过缓冲区大小控制每块文件的大小
         while ((length = fileInputStream.read(buf)) != -1) {
             // 每读取一次，则生成一个文件
             FileOutputStream fileOutputStream = new FileOutputStream("file-io\\Resources\\P1 File 类的概述 part " + count + ".flv");

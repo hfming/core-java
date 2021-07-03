@@ -144,9 +144,7 @@ public class ListAndAbstractListTest {
             }
         };
 
-        /**
-         * 添加
-         */
+        /// 添加
         ArrayList<User> users = new ArrayList<User>();
         // Collection 集合的add 方法
         users.add(new User(0001, "hfm", "0001"));
@@ -167,9 +165,7 @@ public class ListAndAbstractListTest {
         users.addAll(1, users2);
         System.out.println(users);
 
-        /**
-         * 删除
-         */
+        /// 删除
         // E remove(int index) 删除指定位置元素
         users.remove(1);
         System.out.println(users.toString());
@@ -178,16 +174,12 @@ public class ListAndAbstractListTest {
         users.retainAll(users);
         System.out.println(users.toString());
 
-        /**
-         * 	修改
-         */
+        ///	修改
         // E set(int index, E element)返回的是需要替换的集合中的元素
         users.set(0, new User(0006, "fsd", "0006"));
         System.out.println(users);
 
-        /**
-         *	查找
-         */
+        ///	查找
         users.add(new User(0001, "hfm", "0001"));
         users.add(new User(0002, "trt", "0002"));
         users.add(new User(0003, "dsd", "0003"));
@@ -199,6 +191,7 @@ public class ListAndAbstractListTest {
         // 最后出现的位置
         System.out.println(users.lastIndexOf(new User(0002, "trt", "0002")));
         // subList(int fromIndex, int toIndex)	返回此列表中指定的 fromIndex（含）和 toIndex之间的视图。
+
         // 返回的是一个内部实现 list 接口的类
         List<User> subList = users.subList(0, 1);
         System.out.println(subList);
@@ -223,9 +216,7 @@ public class ListAndAbstractListTest {
         List<User> userList = List.copyOf(users);
         System.out.println(userList);
 
-        /**
-         * 替换
-         */
+        /// 替换
         /**
          * 此方法等价实现代码如下:
          * final ListIterator<E> li = list.listIterator();
@@ -237,9 +228,7 @@ public class ListAndAbstractListTest {
         users.replaceAll(t -> t);
         System.out.println(users);
 
-        /**
-         * 迭代器
-         */
+        /// 迭代器
         // 特有迭代器 listIterator 逆序迭代
         ListIterator iterator = users.listIterator();
         while (iterator.hasNext()) {

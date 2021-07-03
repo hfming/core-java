@@ -9,16 +9,14 @@ package com.hfm.inheritance;
 public class Student extends People {
 
     /**
-     *
-     子类继承父类的公共属性，如果没有特有的公共属性并不需要再次写其属性
+     * 子类继承父类的公共属性，如果没有特有的公共属性并不需要再次写其属性
      */
     public Student(String gmsfhm, String name, String sex, int age) {
         super(gmsfhm, name, sex, age);
     }
 
     /**
-     *
-     子类继承父类公有的静态方法，如果没有特有的公有行为可以不需要写父类已经有的方法
+     * 子类继承父类公有的静态方法，如果没有特有的公有行为可以不需要写父类已经有的方法
      */
     public void study() {
         System.out.println("学习");

@@ -12,15 +12,9 @@ import java.io.File;
  */
 public class FindFileTest {
     public static void main(String[] args) {
-        File file = new File("file-io\\");
+        File dir = new File("bio\\Resources");
         String tagFileName = "P1 File 类的概述.flv";
-        File tagFile = findFile(file, tagFileName);
-        // 打印文件路径
-        if (tagFile != null) {
-            System.out.println(tagFile.getAbsolutePath());
-        } else {
-            System.out.println("没有找到文件！");
-        }
+        findFile(dir, tagFileName);
     }
 
     /**
@@ -29,20 +23,18 @@ public class FindFileTest {
      * @param dir
      * @return
      */
-    public static File findFile(File dir, String name) {
+    public static void findFile(File dir, String name) {
         File[] files = dir.listFiles();
         for (File file : files) {
             // 是文件，判断文件名并输出文件绝对路径 
             if (file.isFile()) {
-                if ( name.equals(file.getName())){
-                    return file;
+                if (name.equals(file.getName())) {
+                    System.out.println(file.getAbsolutePath());
                 }
-            }
-            if (file.isDirectory()) {
+            } else {
                 // 是目录，继续遍历,形成递归
-               return findFile(file, name);
+                 findFile(file, name);
             }
         }
-        return null;
     }
 }

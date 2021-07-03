@@ -6,7 +6,7 @@ import java.util.StringTokenizer;
 /**
  * @author hfm Email:hfming2016@163.com
  * @version v 1.01
- * @Description
+ * @Description 扩展类加载器
  * @date 2020-05-13 9:08
  */
 public class ExtensionClassLoaderTest {
@@ -21,7 +21,7 @@ public class ExtensionClassLoaderTest {
     }
 
     /**
-     * ExtClassLoader类中获取路径的代码
+     * ExtClassLoader类中获取路径的源代码
      */
     private static File[] getExtDirs() {
         // 加载<JAVA_HOME>/lib/ext目录中的类库

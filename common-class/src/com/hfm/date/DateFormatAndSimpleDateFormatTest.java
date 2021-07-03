@@ -5,7 +5,6 @@ import org.junit.jupiter.api.Test;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
 
 /**
  * java.text.DateFormat:是日期/时间格式化子类的抽象类
@@ -16,7 +15,6 @@ import java.util.Scanner;
  */
 public class DateFormatAndSimpleDateFormatTest {
     private SimpleDateFormat simpleDateFormat;
-    private Scanner sc = new Scanner(System.in);
 
     /**
      * 计算已经出生了多少天
@@ -24,10 +22,8 @@ public class DateFormatAndSimpleDateFormatTest {
      * @throws ParseException
      */
     @Test
-    private void birthNumDay() throws ParseException {
-        // 1.使用Scanner类中的方法next, 获取出生日期
-        System.out.println("请输入您的出生日期,格式:yyyy-MM-dd");
-        String birthdayDateString = sc.next();
+    public void birthNumDay() throws ParseException {
+        String birthdayDateString = "2019-02-02";
 
         // 2.使用DateFormat类中的方法parse, 把字符串的出生日期, 解析为Date格式的出生日期
         simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");

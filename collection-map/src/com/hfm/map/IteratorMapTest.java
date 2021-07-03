@@ -12,6 +12,9 @@ import java.util.*;
  * @date 2020-04-22 11:42
  */
 public class IteratorMapTest {
+    /**
+     * 对键进行遍历
+     */
     @Test
     public void keySetTest() {
         Map<Integer, People> users = new HashMap();
@@ -31,6 +34,9 @@ public class IteratorMapTest {
         }
     }
 
+    /**
+     * 对值进行遍历
+     */
     @Test
     public void valuesTest() {
         Map<Integer, People> users = new HashMap();
@@ -50,6 +56,9 @@ public class IteratorMapTest {
         }
     }
 
+    /**
+     * 对 entry 进行遍历
+     */
     @Test
     public void entrySetTest() {
         Map<Integer, People> users = new HashMap();

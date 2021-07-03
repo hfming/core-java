@@ -55,12 +55,19 @@ public class ArithmeticOperator {
         System.out.println((c + num2) + str);
         // hello10a
         System.out.println(str + num2 + c);
+
         // 转义字符与 String 类型的使用
         System.out.println("*	*");
         System.out.println('*' + '\t' + '*');
         System.out.println('*' + "\t" + '*');
         System.out.println('*' + '\t' + "*");
         System.out.println('*' + ('\t' + "*"));
+
+        // String 与 boolean 做连接运算
+        // atrue
+        System.out.println("a"+true);
+        // afalse
+        System.out.println("a"+false);
 
         /// - (负号，减法)
 

@@ -30,7 +30,6 @@ public class IteratorTest {
         };
     }
 
-
     /**
      * NoSuchElementException：没有找到元素
      */
@@ -50,6 +49,7 @@ public class IteratorTest {
             System.out.println(iterator.next());
         }
         // NoSuchElementException,指针已经移动到末尾，没有下一个元素了
+        // 不会返回null,而是会报错
         System.out.println(iterator.next());
     }
 
@@ -60,6 +60,7 @@ public class IteratorTest {
             myStr = "atguigu";
             System.out.println(myStr);
         }
+
         for (int i = 0; i < str.length; i++) {
             System.out.println(str[i]);
         }
@@ -81,7 +82,8 @@ public class IteratorTest {
 
         Iterator<People> iterator = people.iterator();
         // 运行错误 java.lang.IllegalStateException
-        iterator.remove();
+        // 必须先 next 在 remove
+//        iterator.remove();
         iterator.next();
         iterator.remove();
     }
@@ -180,6 +182,7 @@ public class IteratorTest {
     /**
      * for循环遍历集合
      */
+    @Test
     public void forTest() {
         ArrayList<People> people = new ArrayList<>();
         people.add(new People("01", "hfm", 26));
@@ -255,6 +258,7 @@ public class IteratorTest {
 
     /**
      * 聚合操作遍历集合
+     * Stream API
      */
     @Test
     public void aggregateOperationsTest() {

@@ -38,7 +38,7 @@ public class Baby {
      * 公共行为
      */
     public void cry() {
-        String  id = "001";
+        String id = "001";
         // 使用this关键字指定使用本类成员变量
         System.out.println(this.id);
     }

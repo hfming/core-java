@@ -7,8 +7,10 @@ import java.io.RandomAccessFile;
 import java.net.DatagramSocket;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.channels.*;
-import java.nio.file.Files;
+import java.nio.channels.DatagramChannel;
+import java.nio.channels.FileChannel;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
@@ -52,10 +54,10 @@ public class GetChannelTest {
 
         ServerSocket serverSocket = new ServerSocket();
         // 获取 ServerSocketChannel
-        ServerSocketChannel serverSocketChannel = serverSocket.getChannel();
+        ServerSocketChannel serverSocketCnnel = serverSocket.getChannel();
 
         /**
-         * 获取channel 的方法二：JDK 1.7 时对NIO 进行大量的改进，我们把它称为 NIO 2
+         * 获取channel 的方法二：JDK 1.7 时对NIO 进行大量的改进，我们把它称为 NIO 2，ji即 AIO
          * NIO 2 针对各个通道提供了静态的 open 方法来获取各个Channel通道
          */
         //    StandardOpenOption 枚举类
@@ -75,6 +77,6 @@ public class GetChannelTest {
         /**
          * 获取 Channel 的方式三：JDK 1.7 的 Files工具类的方法 newByteChannel()  获取字节通道。
          */
-        // Files.newByteChannel("nio\\Resources\\text.txt", StandardOpenOption.READ);
+//        SeekableByteChannel seekableByteChannel = Files.newByteChannel("nio\\Resources\\text.txt", StandardOpenOption.READ,StandardOpenOption.CREATE);
     }
 }

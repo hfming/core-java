@@ -13,11 +13,13 @@ import java.util.function.IntUnaryOperator;
 public class ArraysSetAllTest {
     public static void main(String[] args) {
         int[] arr3 = new int[5];
+        System.out.println(Arrays.toString(arr3));
 
         Arrays.setAll(arr3, new IntUnaryOperator() {
             @Override
             public int applyAsInt(int operand) {
                 // operand代表正在计算的元素的索引
+                System.out.println(operand);
                 return operand + 5;
             }
         });
@@ -44,7 +46,7 @@ public class ArraysSetAllTest {
 
         // lambda表达式改造
         Arrays.parallelSetAll(arr3, (int op) -> {
-            return op + 5;
+            return op * 5;
         });
         System.out.println(Arrays.toString(arr3));
     }

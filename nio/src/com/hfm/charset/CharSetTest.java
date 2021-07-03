@@ -2,10 +2,7 @@ package com.hfm.charset;
 
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
-import java.nio.charset.CharacterCodingException;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
-import java.nio.charset.CharsetEncoder;
+import java.nio.charset.*;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
@@ -29,6 +26,8 @@ public class CharSetTest {
 
         // 获取 CharSet 集合
         Charset charset = Charset.forName("UTF-8");
+//        Charset charset2 = StandardCharsets.UTF_8;
+
         // 获取编码器
         CharsetEncoder charsetEncoder = charset.newEncoder();
         // 获取解码器
@@ -41,18 +40,20 @@ public class CharSetTest {
         charBuffer.flip();
 
         try {
-            // 编码
+            // 编码,字符转字节
             ByteBuffer byteBuffer = charsetEncoder.encode(charBuffer);
             for (byte b : byteBuffer.array()) {
                 System.out.print(b);
             }
             System.out.println();
-            // 解码
+
+            // 解码，字节转字符
             CharBuffer decode = charsetDecoder.decode(byteBuffer);
             decode.flip();
             for (char c : decode.array()) {
                 System.out.print(c);
             }
+            System.out.println();
         } catch (CharacterCodingException e) {
             e.printStackTrace();
         }

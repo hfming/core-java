@@ -29,7 +29,7 @@ public class ArraysCompareTest {
         System.out.println(Arrays.compareUnsigned(arr2,arr1));
 
         int arr3[] = {1, 2, 3, 9};
-        int arr4[] = {1, 2, 3, 4};
+        int arr4[] = {1, 2, 3, -4};
 
         System.out.println(Arrays.compare(arr3, arr4));
         System.out.println(Arrays.compare(arr4, arr3));

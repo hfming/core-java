@@ -21,7 +21,7 @@ public class DateTimeFormatTest {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_DATE;
         LocalDateTime localDateTime = LocalDateTime.now();
 
-        // 格式化
+        // format 方法格式化
         System.out.println(localDateTime);
         System.out.println(dateTimeFormatter.format(localDateTime));
         System.out.println(localDateTime.format(dateTimeFormatter));
@@ -30,23 +30,27 @@ public class DateTimeFormatTest {
         System.out.println(isoDateTime.format(localDateTime));
         System.out.println(localDateTime.format(isoDateTime));
 
-        // 方式二：本地化的格式
-        DateTimeFormatter fullFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL);
-        // System.out.println(localDateTime.format(fullFormat));
-        DateTimeFormatter longFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL);
-        // System.out.println(localDateTime.format(longFormat));
-        DateTimeFormatter mediumFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL);
-        //  System.out.println(localDateTime.format(mediumFormat));
-        DateTimeFormatter shortFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL);
-        // System.out.println(localDateTime.format(shortFormat));
+        System.out.println("================");
+        // 方式二：本地化的格式 ofLocalizedDateTime ->  FormatStyle.SHORT 与 FormatStyle.MEDIUM
+        DateTimeFormatter shortFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT);
+        System.out.println(shortFormat.format(localDateTime));
+        DateTimeFormatter mediumFormat = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
+        System.out.println(mediumFormat.format(localDateTime));
 
+        // ofLocalizedDate -》 FormatStyle.SHORT\FormatStyle.MEDIUM\FormatStyle.FULL\FormatStyle.LONG
+        DateTimeFormatter fullFormat = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
+        System.out.println(fullFormat.format(localDateTime));
+        DateTimeFormatter longFormat = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
+        System.out.println(longFormat.format(localDateTime));
+
+        System.out.println("================");
         // 方式三：自定义格式
         DateTimeFormatter dateTimeFormatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss");
         System.out.println(localDateTime);
         System.out.println(dateTimeFormatter2.format(localDateTime));
         System.out.println(localDateTime.format(dateTimeFormatter2));
 
-        // 解析
+        // parse 方法解析
         TemporalAccessor parse1 = dateTimeFormatter2.parse("2020-04-14 04:39:22");
         System.out.println(parse1);
 

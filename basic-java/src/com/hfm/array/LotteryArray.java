@@ -8,7 +8,7 @@ package com.hfm.array;
  */
 public class LotteryArray {
     public static void main(String[] args) {
-        final int NMAX = 10;
+        final int NMAX = 30;
 
         // 分配三角形数组
         int[][] odds = new int[NMAX + 1][];

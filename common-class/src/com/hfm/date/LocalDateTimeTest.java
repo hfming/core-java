@@ -33,12 +33,15 @@ public class LocalDateTimeTest {
 
         // 返回一个新的 localDateTime 不可变性
         // 设置方法
-        localDateTime = localDateTime.withDayOfMonth(2);
+        LocalDateTime localDateTime1 = localDateTime.withDayOfMonth(2);
+        System.out.println(localDateTime1);
 
         // 添加方法
-        localDateTime = localDateTime.plusDays(3);
+        LocalDateTime localDateTime2 = localDateTime.plusDays(3);
+        System.out.println(localDateTime2);
 
         // 减法
-        localDateTime = localDateTime.minusDays(4);
+        LocalDateTime localDateTime3 = localDateTime.minusDays(4);
+        System.out.println(localDateTime3);
     }
 }

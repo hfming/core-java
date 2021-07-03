@@ -28,10 +28,10 @@ public class PropertiesTest {
             System.out.println(iterator.next().toString());
         }
 
-        checkRuntime();
-        // createProperties();
-        loginProperties();
-        loginProperties2();
+//        checkRuntime();
+         createProperties();
+//        loginProperties();
+//        loginProperties2();
     }
 
     /**
@@ -39,7 +39,7 @@ public class PropertiesTest {
      */
     public static void checkRuntime() throws IOException, FileNotFoundException {
         // 先检查是否存在配置文件
-        File file = new File("D:\\Code\\core-java-simple\\file-io\\src\\com\\hfm\\properties\\runtime.properties");
+        File file = new File("D:\\Code\\core-java-simple\\bio\\src\\com\\hfm\\properties\\runtime.properties");
         // 如果不存在，创建配置文件
         if (!file.exists()) {
             file.createNewFile();
@@ -72,12 +72,12 @@ public class PropertiesTest {
      * 生产配置文件
      */
     public static void createProperties() {
-        File file = new File("D:\\Code\\core-java-simple\\file-io\\src\\com\\hfm\\properties\\properties.properties");
+        File file = new File("bio\\src\\com\\hfm\\properties\\properties.properties");
         Properties properties = new Properties();
         properties.setProperty("key1", "value1");
         properties.setProperty("key2", "value2");
         properties.setProperty("key3", "value3");
-        properties.setProperty("key4", "value4");
+        properties.setProperty("ke4", "val");
         try (
                 FileWriter fileWriter = new FileWriter(file);
         ) {

@@ -14,7 +14,6 @@ import java.net.URL;
  * @create 2019 下午 4:47
  */
 public class URLTest {
-
     public static void main(String[] args) {
         // URL类的构造器都声明抛出非运行时异常，必须要对这一异常进行处理，通常是用 try-catch 语句进行捕获。
         try {

@@ -10,21 +10,19 @@ import java.lang.annotation.*;
  */
 // 可重复注解
 @Repeatable(MyAnnotations.class)
+// 指定被该元 Annotation 修饰的 Annotation 类将被javadoc 工具提取成文档
+@Documented
 // 子类可基础
 @Inherited
 // 指定生命周期
 @Retention(RetentionPolicy.RUNTIME)
 // 指定修饰的结构
 @Target({ElementType.TYPE, ElementType.FIELD, ElementType.METHOD, ElementType.PARAMETER, ElementType.CONSTRUCTOR, ElementType.LOCAL_VARIABLE, ElementType.MODULE})
+// @interface 注解声明
 public @interface MyAnnotation {
     // 定义抽象方法 作为注解的属性
     // 要求：
-    // 1. 属性的返回值类型有下列取值
-    //				* 基本数据类型
-    //				* String
-    //				* 枚举
-    //				* 注解
-    //				* 以上类型的数组
+    // 1. 属性的返回值类型有下列取值 八种基本数据类型、String 类型、Class 类型、enum 类型、Annotation 类型、以上所有类型的数组
     // 2. 定义了属性，在使用时需要给属性赋值
     //				1. 如果定义属性时，使用default关键字给属性默认初始化值，则使用注解时，可以不进行属性的赋值。
     //				2. 如果只有一个属性需要赋值，并且属性的名称是value，则value可以省略，直接定义值即可。

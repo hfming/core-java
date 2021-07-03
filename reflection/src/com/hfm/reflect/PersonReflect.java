@@ -108,6 +108,35 @@ public class PersonReflect {
         Person person = aClass.newInstance();
         System.out.println(person.toString());
 
+        /// 获取代泛型的父类
+        Type genericSuperclass = aClass.getGenericSuperclass();
+        System.out.println(genericSuperclass);
+        // 获取父类
+        Class<? super Person> superclass = aClass.getSuperclass();
+        System.out.println(superclass);
+
+        /// 获取泛型参数
+        ParameterizedType parameterizedType = (ParameterizedType) genericSuperclass;
+        Type[] actualTypeArguments = parameterizedType.getActualTypeArguments();
+        for (Type actualTypeArgument : actualTypeArguments) {
+            System.out.println(actualTypeArgument.getTypeName());
+        }
+
+        /// 获取接口
+        Class<?>[] interfaces = aClass.getInterfaces();
+        for (Class<?> anInterface : interfaces) {
+            System.out.println(anInterface);
+        }
+
+        /// 获取泛型接口
+        Type[] genericInterfaces = aClass.getGenericInterfaces();
+        for (Type genericInterface : genericInterfaces) {
+            System.out.println(genericInterface);
+        }
+
+        /// 获取包
+        Package aPackage = aClass.getPackage();
+        System.out.println(aPackage);
         /**
          * 获取指定的属性：要求运行时类中属性声明为public
          */
@@ -115,7 +144,6 @@ public class PersonReflect {
         Field id = aClass.getField("id");
 
         // 设置当前属性的值set():参数1：指明设置哪个对象的属性   参数2：将此属性值设置为多少
-
         id.set(person, 1001);
 
         // 获取当前属性的值get():参数1：获取哪个对象的当前属性值
@@ -134,6 +162,7 @@ public class PersonReflect {
 
         System.out.println(name.get(person));
 
+        /// 非静态方法
         // 获取指定的某个方法getDeclaredMethod():参数1 ：指明获取的方法的名称  参数2：指明获取的方法的形参列表
         Method show = aClass.getDeclaredMethod("show", String.class);
         // 2.保证当前方法是可访问的
@@ -144,8 +173,8 @@ public class PersonReflect {
         Object returnValue = show.invoke(person, "CHN");
         System.out.println(returnValue);
 
+        /// 静态方法
         System.out.println("*************如何调用静态方法*****************");
-
         Method showDesc = aClass.getDeclaredMethod("showDesc");
         showDesc.setAccessible(true);
         // 如果调用的运行时类中的方法没有返回值，则此invoke()返回null

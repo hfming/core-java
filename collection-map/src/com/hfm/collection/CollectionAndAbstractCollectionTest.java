@@ -91,13 +91,12 @@ public class CollectionAndAbstractCollectionTest {
                 return 0;
             }
         };
-        /**
-         * 增加方法
-         */
+        /// 增加方法
         // 多态的方式，Collection 为接口不能创建对象，只能使用多态的方式将父类引用类型变量指向子类对象
         Collection list = new ArrayList();
 
         // add() 将指定对象存储到容器中,add方法的参数类型是 Object 便于接收任意对象
+        // 添加自定义对象需要重写 equals 方法
         list.add(new People("001", "hfm", 34));
 
         /// 调用 println(Object) 源码
@@ -112,6 +111,7 @@ public class CollectionAndAbstractCollectionTest {
 //            return obj == null ? "null" : obj.toString();
 //        }
         // println() 对 boolean、char、int、long、float、double、char[]、String、Object 进行重载，相当与调用 list.toString()
+        // 父类 AbstractCollection 对toString 方法进行重写，迭代器遍历打印输出
         System.out.println(list);
 
         Collection list2 = new ArrayList();
@@ -122,15 +122,13 @@ public class CollectionAndAbstractCollectionTest {
         list.addAll(list2);
         System.out.println(list);
 
-        /**
-         *  删除方法
-         */
         list2.add(new People("002", "hfm", 54));
         list2.add(new People("003", "hfm", 65));
         People p = new People("004", "hf", 34);
         list2.add(p);
         System.out.println(list2);
 
+        /// 删除方法
         // remove() 将指定的对象从集合中删除
         list2.remove(p);
         System.out.println(list2);
@@ -140,27 +138,24 @@ public class CollectionAndAbstractCollectionTest {
         list3.add(new People("003", "hfm", 65));
 
         // removeAll() 将指定集合中的元素删除
+        // 需要重写 equals 与 hashCode 方法才能根据内容删除
         list2.removeAll(list3);
-        System.out.println(list2);
+        System.out.println("list"+list2);
 
-        /**
-         *修改方法
-         */
+        /// 修改方法
         // clean 清除元素
         list2.clear();
         System.out.println(list2);
         // false 仅仅清空集合里面的元素，引用类型变量还是有地址值
         System.out.println(list2 == null);
 
-        // retainAll() 仅保留此集合中包含的指定集合中的元素（可选操作）。
+        // retainAll() 仅保留此集合中包含的指定集合中的元素（可选操作）。求交集
         System.out.println(list);
         System.out.println(list3);
         list.retainAll(list3);
         System.out.println("retainAll() " + list);
 
-        /**
-         *判断方法
-         */
+        /// 判断方法
         // isEmpty() 判断集合是否为空
         System.out.println(list2.isEmpty());
 
@@ -170,12 +165,10 @@ public class CollectionAndAbstractCollectionTest {
         // containsAll() 判断集合中是否包含指定集合
         System.out.println(list.containsAll(list3));
 
-        // 使用equals()判断两个对象是否相等判断
+        // 使用equals()判断两个对象是否相等判断，比较集合中的元素是否相同，不是比较内存地址
         System.out.println(list.equals(list3));
 
-        /**
-         * 获取方法
-         */
+        /// 获取方法
         // int size() 返回集合容器的大小
         System.out.println(list.size());
         System.out.println(list2.size());
@@ -183,9 +176,7 @@ public class CollectionAndAbstractCollectionTest {
         // hashCode 返回此集合的哈希代码值。Object.hashCode() 方法默认返回十进制的虚拟地址
         System.out.println(list.hashCode());
 
-        /**
-         * 转化为数组
-         */
+        /// 转化为数组
         // toArray() 集合转换数组
         Collection collection1 = new ArrayList();
         collection1.add(1);
@@ -200,7 +191,7 @@ public class CollectionAndAbstractCollectionTest {
         // toArray(T[] a) 返回包含此集合中所有元素的数组; 返回的数组的运行时类型是指定数组的运行时类型。
         People[] peoples = new People[]{};
         Object[] objects = list.toArray(peoples);
-        System.out.println(Arrays.toString(objects));
+        System.out.println("objects"+Arrays.toString(objects));
 
         /**
          * 迭代器：iterator()
@@ -218,6 +209,11 @@ public class CollectionAndAbstractCollectionTest {
             it.remove();
         }
 
+        System.out.println("===================");
+        list.add(new People("002", "hfm", 54));
+        list.add(new People("003", "hfm", 65));
+        System.out.println(list);
+
         /**
          * for-each 循环
          */
@@ -225,15 +221,18 @@ public class CollectionAndAbstractCollectionTest {
             System.out.println(o + "for each");
         }
 
+        list.forEach(System.out::println);
+
         // Aggregate Operations 聚合操作在 JDK 8 以后，推荐使用聚合操作对一个集合进行操作。
         // stream() 返回以此集合作为源的顺序 Stream 。
         list.stream().forEach((Object person) -> {
-            System.out.println(person+"Aggregate Operations");
+            System.out.println(person + "Aggregate Operations");
         });
-        list.stream().forEach(person-> System.out.println(person.toString()));
+
+        list.stream().forEach(person -> System.out.println(person.toString()));
         // spliterator() 创建一个Spliterator在这个集合中的元素。
 
         //  forEachRemaining 遍历
-        it.forEachRemaining(people -> System.out.println(people.toString() + "forEachRemaining"));
+        list.iterator().forEachRemaining(people -> System.out.println(people.toString() + "forEachRemaining"));
     }
 }

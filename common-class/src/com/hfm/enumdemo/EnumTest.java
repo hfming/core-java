@@ -41,5 +41,5 @@ enum Size {
         return abbreviation;
     }
 
-    private String abbreviation;
+    private final String abbreviation;
 }

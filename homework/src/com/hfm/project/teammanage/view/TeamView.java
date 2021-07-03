@@ -19,6 +19,7 @@ public class TeamView {
     private static NameListService nameListService = new NameListService();
     private static TeamService teamService = new TeamService();
     private static Scanner scanner = new Scanner(System.in);
+    // 去除魔法值，使用 enum 枚举类
     private static final StringBuilder[] SELECT_NUMS = new StringBuilder[]{new StringBuilder("1"), new StringBuilder("2"),
             new StringBuilder("3"), new StringBuilder("4")};
     private static final StringBuilder[] VERIFY = new StringBuilder[]{new StringBuilder("Y"), new StringBuilder("N")};
@@ -31,9 +32,7 @@ public class TeamView {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        OUT:
         while (true) {
-
             selectNum = new StringBuilder(scanner.next());
             // 团队列表
             if (SELECT_NUMS[0].toString().equals(selectNum.toString())) {
@@ -80,7 +79,6 @@ public class TeamView {
             System.out.print("输入错误，请重新输入:");
         }
     }
-
 
     private static void printAllEmployee() {
         System.out.println("----------------------团队成员列表----------------------");
@@ -134,7 +132,6 @@ public class TeamView {
         TSUtility.readReturn();
     }
 
-
     /**
      * @Description 打印主页面
      */
@@ -152,7 +149,6 @@ public class TeamView {
         System.out.println("-----------------------------------------------------------");
         System.out.print("1 团队列表\t2 添加团队成员\t3 删除团队成员\t4-退出程序\t请选择(1-4):");
     }
-
 
     /**
      * 退出

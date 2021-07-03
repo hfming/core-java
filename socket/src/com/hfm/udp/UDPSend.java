@@ -10,7 +10,6 @@ import java.net.InetAddress;
  * @author hfm
  */
 public class UDPSend {
-
 	public static void main(String[] args) throws IOException {
 		System.out.println("开始发送数据！");
 		// 1.创建UDP通信协议Socket对象

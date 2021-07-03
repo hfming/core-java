@@ -1,6 +1,6 @@
 package com.hfm.state;
 
-import com.hfm.thread.MyThread;
+import com.hfm.createthread.MyThread;
 
 /**
  * @author hfm Email:hfming2016@163.com

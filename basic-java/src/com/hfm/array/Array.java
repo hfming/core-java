@@ -14,7 +14,7 @@ public class Array implements Serializable {
     private static final long serialVersionUID = 2590380227656483356L;
 
     public static void main(String[] args) {
-        // 数组定义
+        // 数组定义/数组声明
         // 方式一：数据类型[] 变量名 = new 数据类型[容量大小];
         int[] arr1 = new int[10];
 
@@ -35,8 +35,14 @@ public class Array implements Serializable {
         arr1[1] = 2;
         arr1[2] = 3;
 
-        // 方式二：不使用运算符 new
+        // 方式二：不使用运算符
         int[] arr3 = new int[]{10, 23, 42, 1, 1, 1, 11};
+
+        /// 数组的length 属性
+        System.out.println(arr1.length);
+
+        // 通过索引访问数组元素
+        System.out.println(arr1[1]);
 
         // 数组遍历
         // 方式一：for循环

@@ -26,7 +26,7 @@ public class MyPrintDirectory {
     }
 
     public static void main(String[] args) {
-        File file = new File("file-io");
+        File file = new File("bio");
         getFileName(file, "");
     }
 }

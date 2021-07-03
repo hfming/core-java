@@ -9,7 +9,7 @@ import java.io.*;
  */
 public class FinallyTest {
     public static void main(String[] args) {
-        File file= null;
+        File file = null;
         FileReader fileReader = null;
         BufferedReader bufferedReader;
         // 捕获异常
@@ -27,13 +27,15 @@ public class FinallyTest {
         } catch (IOException e) {
             System.out.println("文件读取错误！");
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
-                fileReader.close();
+                if (fileReader != null) {
+                    fileReader.close();
+                }
             } catch (IOException e) {
                 System.out.println("文件关闭失败！");
                 throw new RuntimeException(e.getMessage());
-            }finally{
+            } finally {
                 System.out.println("文件关闭成功！");
             }
         }

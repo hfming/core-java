@@ -24,6 +24,13 @@ public class SimpleStudentTest {
 
         // 调用方法传入对象
         giveSimpleStudent(student);
+
+        // 创建对象数组
+        SimpleStudent[] students = new SimpleStudent[20];
+        // 对象数组初始化
+        for (int i = 0; i < students.length; i++) {
+            students[i] = new SimpleStudent();
+        }
     }
 
     /**

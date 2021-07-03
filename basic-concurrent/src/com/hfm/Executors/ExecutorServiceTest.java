@@ -1,6 +1,6 @@
 package com.hfm.Executors;
 
-import com.hfm.runnable.MyRunnable;
+import com.hfm.createthread.MyRunnable;
 
 import java.util.concurrent.*;
 
@@ -12,18 +12,18 @@ import java.util.concurrent.*;
  */
 public class ExecutorServiceTest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
-        // 1. 通过继承Thread 类，创建Thread 类的子类，创建自定义线程类
+        /// 1. 通过继承Thread 类，创建Thread 类的子类，创建自定义线程类
         new TestThread("继承 Thread 类").start();
 
-        // 2. 通实现 Runnable 接口，重写 run 方法，创建自定义线程类
+        /// 2. 通实现 Runnable 接口，重写 run 方法，创建自定义线程类
         new Thread(new TestRunnable(), "Runnable 实现类对象").start();
 
-        // 3.通过实现 Callable 接口，重写 call 方法,创建 FutureTask 对象，创建自定义线程类
+        /// 3.通过实现 Callable 接口，重写 call 方法,创建 FutureTask 对象，创建自定义线程类
         FutureTask futureTask = new FutureTask<>(new TestCallabel());
         new Thread(futureTask, "Callable 实现类对象").start();
         System.out.println(futureTask.get());
 
-        // 4.通过线程池获取线程
+        /// 4.通过线程池获取线程
         // 线程池不允许使用Executors去创建，而是通过 ThreadPoolExecutor 的方式，这样的处理方式让写的同学更加明确线程池的运行规则，规避资源耗尽的风险。
         // 说明：Executors返回的线程池对象的弊端如下：
         // 1）FixedThreadPool和SingleThreadPool:允许的请求队列长度为Integer.MAX_VALUE，可能会堆积大量的请求，从而导致OOM。

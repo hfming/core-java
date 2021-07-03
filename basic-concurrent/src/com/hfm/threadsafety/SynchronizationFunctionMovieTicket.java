@@ -17,7 +17,9 @@ public class SynchronizationFunctionMovieTicket implements Runnable {
         //每个窗口卖票的操作
         //窗口 永远开启
         while (true) {
-            sellTicket();
+            if (sellTicket()) {
+                break;
+            }
         }
     }
 
@@ -25,24 +27,25 @@ public class SynchronizationFunctionMovieTicket implements Runnable {
      * 锁对象是谁调用这个方法就是谁
      * 隐含锁对象就是 this
      */
-    public synchronized void sellTicket() {
+    public synchronized boolean sellTicket() {
         // 有票 可以卖
         if (ticket > 0) {
             // 出票操作
             // 使用sleep模拟一下出票时间
             try {
-                Thread.sleep(100);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             // 获取当前线程对象的名字
             String name = Thread.currentThread().getName();
             System.out.println(name + "正在卖:" + ticket--);
+            return false;
         } else {
             System.out.println("票已经售罄！");
+            return true;
         }
     }
-
 
     public static void main(String[] args) {
         SynchronizationFunctionMovieTicket ticket = new SynchronizationFunctionMovieTicket();

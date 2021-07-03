@@ -11,6 +11,7 @@ public class BasicDateTypeExchangeValue {
     public static void main(String[] args) {
         int a = 3;
         int b = 5;
+        // 交换失败，仅仅是形参进行交换，操纵的是基本数据类型的复制品
         exchangeBasisValue(a, b);
         System.out.println("a" + a + " b" + b);
 
@@ -34,23 +35,16 @@ public class BasicDateTypeExchangeValue {
         a = a ^ b;
         System.out.println("a" + a + " b" + b);
 
-
         a = 1;
         b = 2;
-        System.out.println(a);
-        System.out.println(b);
+        System.out.println("a" + a + " b" + b);
+        // 交换失败，传入基本数据类型复制品
         change(a, b);
-        System.out.println(a);
-        System.out.println(b);
-
-        int[] arr = {1, 3, 5};
-        System.out.println(arr[0]);
-        change(arr);
-        System.out.println(arr[0]);
+        System.out.println("a" + a + " b" + b);
     }
 
     /**
-     * 基本数据类型进行交换，交换失败，交换的只是形参中的数组
+     * 基本数据类型进行交换，交换失败，交换的只是形参中的数值
      *
      * @param num1
      * @param num2
@@ -61,12 +55,21 @@ public class BasicDateTypeExchangeValue {
         num2 = temp;
     }
 
-    public static void change(int[] arr) {
+    /**
+     * 赋值操作
+     * @param arr
+     */
+    public static void assignment(int[] arr) {
         arr[0] = 200;
     }
 
+    /**
+     * 传入的是基本数据类型复制品，交换失败
+     * @param a
+     * @param b
+     */
     public static void change(int a, int b) {
-        a = a + b;
-        b = b + a;
+        a = b;
+        b = a;
     }
 }

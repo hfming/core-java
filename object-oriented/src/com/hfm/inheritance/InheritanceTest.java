@@ -6,7 +6,6 @@ package com.hfm.inheritance;
  * @version 1.01 2019-10-17
  */
 public class InheritanceTest {
-
 	public static void main(String[] args) {
 		Student student = new Student("33021779232", "宏伟", "男", 20);
 

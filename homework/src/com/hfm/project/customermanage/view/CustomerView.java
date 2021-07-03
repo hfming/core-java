@@ -3,6 +3,7 @@ package com.hfm.project.customermanage.view;
 import com.hfm.project.customermanage.entity.Customer;
 import com.hfm.project.customermanage.entity.Customers;
 import com.hfm.project.customermanage.entity.Sex;
+
 import java.util.Scanner;
 
 /**
@@ -92,9 +93,9 @@ public class CustomerView {
      * @return 返回 boolean
      */
     private static boolean printCustomer() {
-        int index = 0;
+        int index;
         while (true) {
-            System.out.print("请输入待删除用户ID(-1退出):");
+            System.out.print("请输入待打印用户ID(-1退出):");
             try {
                 index = scanner.nextInt();
                 if (index == -1) {
@@ -110,7 +111,6 @@ public class CustomerView {
             }
             break;
         }
-        customer = customers.getCustomer(index);
         if (customer == null) {
             return false;
         } else {
@@ -128,7 +128,7 @@ public class CustomerView {
     private static boolean changeCustomer() {
         int index = 0;
         while (true) {
-            System.out.print("请输入待删除用户ID(-1退出):");
+            System.out.print("请输入待修改用户ID(-1退出):");
             try {
                 index = scanner.nextInt();
                 if (index == -1) {

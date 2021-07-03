@@ -43,8 +43,47 @@ public class PrintImage {
         //print6();
         //print6();
         //print8();
-
+        print9();
     }
+
+    /**
+     *         *
+     *       * * *
+     *     * * * * *
+     *   * * * * * * *
+     * * * * * * * * * *
+     *   * * * * * * *
+     *     * * * * *
+     *       * * *
+     *         *
+     */
+    private static void print9() {
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= 5 - i; j++) {
+                System.out.print("  ");
+            }
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            for (int j = 6; j <= i + 4; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        for (int i = 1; i <= 5; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("  ");
+            }
+            for (int j = 1; j <= 5 - i; j++) {
+                System.out.print("* ");
+            }
+            for (int j = 6; j <= 9 - i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+
 
     private static void print8() {
         System.out.println("      ******       ******          \n" +

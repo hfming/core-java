@@ -135,7 +135,10 @@ public class TeamService {
             // 找到指定 menberId 的员工，并删除
             if (programmers[i].getMemberId() == menberId) {
                 programmers[i].setStatus(Status.FREE);
-                programmers[i] = null;
+                for (int j = i + 1; j < total; j++) {
+                    programmers[j] = programmers[j + 1];
+                }
+                programmers[--total] = null;
                 return;
             }
         }

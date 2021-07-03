@@ -1,8 +1,8 @@
 package com.hfm.variable;
 
 /**
- * 变量初始化 Demo
- *
+ * 变量初始化
+ *静态初始化与动态初始化
  * @author hfm
  * @version 1.1 2020-01-14
  */
@@ -20,7 +20,7 @@ public class VariableInit {
         System.out.println(y);
         System.out.println(z);
 
-        // 动态初始胡，在定义变量的时候不进行初始化赋值
+        // 动态初始，在定义变量的时候不进行初始化赋值,使用时再进行初始化
         int way2;
         way2 = 16;
         System.out.println(way2);

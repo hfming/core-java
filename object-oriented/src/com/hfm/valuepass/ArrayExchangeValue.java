@@ -24,8 +24,12 @@ public class ArrayExchangeValue {
         arr2 = temp;
         System.out.println(Arrays.toString(arr1) + Arrays.toString(arr2));
 
+        // 交换失败，仅仅是形参进行交换
         exchange(arr1,arr2);
         System.out.println(Arrays.toString(arr1) + Arrays.toString(arr2));
+
+        char[] ch = {'A', 'v', ',', 'i', 'l', 'o', 'v', 'e'};
+        System.out.println(ch);
     }
 
     /**

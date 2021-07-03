@@ -5,7 +5,7 @@ import java.util.Objects;
 /**
  * @author hfm Email:hfming2016@163.com
  * @version v 1.01
- * @Description
+ * @Description 深克隆类
  * @date 2020-04-27 17:01
  */
 public class StudentDeepClone implements Cloneable {

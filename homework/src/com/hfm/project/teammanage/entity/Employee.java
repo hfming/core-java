@@ -41,7 +41,8 @@ public class Employee {
         this.salary = salary;
     }
     protected String getDetails() {
-        return id + "\t" + name + "\t" + age+ "\t\t" +salary;
+        // 可以优化为 StringBuilder
+        return new StringBuilder("").append(id).append("\t") .append(name).append("\t").append(age).append("\t\t").append(salary).toString();
     }
 
     @Override

@@ -30,6 +30,7 @@ public class BubbleSort {
 		System.out.println("开始排序");
 		int arrayLength = data.length;
 		for (int i = 0; i < arrayLength - 1; i++) {
+			// 判断是否冒泡
 			boolean flag = false;
 			for (int j = 0; j < arrayLength - 1 - i; j++) {
 				if (data[j] > data[j + 1]) {
@@ -40,6 +41,7 @@ public class BubbleSort {
 				}
 			}
 			System.out.println(java.util.Arrays.toString(data));
+			// 判断是否完成冒泡
 			if (!flag) {
 				break;
 			}

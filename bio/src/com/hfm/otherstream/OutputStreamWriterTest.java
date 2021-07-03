@@ -18,6 +18,7 @@ public class OutputStreamWriterTest {
     public  void writeTest1() {
         File file = new File("D:\\Code\\core-java-simple\\file-io\\Resources\\a.txt");
         String data = "hello world，中文";
+
         try (
                 FileWriter fileWriter = new FileWriter(file);
                 FileOutputStream fileOutputStream = new FileOutputStream(file);

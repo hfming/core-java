@@ -1,5 +1,7 @@
 package com.hfm.array;
 
+import java.util.Arrays;
+
 /**
  * 多维数组
  *
@@ -7,6 +9,29 @@ package com.hfm.array;
  * @version 1.01 2019-10-02
  */
 public class MultidimensionalArrays {
+    public static void main(String[] args) {
+        // 不规则数组 静态初始化
+        int[][] arr1 = new int[][]{
+                {23, 4, 5},
+                {2},
+                {4, 5, 78, 56, 90}
+        };
+        System.out.println(Arrays.deepToString(arr1));
+
+        // 规则数组 静态初始化
+        int[][] arr2 = new int[][]{
+                {23, 4, 5},
+                {2, 7, 8},
+                {4, 5, 78}
+        };
+        System.out.println(Arrays.deepToString(arr2));
+
+        printArr2(arr1);
+        System.out.println();
+        System.out.println("累加和是： " + getSum(arr1));
+        System.out.println("统计元素个数： " + getDataCount(arr1));
+    }
+
     /**
      * 定义一个遍历二维数组的功能函数
      *
@@ -58,26 +83,5 @@ public class MultidimensionalArrays {
             }
         }
         return count;
-    }
-
-    public static void main(String[] args) {
-        // 不规则数组 静态初始化
-        int[][] arr1 = new int[][]{
-                {23, 4, 5},
-                {2},
-                {4, 5, 78, 56, 90}
-        };
-
-        // 规则数组 静态初始化
-        int[][] arr2 = new int[][]{
-                {23, 4, 5},
-                {2, 7, 8},
-                {4, 5, 78}
-        };
-
-        printArr2(arr1);
-        System.out.println();
-        System.out.println("累加和是： " + getSum(arr1));
-        System.out.println("统计元素个数： " + getDataCount(arr1));
     }
 }

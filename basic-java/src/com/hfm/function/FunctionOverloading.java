@@ -179,4 +179,20 @@ public class FunctionOverloading {
     public static void println(String a) {
         System.out.println(a);
     }
+
+    /**
+     * 多种参数顺序不同也可以进行重载
+     *
+     * @param a
+     * @param c
+     * @param b
+     */
+    void show(int a, double c, char b) {
+    }
+
+    void show(int a, char b, double c) {
+    }
+
+    void show(char a, int b, double c) {
+    }
 }

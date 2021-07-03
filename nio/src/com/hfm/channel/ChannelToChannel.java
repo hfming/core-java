@@ -1,6 +1,5 @@
 package com.hfm.channel;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.nio.file.Paths;
@@ -26,8 +25,6 @@ public class ChannelToChannel {
 
             // 相同的效果
             // write.transferFrom(read, 0, read.size());
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

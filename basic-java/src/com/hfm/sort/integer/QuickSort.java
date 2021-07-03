@@ -1,5 +1,7 @@
 package com.hfm.sort.integer;
 
+import java.util.Arrays;
+
 /**
  * 快速排序
  * 通过一趟排序将待排序记录分割成独立的两部分，其中一部分记录的关键字均比另一部分关键字小，
@@ -70,6 +72,7 @@ public class QuickSort {
                 if (low < high && arr[high] <= base) {
                     swap(arr, low, high);
                 }
+                System.out.println(Arrays.toString(arr));
 
                 // 从左边开始找比基准数大的值, 找到了就进行交换
                 while (arr[low] <= base && low < high) {
@@ -78,6 +81,7 @@ public class QuickSort {
                 if (low < high && arr[low] >= base) {
                     swap(arr, low, high);
                 }
+                System.out.println(Arrays.toString(arr));
             }
             // 递归调用，分治
             quickSort(arr, left, low - 1);

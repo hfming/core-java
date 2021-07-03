@@ -43,9 +43,12 @@ public class Function {
         }
         System.out.println(Arrays.toString(arg2));
 
+        long start = System.currentTimeMillis();
         // 求素数
-        int num = 1000000;
+        int num = 100000;
         primeNum(num);
+        long end = System.currentTimeMillis();
+        System.out.println("time" + (end - start));
 
         int i = "sdsd".length();
         // char c = 17c;
@@ -61,15 +64,16 @@ public class Function {
      */
     public static void primeNum(int n) {
         OUT:
-        for (int i = 1; i <= n; i++) {
+        for (int i = 2; i <= n; i++) {
             INNER:
-            for (int j = 1; j <= i / 2; j++) {
-                if (i % j == 0 && j != 1) {
+            for (int j = 2; j <= Math.sqrt(i); j++) {
+                if (i % j == 0) {
                     continue OUT;
                 }
             }
             System.out.print(i + " ");
         }
+        System.out.println();
     }
 
     /**

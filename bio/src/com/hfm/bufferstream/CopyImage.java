@@ -23,7 +23,7 @@ public class CopyImage {
                 BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(fileOutputStream, 1024 << 7)
         ) {
             // 记录读取的字节个数
-            int length = 0;
+            int length ;
             while ((length = bufferedInputStream.read()) != -1) {
                 bufferedOutputStream.write(length);
             }

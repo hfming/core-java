@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 /**
+ * 子类
  * 普通成员
  */
 public class Member2 extends User {
-
     public Member2() {
     }
 

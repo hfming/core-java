@@ -15,11 +15,9 @@ public class ExceptTest {
         double[] a = {1000, 1, 2, 3, 4, 5, 6, 7, 8, 9};
         performAction("Integer divide by zero", () -> 1 / (a.length - a.length));
 
-        performAction("Floating point divide by zero",
-                () -> a[2] / (a[3] - a[3]));
+        performAction("Floating point divide by zero", () -> a[2] / (a[3] - a[3]));
 
-        performAction("Integer overflow",
-                () -> thousand * thousand * thousand * thousand);
+        performAction("Integer overflow", () -> thousand * thousand * thousand * thousand);
 
         performAction("Square root of negative number", () -> Math.sqrt(-1));
 
@@ -27,11 +25,9 @@ public class ExceptTest {
 
         performAction("Bad cast", () -> (int[]) (Object) a);
 
-        performAction("Null pointer",
-                () -> System.getProperty("woozle").toString());
+        performAction("Null pointer", () -> System.getProperty("woozle").toString());
 
-        performAction("No such file",
-                () -> new Scanner(Paths.get("woozle.txt"), StandardCharsets.UTF_8).next());
+        performAction("No such file", () -> new Scanner(Paths.get("woozle.txt"), StandardCharsets.UTF_8).next());
     }
 
     /**
@@ -40,8 +36,7 @@ public class ExceptTest {
      * @param description the description of the action
      * @param action      the action to be carried out
      */
-    private static void performAction(String description,
-                                      Callable<Object> action) {
+    private static void performAction(String description, Callable<Object> action) {
         System.out.println(description);
         try {
             System.out.println(action.call());

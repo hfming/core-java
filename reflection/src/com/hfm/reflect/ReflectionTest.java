@@ -21,6 +21,9 @@ public class ReflectionTest {
         String str = new String("Class加载");
         Class stringClass3 = str.getClass();
         System.out.println(stringClass3);
+        // 通过类加载器方式
+        ClassLoader classLoader = ReflectionTest.class.getClassLoader();
+        Class<String> aClass = (Class<String>) classLoader.loadClass("java.lang.String");
 
         // 同一个字节码文件(*.class)在一次程序运行过程中，只会被加载一次，不论通过哪一种方式获取的Class对象都是同一个。
         System.out.println(stringClass1 == stringClass2 && stringClass1 == stringClass3);
@@ -124,7 +127,6 @@ public class ReflectionTest {
          */
         // 设置忽略访问权限修饰符的安全检查 暴力反射
         field.setAccessible(true);
-        //
         System.out.println( field.get(str));
         // 参数1 对象，参数二 成员变量的值
 //        field.set(str,true);

@@ -108,7 +108,7 @@ public class ArrayListTest {
 
         Iterator<Book> iterator = books.iterator();
         while (iterator.hasNext()) {
-             System.out.println(iterator.next());
+            System.out.println(iterator.next());
             // java.util.ConcurrentModificationException
             // books.remove(iterator.next());
         }
@@ -128,11 +128,13 @@ public class ArrayListTest {
         for (int i = 0; i < 6; i++) {
             int r = random.nextInt(33) + 1;
             list.add(r);
-        }// 遍历集合输出
+        }
+        // 遍历集合输出
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i));
         }
     }
+
     /**
      * ArrayList集合频繁修改造成性能低下的解决方法
      */
@@ -177,7 +179,7 @@ public class ArrayListTest {
     @Test
     public void randomAccessTest() {
         ArrayList<Book> books = new ArrayList<Book>(10);
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100000; i++) {
             books.add(new Book(110, "java 编程思想", 86));
             books.add(new Book(112, "java 核心技术", 64));
             books.add(new Book(110, "java 神书", 86));
@@ -190,18 +192,18 @@ public class ArrayListTest {
         long end = 0L;
 
         begin = System.currentTimeMillis();
-        for (Book book : books) {
-            System.out.println(book);
-        }
-        end = System.currentTimeMillis();
-        long time2 = end - begin;
-
-        begin = System.currentTimeMillis();
         while (iterator.hasNext()) {
             System.out.println(iterator.next());
         }
         end = System.currentTimeMillis();
         long time3 = end - begin;
+
+        begin = System.currentTimeMillis();
+        for (Book book : books) {
+            System.out.println(book);
+        }
+        end = System.currentTimeMillis();
+        long time2 = end - begin;
 
         begin = System.currentTimeMillis();
         while (bookListIterator.hasNext()) {
@@ -235,6 +237,7 @@ public class ArrayListTest {
 //        特有迭代器879
 //        特有迭代器逆序625
     }
+
     @Test
     public void testListRemove() {
         List list = new ArrayList();
@@ -244,6 +247,7 @@ public class ArrayListTest {
         updateList(list);
         System.out.println(list);
     }
+
     private static void updateList(List list) {
         list.remove(2);
     }

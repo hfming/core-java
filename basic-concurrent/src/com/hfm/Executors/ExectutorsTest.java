@@ -1,7 +1,7 @@
 package com.hfm.Executors;
 
-import com.hfm.callable.MyCallable;
-import com.hfm.runnable.MyRunnable;
+import com.hfm.createthread.MyCallable;
+import com.hfm.createthread.MyRunnable;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -21,6 +21,7 @@ public class ExectutorsTest {
      */
     @Test
     public void newFixedThreadPoolTest() throws ExecutionException, InterruptedException {
+        /// 创建方式一
         // 1. 使用Executors工具类的newFixedThreadPool方法创建一个可重用的固定线程数的线程池。
         ExecutorService threadPool = Executors.newFixedThreadPool(3);
 
@@ -40,10 +41,11 @@ public class ExectutorsTest {
             threadPool.submit(new MyRunnable("submit 提交 Runnable"));
         }
 
+        /// 创建方式二
         Executors.newFixedThreadPool(3, new ThreadFactory() {
             @Override
             public Thread newThread(Runnable r) {
-                return new Thread(new MyRunnable("Runnable"));
+                return new Thread(r, "自定义线程名称");
             }
         });
         // 拉姆达优化
@@ -56,6 +58,7 @@ public class ExectutorsTest {
      */
     @Test
     public void newSingleThreadExecutorTest() {
+        /// 创建方式异一
         // 1.使用 Executors 工具类的 newSingleThreadExecutor 方法 创建一个使用单个worker 线程的线程池，以无界队列的方式来运行该线程
         ExecutorService threadPool = Executors.newSingleThreadExecutor();
 
@@ -64,14 +67,15 @@ public class ExectutorsTest {
             threadPool.submit(new MyRunnable("submit 提交 Runnable"));
         }
 
+        /// 创建方式二
         Executors.newSingleThreadExecutor(new ThreadFactory() {
             @Override
             public Thread newThread(Runnable r) {
-                return new Thread(new MyRunnable("Runnable"));
+                return new Thread(r, "自定义线程名称");
             }
         });
         // 拉姆达优化
-        Executors.newSingleThreadExecutor(r -> new Thread(new MyRunnable("Runnable")));
+        Executors.newSingleThreadExecutor(r -> new Thread(r, "自定义线程名称"));
     }
 
     /**
@@ -80,6 +84,7 @@ public class ExectutorsTest {
      */
     @Test
     public void newCachedThreadPoolTest() throws ExecutionException, InterruptedException {
+        /// 创建方式一
         // 1.使用 Executors 工具类的 newCachedThreadPool 方法创建一个默认的线程池对象，里面的线程是可重用的，且在第一次使用的时候才创建。
         ExecutorService executorService = Executors.newCachedThreadPool();
 
@@ -94,37 +99,30 @@ public class ExectutorsTest {
         // get 方法返回异步计算的值
         System.out.println(future.get());
 
+        /// 创建方式二
         Executors.newCachedThreadPool(new ThreadFactory() {
             @Override
             public Thread newThread(Runnable r) {
-                return new Thread(new MyRunnable("Runnable"));
+                return new Thread(r, "自定义线程名称");
             }
         });
         // 拉姆达优化
         Executors.newCachedThreadPool(r -> new Thread(new MyRunnable("Runnable")));
     }
 
+    /**
+     * 关闭线程池的方式
+     */
     @Test
-    public void shutdownAndshutdownNw() {
+    public void shutdownAndshutdownNow() {
         ExecutorService threadPool = Executors.newSingleThreadExecutor();
         for (int i = 0; i < 100; i++) {
             threadPool.submit(new Runnable() {
                 private String name;
 
-                /**
-                 * When an object implementing interface <code>Runnable</code> is used
-                 * to create a thread, starting the thread causes the object's
-                 * <code>run</code> method to be called in that separately executing
-                 * thread.
-                 * <p>
-                 * The general contract of the method <code>run</code> is that it may
-                 * take any action whatsoever.
-                 *
-                 * @see Thread#run()
-                 */
                 @Override
                 public void run() {
-                    System.out.println(Thread.currentThread());
+                    System.out.println(Thread.currentThread().getName());
                 }
 
                 @Override
@@ -133,42 +131,53 @@ public class ExectutorsTest {
                 }
             });
         }
-        // 不能在提交任务
+        // shutdown 关闭线程池，没有返回值，不能再提交任务，但是以前的任务仍然可以执行
 //        threadPool.shutdown();
+
+        // shutdownNow  关闭线程池，如果线程池中还有缓存的任务没有执行，就取消还没有执行的任务，并返回任务集合
         List<Runnable> runnables = threadPool.shutdownNow();
         System.out.println(runnables);
     }
 
-    public static void main(String[] args) {
+    /**
+     * newScheduledThreadPool
+     */
+    @Test
+    public void newScheduledThreadPool() {
         // 获具有延迟执行任务的线程池
         ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(10);
-        Runnable runnable = new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(Thread.currentThread());
-                for (int i = 0; i < 100; i++) {
-                    if (i % 2 == 0) {
-                        System.out.println(i);
-                    }
+        Runnable runnable = () -> {
+            System.out.println(Thread.currentThread().getName());
+            for (int i = 0; i < 100; i++) {
+                if (i % 2 == 0) {
+                    System.out.println(i);
                 }
             }
         };
 //        scheduledExecutorService.submit(runnable);
+
         // schedule 提交延时任务
-//        scheduledExecutorService.schedule(runnable, 2, TimeUnit.SECONDS);
+        for (int i = 0; i < 10; i++) {
+
+//            scheduledExecutorService.schedule(runnable, 2, TimeUnit.SECONDS);
+        }
 
         // 设置第一次执行与第二此执行的时间间隔
         // comment 任务
         // initialDelay 开始时间
         // Period 时间间隔
         // TimeUnit 时间单位
-//        scheduledExecutorService.scheduleAtFixedRate(runnable,5,3, TimeUnit.SECONDS);
+        scheduledExecutorService.scheduleAtFixedRate(runnable, 5, 3, TimeUnit.SECONDS);
 
         // 设置第一次结束与第二次开始的时间间隔
         // comment 任务
         // initialDelay 开始时间
         // delay 时间间隔
         // TimeUnit 时间单位
-        scheduledExecutorService.scheduleWithFixedDelay(runnable, 5, 3, TimeUnit.SECONDS);
+//        scheduledExecutorService.scheduleWithFixedDelay(runnable, 5, 3, TimeUnit.SECONDS);
+    }
+
+    public static void main(String[] args) {
+      new ExectutorsTest().newScheduledThreadPool();
     }
 }

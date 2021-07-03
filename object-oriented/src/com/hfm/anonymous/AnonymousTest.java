@@ -8,6 +8,9 @@ package com.hfm.anonymous;
  */
 public class AnonymousTest {
     public static void main(String[] args) {
+        // 创建的对象没有引用类型变量引用
+        // 匿名对象只能使用一次，一般用来调用对象的方法
+        //
         new Print().print();
     }
 }

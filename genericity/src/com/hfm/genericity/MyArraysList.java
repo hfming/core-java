@@ -52,12 +52,11 @@ public class MyArraysList<T> {
         return this;
     }
 
-    public static <T> void printList() {
+    public static <E> void printList(E[] arr) {
 
     }
-
-    public static void print() {
-
-    }
-
+        // 静态方法不能直接使用泛型变量，泛型变量与对象有关，静态类有关
+//    public static void print(T t) {
+//
+//    }
 }

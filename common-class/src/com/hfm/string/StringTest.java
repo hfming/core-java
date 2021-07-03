@@ -10,7 +10,6 @@ import java.util.Locale;
  * @author hfm
  */
 public class StringTest {
-
     public static void main(String[] args) throws IOException {
         /**
          * 定义字符串
@@ -34,19 +33,19 @@ public class StringTest {
         System.out.println("String".hashCode());
         // 获取指定字符的第一次出现的字符串中返回索引。
         System.out.println("Stringiii".indexOf('i'));
-        // 获取指定字符在该字符串中第N次出现的索引
+        // 获取从指定位开始指定字符在该字符串中第1次出现的索引
         System.out.println("StringSS".indexOf('i', 3));
         // 获取指定字符串在该字符串中第一次出现的索引
         System.out.println("String".indexOf("i"));
-        // 获取指定字符串在该字符串中第N次出现的索引
+        // 获取从指定位开始指定字符串在该字符串中第1次出现的索引
         System.out.println("StringSS".indexOf("S", 3));
         // 获取指定字符的最后一次次出现的字符串中返回索引。
         System.out.println("Stringiii".lastIndexOf('i'));
-        // 获取指定字符在该字符串中最后一次第N次出现的索引
+        // 获取从指定位开始指定字符在该字符串中最后一次出现的索引
         System.out.println("StringSS".lastIndexOf('i', 3));
         // 获取指定字符串在该字符串中最后一次出现的索引
         System.out.println("String".lastIndexOf("i"));
-        // 获取指定字符串在该字符串中最后一次第N次出现的索引
+        // 获取从指定位开始指定字符串在该字符串中最后一次出现的索引
         System.out.println("StringSS".lastIndexOf("S", 3));
         // 获取字符串长度
         System.out.println("Stirng".length());
@@ -163,9 +162,13 @@ public class StringTest {
         // System.out.println("String".offsetByCodePoints(2, 'g'));//返回该字符串中的索引，该索引由codepoin托付设置代码点对给定索引进行偏移。
         System.out.println("String".toString());
         // 字符串首尾去空串
+        // 在输入法中存在全角和半角字符的概念，比如说“逗号”存在“全角逗号和半角逗号”，体现在Unicode中就是两个不同的码位。
+        // 通常全角字符占两个半角字符的位置，中文输入法下的“中文字符和标点符号”为全角字符，但空白字符默认仍然是半角字符，所以除非刻意使用全角空白符，否则一般都是半角空白符。
+        // 全角半角和中文英文输入法没关系，中文下可以用半角，英文下也可以用全角。
+        // 可以去除字符串前后的“半角”空白字符
         System.out.println(" String string ".trim());
-        //
-        System.out.println(" String string ".strip());
+        // 可以去除字符串前后的“全角和半角”空白字符
+//        System.out.println(" String string ".strip());
         // 返回Boolean的字符串形式
         System.out.println(String.valueOf(false));
         // 返回字符的字符串形式

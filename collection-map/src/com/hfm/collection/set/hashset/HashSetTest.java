@@ -15,6 +15,17 @@ public class HashSetTest {
          *     hashCode方法的源码:
          *         public native int hashCode();
          *         native:代表该方法调用的是本地操作系统的方法
+         *     自定义对象重写 HashCode 方法会调用 Arrays.hash() 方法计算 hash 码值
+         *     public static int hashCode(Object a[]) {
+         *         if (a == null){
+         *             return 0;
+         *         }
+         *         int result = 1;
+         *         for (Object element : a){
+         *             result = 31 * result + (element == null ? 0 : element.hashCode());
+         *         }
+         *         return result;
+         *     }
          */
         //Person类继承了Object类,所以可以使用Object类的hashCode方法
         Person p1 = new Person();
@@ -27,7 +38,7 @@ public class HashSetTest {
         //42121758   |  1
         System.out.println(h2);
 
-        /**
+        /*
          *   toString方法的源码:
          *       return getClass().getName() + "@" + Integer.toHexString(hashCode());
          */
@@ -38,7 +49,7 @@ public class HashSetTest {
         //false
         System.out.println(p1 == p2);
 
-        /**
+        /*
          String类的哈希值
          String类重写Obejct类的hashCode方法
          */

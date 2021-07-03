@@ -50,12 +50,13 @@ public class FileClassLoader extends ClassLoader {
     private byte[] getClassData(String className) {
         // 读取类文件的字节
         String path = classNameToPath(className);
-        try {
-            InputStream ins = new FileInputStream(path);
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try (
+                InputStream ins = new FileInputStream(path);
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ){
             int bufferSize = 4096;
             byte[] buffer = new byte[bufferSize];
-            int bytesNumRead = 0;
+            int bytesNumRead ;
             // 读取类文件的字节码
             while ((bytesNumRead = ins.read(buffer)) != -1) {
                 baos.write(buffer, 0, bytesNumRead);
@@ -78,7 +79,7 @@ public class FileClassLoader extends ClassLoader {
     }
 
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
-        String rootDir = "\\Code\\core-java-simple\\out\\production\\reflection";
+        String rootDir = "D:\\Code\\core-java\\out\\production\\reflection";
         // 创建自定义文件类加载器
         FileClassLoader loader = new FileClassLoader(rootDir);
         // 使用自定义类加载器加载指定的class文件
@@ -88,8 +89,13 @@ public class FileClassLoader extends ClassLoader {
         test();
     }
 
+    /**
+     * 热部署加载器，同一个 class 文件通过不同的类加载器加载两次
+     * 直接调用findclass 方法跳过loadClass 方法中的 findLoadedClass 检测
+     * @throws ClassNotFoundException
+     */
     public static void test() throws ClassNotFoundException {
-        String rootDir = "\\Code\\core-java-simple\\out\\production\\reflection";
+        String rootDir = "D:\\Code\\core-java\\out\\production\\reflection";
         // 创建自定义文件类加载器
         FileClassLoader loader = new FileClassLoader(rootDir);
         FileClassLoader loader2 = new FileClassLoader(rootDir);
@@ -98,6 +104,7 @@ public class FileClassLoader extends ClassLoader {
         Class<?> clazz2 = loader2.loadClass("com.hfm.myclassloader.Student");
         System.out.println("loadClass->obj1:" + clazz1.hashCode());
         System.out.println("loadClass->obj2:" + clazz2.hashCode());
+
         // 加载指定的class文件,直接调用findClass(),绕过检测机制，创建不同class对象。
         Class<?> object3 = loader.findClass("com.hfm.myclassloader.Student");
         Class<?> object4 = loader2.findClass("com.hfm.myclassloader.Student");

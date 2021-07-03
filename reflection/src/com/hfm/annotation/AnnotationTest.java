@@ -7,7 +7,7 @@ package com.hfm.annotation;
  */
 public class AnnotationTest {
     public static void main(String[] args) {
-        @SuppressWarnings("all")
+        @SuppressWarnings("unused")
         int a = 10;
     }
 

@@ -145,13 +145,18 @@ public class FileUpload {
                     OutputStream out = accept.getOutputStream();
                     out.write("上传成功".getBytes());
                     out.close();
-                    //5. 关闭 资源
-                    bos.close();
-                    bis.close();
-                    accept.close();
                     System.out.println("文件上传已保存");
                 } catch (IOException e) {
                     throw new RuntimeException(e);
+                }finally {
+                    //5. 关闭 资源
+                    if (accept != null) {
+                        try {
+                            accept.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
                 }
             });
         }

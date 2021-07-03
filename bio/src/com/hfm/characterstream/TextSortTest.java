@@ -28,8 +28,6 @@ public class TextSortTest {
                 bufferedWriter.write(s);
                 bufferedWriter.newLine();
             }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

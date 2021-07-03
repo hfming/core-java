@@ -64,7 +64,7 @@ public class HashMapPoker {
     }
 
     @Test
-    public  void way2() {
+    public void way2() {
         /*
          * 1组装54张扑克牌
          */

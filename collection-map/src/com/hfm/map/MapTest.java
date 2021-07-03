@@ -6,11 +6,14 @@ import java.util.Map.Entry;
 public class MapTest {
 	public static void main(String[] args) {
 		Map<String,String> map = new HashMap<String, String>();
+		/// 添加方法
 		// put 加入map 集合中
 		map.put("霆锋", "张柏芝");
 		map.put("文章", "马伊琍");
 		map.put("汪峰", "章子怡");
 		map.put("奥巴马", "凤姐");
+		// 覆盖操作
+		map.put("奥巴马", "凤姐姐");
 		System.out.println(map);
 
 		Map<String,String> map2 = new HashMap<String, String>();
@@ -24,18 +27,22 @@ public class MapTest {
 		map.putIfAbsent("hfm", "hfm");
 		System.out.println(map);
 
-		//清除 map 集合中所有
+		/// 删除方法
+		// 清除 map 集合中所有
 		 map2.clear();
 		System.out.println(map2);
 
 		// 根据键删除一条数据， 返回是该键对应的值
 		System.out.println("被删除的数据："+ map.remove("奥巴马"));
 		System.out.println(map);
-		//判断
+
+        /// 获取
+		// 判断
 		System.out.println("判断是否存在指定的键："+ map.containsKey("奥巴马"));
 		System.out.println("判断是否存在指定的值："+ map.containsValue("凤姐"));
 		System.out.println("判断集合是否为空元素："+ map.isEmpty());
-		//获取
+        System.out.println(map.get("霆锋").equals("张柏芝"));
+
 		System.out.println("根据值获取对应的值："+ map.get("霆锋"));
 		System.out.println("查看 map 集合的元素个数："+ map.size());
 		/**

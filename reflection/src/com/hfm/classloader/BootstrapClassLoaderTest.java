@@ -4,7 +4,7 @@ package com.hfm.classloader;
 /**
  * @author hfm Email:hfming2016@163.com
  * @version v 1.01
- * @Description
+ * @Description 启动类加载器
  * @date 2020-05-13 8:38
  */
 public class BootstrapClassLoaderTest {
@@ -27,18 +27,24 @@ public class BootstrapClassLoaderTest {
 //        Launcher launcher = Launcher.getLauncher();
 //        System.out.println(launcher.getClass().getClassLoader());
 
-        // JDK8 以后启动类加载器无法获取
-        ClassLoader classLoader = Object.class.getClassLoader();
-        // null
+        // JDK 8 之后获取类加载器的方式
+        // 自定义类使用系统/应用类加载器进行加载
+        ClassLoader classLoader = BootstrapClassLoaderTest.class.getClassLoader();
+        // jdk.internal.loader.ClassLoaders$AppClassLoader@1f89ab83
         System.out.println(classLoader);
 
-//        ClassLoader classLoader1 = ClassLoaders.appClassLoader();
-//        System.out.println(classLoader1);
-//
-//        ClassLoader classLoader2 = ClassLoaders.platformClassLoader();
-//        System.out.println(classLoader2);
-//
-//        ClassLoader parent = classLoader2.getParent();
-//        System.out.println(parent);
+        // 系统/应用类加载器的父加载器为扩展类加载器 主要加载第三方jar 包
+        ClassLoader parent = classLoader.getParent();
+        // jdk.internal.loader.ClassLoaders$PlatformClassLoader@3d24753a
+        System.out.println(parent);
+
+        // 通过扩展类加载器的 getParent方法不能够获取启动类加载器 启动类加载器主要用于加载java 核心类库
+        ClassLoader parent1 = parent.getParent();
+        // null
+        System.out.println(parent1);
+
+        /// 或者通过 java 核心类库中的类获取启动类加载器
+        ClassLoader boootstarp = Object.class.getClassLoader();
+        System.out.println(boootstarp);
     }
 }
