@@ -14,7 +14,7 @@
 
 ## genercity 泛型
 
-## nio 同步阻塞 IO 流
+## nio 同步非阻塞 IO 流
 
 ## object-oriented 面向对象
 

@@ -1,4 +1,4 @@
-package com.hfm.reflect;
+package com.hfm.entity;
 
 import java.io.Serializable;
 
@@ -6,7 +6,7 @@ import java.io.Serializable;
  * @author shkstart
  * @create 2019 下午 3:12
  */
-public class Creature<T> implements Serializable {
+public class Father<T> implements Serializable {
     private char gender;
     public double weight;
 
@@ -17,5 +17,4 @@ public class Creature<T> implements Serializable {
     public void eat(){
         System.out.println("生物吃东西");
     }
-
 }

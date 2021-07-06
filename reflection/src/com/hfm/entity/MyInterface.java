@@ -1,4 +1,4 @@
-package com.hfm.reflect;
+package com.hfm.entity;
 
 /**
  * @author shkstart

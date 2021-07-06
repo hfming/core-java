@@ -1,6 +1,6 @@
 package com.hfm.myclassloader;
 
-import com.hfm.reflect.Person;
+import com.hfm.entity.Person;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -33,7 +33,7 @@ public class UrlClassLoaderTest {
 
             System.out.println(urlClassLoader.getParent());
             // 获取类对象
-            Class<Person> aClass = (Class<Person>) urlClassLoader.loadClass("com.hfm.reflect.Person");
+            Class<Person> aClass = (Class<Person>) urlClassLoader.loadClass("com.hfm.entity.Person");
             // 创建对象
             Person person = aClass.newInstance();
             System.out.println(person);
@@ -60,7 +60,7 @@ public class UrlClassLoaderTest {
 
             System.out.println(urlClassLoader.getParent());
             // 获取类对象
-            Class<Person> aClass = (Class<Person>) urlClassLoader.loadClass("com.hfm.reflect.Person");
+            Class<Person> aClass = (Class<Person>) urlClassLoader.loadClass("com.hfm.entity.Person");
             // 创建对象
             Person person = aClass.newInstance();
         } catch (MalformedURLException e) {

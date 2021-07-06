@@ -100,8 +100,8 @@ public class FileClassLoader extends ClassLoader {
         FileClassLoader loader = new FileClassLoader(rootDir);
         FileClassLoader loader2 = new FileClassLoader(rootDir);
         // 加载指定的class文件,调用loadClass()
-        Class<?> clazz1 = loader.loadClass("com.hfm.myclassloader.Student");
-        Class<?> clazz2 = loader2.loadClass("com.hfm.myclassloader.Student");
+        Class<?> clazz1 = loader.loadClass("com.hfm.entity.Student");
+        Class<?> clazz2 = loader2.loadClass("com.hfm.entity.Student");
         System.out.println("loadClass->obj1:" + clazz1.hashCode());
         System.out.println("loadClass->obj2:" + clazz2.hashCode());
 

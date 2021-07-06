@@ -1,5 +1,7 @@
 package com.hfm.reflect;
 
+import com.hfm.entity.Person;
+
 import java.lang.annotation.Annotation;
 import java.lang.reflect.*;
 
@@ -11,7 +13,7 @@ import java.lang.reflect.*;
  */
 public class PersonReflect {
     public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, NoSuchFieldException, NoSuchMethodException, InvocationTargetException {
-        Class<Person> aClass = (Class<Person>) Class.forName("com.hfm.reflect.Person");
+        Class<Person> aClass = (Class<Person>) Class.forName("com.hfm.entity.Person");
 
         //获取属性结构
         //getFields():获取当前运行时类及其父类中声明为public访问权限的属性

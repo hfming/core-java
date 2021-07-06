@@ -1,4 +1,4 @@
-package com.hfm.reflect;
+package com.hfm.entity;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

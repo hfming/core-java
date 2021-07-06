@@ -1,4 +1,4 @@
-package com.hfm.myclassloader;
+package com.hfm.entity;
 
 /**
  * @author hfm Email:hfming2016@163.com
