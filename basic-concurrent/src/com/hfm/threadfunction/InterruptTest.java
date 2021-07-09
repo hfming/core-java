@@ -1,18 +1,40 @@
 package com.hfm.threadfunction;
 
-import com.hfm.comunication.producerconsumer.Producer;
-import com.hfm.comunication.producerconsumer.Product;
-
 /**
  * 线程中断
  */
 public class InterruptTest {
-	public static void main(String[] args) {
-		Product p = new Product();
-		// 创建线程对象
-		Producer producer = new Producer(p);
-		producer.start();
-		// 强制清除一个线程的wait、 sleep状态。可以指定清除那个线程。
-		producer.interrupt();
-	}
+    public static void main(String[] args) {
+        Thread thread = new Thread(new InterruptRunnable());
+        System.out.println("Starting thread...");
+        thread.start();
+
+        try {
+            Thread.sleep(3000);
+            System.out.println("Asking thread to stop...");
+            // 发出中断请求
+            // 可以指定清除那个线程。
+            thread.interrupt();
+            Thread.sleep(3000);
+            System.out.println("Stopping application...");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+class InterruptRunnable implements Runnable {
+    @Override
+    public void run() {
+        long time;
+        // 每隔一秒检测是否设置了中断标示
+        while (!Thread.currentThread().isInterrupted()) {
+            System.out.println("Thread is running...");
+             time = System.currentTimeMillis();
+            // 使用while循环模拟 sleep
+            while (System.currentTimeMillis() - time < 1000)  {
+            }
+        }
+        System.out.println("Thread exiting under request...");
+    }
 }

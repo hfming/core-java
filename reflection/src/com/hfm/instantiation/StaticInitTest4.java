@@ -6,16 +6,15 @@ package com.hfm.instantiation;
  * @Description 类的加载顺序
  * @date 2021/6/26
  */
-public class StaticInitTest {
+public class StaticInitTest4 {
     public static int salary = getSalary();
 
     private int workAge = getWorkAge();
-
     static {
         System.out.println(1);
     }
 
-    public StaticInitTest() {
+    public StaticInitTest4() {
         System.out.println(3);
     }
 
@@ -33,9 +32,20 @@ public class StaticInitTest {
         return 20000;
     }
 
+    /**
+     * 本类静态对象
+     * 证明了类在链接完成之后就可以使用，不需要进行初始化就能够使用
+     * 静态的还是按照顺序执行，构造静态对象的时候实例化非静态会先执行
+     */
+    private static StaticInitTest4 staticInitTest2 = new StaticInitTest4();
+
     public static void main(String[] args) {
-        new StaticInitTest();
-        new StaticInitTest();
+        // 2
+        // 1
+        // 5
+        // 4
+        // 3
+        // 6
         System.out.println(6);
     }
 }
