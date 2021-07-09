@@ -40,7 +40,7 @@ public class ChannelCopyTest {
         ) {
             // channel 自身不能够存储数据，只具有传递数据的作用，需要创建 Buffer 缓冲区了存储数据
             // 创建间接缓冲区，直接缓冲区不用通过 channel 来传输数据，而是通过 mapBuffer 来传输数据
-            ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+            ByteBuffer byteBuffer = ByteBuffer.allocate(1024<<8);
 
             // 将输入通道中的数据读取到缓冲区中
             while (fileChannel.read(byteBuffer) != -1) {
@@ -90,6 +90,42 @@ public class ChannelCopyTest {
             inputMap.get(bytes);
             // 使用字节数组，将数据写到 outMap 中
             outMap.put(bytes);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
+    }
+    @Test
+    public  void directBufferedChannel2() {
+        long start = System.currentTimeMillis();
+        File file = new File("Resources\\P1 File 类的概述.flv");
+        File out = new File("Resources\\P1 File 类的概述 copy.flv");
+        try (
+                // 创建输入流
+                FileInputStream fileInputStream = new FileInputStream(file);
+                // 创建输入流通道
+                FileChannel fileChannel = fileInputStream.getChannel();
+
+                // 创建输出流
+                FileOutputStream fileOutputStream = new FileOutputStream(out);
+                // 创建输出流通道
+                FileChannel outChannel = fileOutputStream.getChannel()
+        ) {
+            // channel 自身不能够存储数据，只具有传递数据的作用，需要创建 Buffer 缓冲区了存储数据
+            // 创建间接缓冲区，直接缓冲区不用通过 channel 来传输数据，而是通过 mapBuffer 来传输数据
+            ByteBuffer byteBuffer = ByteBuffer.allocateDirect(1024<<8);
+
+            // 将输入通道中的数据读取到缓冲区中
+            while (fileChannel.read(byteBuffer) != -1) {
+                // 将输出缓冲区中的数据写入通道
+                // 切换成读数据模式
+                byteBuffer.flip();
+                // 将缓冲区中的数据写入输出通道
+                outChannel.write(byteBuffer);
+                // 清空缓冲区，实际上数据并没有清空，只是将 capacity limit position 回复默认值，数据处于遗忘的状态
+                byteBuffer.clear();
+            }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

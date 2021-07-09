@@ -17,7 +17,7 @@ import static java.nio.file.StandardOpenOption.*;
 /**
  * @author hfm Email:hfming2016@163.com
  * @version v 1.01
- * @Description 阻塞式
+ * @Description 使用 NIO API 实现传统网络通信
  * @date 2020-05-05 21:20
  */
 public class BlockingIOTest2 {

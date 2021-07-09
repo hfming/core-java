@@ -59,6 +59,8 @@ public class PictureDownLoadTest {
             while ((length = inputStream.read(b)) != -1) {
                 outputStream.write(b, 0, length);
             }
+            outputStream.flush();
+
             // 告诉服务器文件接收完毕
             socket.shutdownInput();
 
