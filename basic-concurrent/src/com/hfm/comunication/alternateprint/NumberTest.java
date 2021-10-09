@@ -16,10 +16,6 @@ public class NumberTest {
 //        new Thread(evenNumber,"打印偶数").start();
 
         Integer num = new Integer(100);
-        int[] nums = new int[100];
-        for (int i = 0; i < 100; i++) {
-            nums[i] = i;
-        }
 
         OddNumber2 oddNumber2 = new OddNumber2(num);
         EvenNumber2 evenNumber2 = new EvenNumber2(num);
